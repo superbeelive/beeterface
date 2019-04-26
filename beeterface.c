@@ -5,6 +5,99 @@ void destroy (GtkWidget *widget, gpointer data)
      gtk_main_quit ();
 }        
 
+void window2 (GtkWidget *widget, gpointer data)
+{
+//DECLARATIONS
+
+    GtkWidget *window2; //Fenetre changements
+    GtkWidget *box_principal2;    
+    GtkWidget *box_gauche;    
+    GtkWidget *box_milieu;
+    GtkWidget *box_droit;
+    GtkWidget *box_video;
+    GtkWidget *box_outil_video;
+    GtkWidget *image_video;
+    GtkWidget *titre_video;
+    GtkWidget *button_ex_1;
+    GtkWidget *button_ex_2;
+    GtkWidget *button_ex_3;
+    GtkWidget *button_ex_4;
+    GtkWidget *button_ex_5;
+    GtkWidget *barre_temps;
+    GtkWidget *button_ex2_1;
+    GtkWidget *button_ex2_2;
+    GtkWidget *button_ex2_3;
+    GtkWidget *button_ex2_4;
+    GtkWidget *tags;
+
+//CREATION
+    //Fenetre
+    window2 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    //Boites
+    box_principal2 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+    box_gauche = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    box_milieu = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    box_droit = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    box_video = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    box_outil_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+    //Image
+    image_video = gtk_image_new_from_file ("images/bee2.jpg");
+    //Texte
+    titre_video = gtk_label_new("Nom de la vidéo");
+    //Button
+    button_ex_1 = gtk_button_new_with_label ("ex1");
+    button_ex_2 = gtk_button_new_with_label ("ex2");
+    button_ex_3 = gtk_button_new_with_label ("ex3");
+    button_ex_4 = gtk_button_new_with_label ("ex4");
+    button_ex_5 = gtk_button_new_with_label ("ex5");
+        //Pour le menu de la video (bas)
+    button_ex2_1 = gtk_button_new_with_label ("Test1");
+    button_ex2_2 = gtk_button_new_with_label ("Test2");
+    button_ex2_3 = gtk_button_new_with_label ("Test3");
+    button_ex2_4 = gtk_button_new_with_label ("Test4");
+
+    //Autre
+    barre_temps = gtk_level_bar_new();
+    tags = gtk_places_sidebar_new ();
+//RANGEMENT
+//Fenetre
+    gtk_container_add (GTK_CONTAINER (window2), box_principal2);
+       //Dans box_principal2
+        gtk_box_pack_start(GTK_BOX(box_principal2), box_gauche, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(box_principal2), box_milieu, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(box_principal2), box_droit, TRUE, TRUE, 0);
+            //Dans box_gauche
+            gtk_box_pack_start(GTK_BOX(box_gauche), box_video, TRUE, TRUE, 0);
+            gtk_box_pack_start(GTK_BOX(box_gauche), box_outil_video, TRUE, TRUE, 0);
+                //Dans box_video
+                gtk_box_pack_start(GTK_BOX(box_video), image_video, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(box_video), titre_video, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(box_video), barre_temps, TRUE, TRUE, 0);
+                //Dans box_outil_video
+                gtk_box_pack_start(GTK_BOX(box_outil_video), button_ex2_1, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(box_outil_video), button_ex2_2, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(box_outil_video), button_ex2_3, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(box_outil_video), button_ex2_4, TRUE, TRUE, 0);
+                
+
+             //Dans box_milieu
+             gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_1, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_2, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_3, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_4, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_5, FALSE, FALSE, 0);
+
+             //Dans box_droit
+             gtk_box_pack_start(GTK_BOX(box_droit), tags, FALSE, FALSE, 0);
+
+
+//FONCTIONS
+    gtk_window_set_title (GTK_WINDOW (window2), "Modifier la vidéo"); //Nomme la fenêtre 
+//AFFICHAGE
+    gtk_widget_show (window2);
+    gtk_widget_show_all (box_principal2);
+
+}
 
 
 int main (int argc, char *argv[])
@@ -15,12 +108,21 @@ int main (int argc, char *argv[])
     GtkWidget *window; //Fenêtre d'acceuil 
     GtkWidget *box_principal; //Boite principale contenant les autres boites 
     GtkWidget *button_quit; //Bouton quitter 
-    GtkWidget *box_up; //Boite la plus haute 
+    GtkWidget *box_up; //Boite la plus haute pour le bouton quitter (provisoire ?) 
     GtkWidget *box_all; //Reste de la zone 
     GtkWidget *image_exemple; //Image pour repérer où sera la vidéo
     GtkWidget *box_menu_droit; //Boite pour la droite de la vidéo
+    GtkWidget *box_gauche; //Boite contenant vidéo & menus
+    GtkWidget *box_video; //boite avec la vidéo + nom de la vidéo
+    GtkWidget *box_menu_video; //Menu sous la vidéo
     GtkWidget *sep; //Separateur vertical  entre image et selecteur fichier
     GtkWidget *fichiers; 
+    GtkWidget *text;
+    GtkWidget *nom_video;
+    GtkWidget *choix_camera;
+    GtkWidget *button_enregistrer;
+    GtkWidget *button_stop;
+    GtkWidget *button_photo;
 
     gtk_init (&argc, &argv);
 
@@ -32,17 +134,33 @@ int main (int argc, char *argv[])
     box_up = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     box_all = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     box_menu_droit = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
-    
+    box_gauche = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    box_video = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    box_menu_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+
+
     //BOUTONS
     button_quit = gtk_button_new (); //Definition sur deux lignes  
     gtk_button_set_label ((GtkButton*)button_quit,"Quitter"); 
+    button_enregistrer = gtk_button_new_with_label ("Enregistrer");
+    button_stop = gtk_button_new_with_label ("Stop");
+    button_photo = gtk_button_new_with_label ("Photo");
 
     //IMAGES  
-    image_exemple = gtk_image_new_from_file ("images/bee.jpg");
+    image_exemple = gtk_image_new_from_file ("images/bee2.jpg");
+
+    //TEXTE 
+    nom_video = gtk_label_new("Nom de la vidéo");
 
     //AUTRES 
     fichiers = gtk_places_sidebar_new ();
     sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+    text = gtk_entry_new ();
+    
+    choix_camera = gtk_combo_box_new();
+ //  choix_camera = gtk_combo_box_new_with_model (GtkTreeModel *model); //EN CONSTRUCTION / A CONSTRUIRE 
+//Affichage d'un modele 
+
 
 
 //Rangement des boxs & Widgets 
@@ -52,19 +170,35 @@ int main (int argc, char *argv[])
         //Dans la boite principale :
         gtk_box_pack_start(GTK_BOX(box_principal), box_up, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(box_principal), box_all, TRUE, TRUE, 0);
-        gtk_box_pack_start(GTK_BOX(box_principal), box_menu_droit, TRUE, TRUE, 0);
 
             //Dans box_up
             gtk_box_pack_start(GTK_BOX(box_up), button_quit, FALSE, FALSE, 0);
        
             //Dans box_all
-            gtk_box_pack_start(GTK_BOX(box_all), image_exemple, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(box_all), box_gauche, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(box_all), sep, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(box_all), fichiers, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(box_all), box_menu_droit, TRUE, TRUE, 0);
+                //Dans box_menu_droit
+                 gtk_box_pack_start(GTK_BOX(box_menu_droit), fichiers, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(box_menu_droit), text, FALSE, FALSE, 0);
+                //Dans box_gauche
+                     gtk_box_pack_start(GTK_BOX(box_gauche), box_video, FALSE, FALSE, 0);
+                     gtk_box_pack_start(GTK_BOX(box_gauche), box_menu_video, FALSE, FALSE, 0);
+                        //Dans box_video
+                             gtk_box_pack_start(GTK_BOX(box_video), image_exemple, FALSE, FALSE, 0);
+                             gtk_box_pack_start(GTK_BOX(box_video), nom_video, FALSE, FALSE, 0);
+
+                        //Dans box_menu_video
+                             gtk_box_pack_start(GTK_BOX(box_menu_video), choix_camera, FALSE, FALSE, 0);
+                             gtk_box_pack_start(GTK_BOX(box_menu_video), button_enregistrer, FALSE, FALSE, 0);
+                             gtk_box_pack_start(GTK_BOX(box_menu_video), button_stop, FALSE, FALSE, 0);
+                             gtk_box_pack_start(GTK_BOX(box_menu_video), button_photo, FALSE, FALSE, 0);
+
 
 
 //FONCTIONS 
     g_signal_connect (button_quit, "clicked", G_CALLBACK(destroy),NULL);
+    g_signal_connect (button_enregistrer, "clicked", G_CALLBACK(window2),NULL);
 
 //AUTRE 
     gtk_window_set_title (GTK_WINDOW (window), "BEETERFACE"); //Nomme la fenêtre 
@@ -78,17 +212,28 @@ int main (int argc, char *argv[])
     gtk_widget_show (box_up);
     gtk_widget_show (box_all);
     gtk_widget_show (box_menu_droit);
-    
+    gtk_widget_show (box_gauche);
+    gtk_widget_show (box_video);
+    gtk_widget_show (box_menu_video);
+
     //BUTTONS
-    gtk_widget_show (button_quit);
+    gtk_widget_show (button_quit); 
+    gtk_widget_show (button_enregistrer);
+    gtk_widget_show (button_stop); 
+    gtk_widget_show (button_photo);
+    
     
     //IMAGE
     gtk_widget_show (image_exemple);
 
+    //TEXTE
+    gtk_widget_show (nom_video);
+
     //AUTRE
     gtk_widget_show (sep);
     gtk_widget_show (fichiers);
-
+    gtk_widget_show (text);
+    gtk_widget_show (choix_camera);
 
     //FENETRE
     gtk_widget_show (window);
