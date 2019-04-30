@@ -29,7 +29,8 @@ void window2 (GtkWidget *widget, gpointer data)
     GtkWidget *button_ex2_3;
     GtkWidget *button_ex2_4;
     GtkWidget *tags;
-
+    GtkWidget *outils;
+    GtkAdjustment *adjustement_barre_temps;
 //CREATION
     //Fenetre
     window2 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -57,8 +58,13 @@ void window2 (GtkWidget *widget, gpointer data)
     button_ex2_4 = gtk_button_new_with_label ("Test4");
 
     //Autre
-    barre_temps = gtk_level_bar_new();
+    adjustement_barre_temps = gtk_adjustment_new (10,0,20,1,1,2);
+    barre_temps = gtk_scrollbar_new(GTK_ORIENTATION_HORIZONTAL,adjustement_barre_temps);
     tags = gtk_places_sidebar_new ();
+    outils = gtk_tool_palette_new ();
+   // gtk_tool_palette_set_style ((GtkToolPalette) outils, GTK_TOOLBAR_ICONS);
+
+
 //RANGEMENT
 //Fenetre
     gtk_container_add (GTK_CONTAINER (window2), box_principal2);
@@ -86,6 +92,7 @@ void window2 (GtkWidget *widget, gpointer data)
              gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_3, FALSE, FALSE, 0);
              gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_4, FALSE, FALSE, 0);
              gtk_box_pack_start(GTK_BOX(box_milieu), button_ex_5, FALSE, FALSE, 0);
+             // gtk_box_pack_start(GTK_BOX(box_milieu), outils, FALSE, FALSE, 0);
 
              //Dans box_droit
              gtk_box_pack_start(GTK_BOX(box_droit), tags, FALSE, FALSE, 0);
@@ -108,6 +115,7 @@ int main (int argc, char *argv[])
     GtkWidget *window; //Fenêtre d'acceuil 
     GtkWidget *box_principal; //Boite principale contenant les autres boites 
     GtkWidget *button_quit; //Bouton quitter 
+    GtkWidget *image_button_quit;
     GtkWidget *box_up; //Boite la plus haute pour le bouton quitter (provisoire ?) 
     GtkWidget *box_all; //Reste de la zone 
     GtkWidget *image_exemple; //Image pour repérer où sera la vidéo
@@ -123,6 +131,7 @@ int main (int argc, char *argv[])
     GtkWidget *button_enregistrer;
     GtkWidget *button_stop;
     GtkWidget *button_photo;
+    GtkWidget *image_button_photo;
 
     gtk_init (&argc, &argv);
 
@@ -141,10 +150,16 @@ int main (int argc, char *argv[])
 
     //BOUTONS
     button_quit = gtk_button_new (); //Definition sur deux lignes  
-    gtk_button_set_label ((GtkButton*)button_quit,"Quitter"); 
+    //gtk_button_set_label ((GtkButton*)button_quit,"Quitter");
+    image_button_quit = gtk_image_new_from_file ("images/quit3.png");
+    gtk_button_set_image (GTK_BUTTON (button_quit), image_button_quit);
+
     button_enregistrer = gtk_button_new_with_label ("Enregistrer");
     button_stop = gtk_button_new_with_label ("Stop");
-    button_photo = gtk_button_new_with_label ("Photo");
+        //button_photo_with_image
+    button_photo = gtk_button_new ();
+    image_button_photo = gtk_image_new_from_file ("images/icone_photo3.png");
+    gtk_button_set_image (GTK_BUTTON (button_photo), image_button_photo);
 
     //IMAGES  
     image_exemple = gtk_image_new_from_file ("images/bee2.jpg");
@@ -157,8 +172,10 @@ int main (int argc, char *argv[])
     sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
     text = gtk_entry_new ();
     
-    choix_camera = gtk_combo_box_new();
- //  choix_camera = gtk_combo_box_new_with_model (GtkTreeModel *model); //EN CONSTRUCTION / A CONSTRUIRE 
+    choix_camera = gtk_combo_box_text_new();
+    gtk_combo_box_text_insert_text ((GtkComboBoxText*) choix_camera, 1,"Caméra n°1");
+    gtk_combo_box_text_insert_text ((GtkComboBoxText*) choix_camera, 2,"Caméra n°2");
+    gtk_combo_box_text_insert_text ((GtkComboBoxText*) choix_camera, 3,"Caméra n°3");
 //Affichage d'un modele 
 
 
@@ -172,7 +189,7 @@ int main (int argc, char *argv[])
         gtk_box_pack_start(GTK_BOX(box_principal), box_all, TRUE, TRUE, 0);
 
             //Dans box_up
-            gtk_box_pack_start(GTK_BOX(box_up), button_quit, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(box_up), button_quit, TRUE, TRUE, 0);
        
             //Dans box_all
             gtk_box_pack_start(GTK_BOX(box_all), box_gauche, FALSE, FALSE, 0);
