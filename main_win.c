@@ -125,10 +125,6 @@ main_win_t* main_win_new() {
 
 
 
-//FONCTIONS 
-//    g_signal_connect (tmp->button_quit, "clicked", G_CALLBACK(destroy),NULL);
-//    g_signal_connect (tmp->button_enregistrer, "clicked", G_CALLBACK(tmp->window2),NULL);
-
 //AUTRE 
     gtk_window_set_title (GTK_WINDOW (tmp->window), "BEETERFACE"); //Nomme la fenêtre 
 

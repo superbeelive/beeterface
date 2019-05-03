@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = `pkg-config --cflags gtk+-3.0`
 LDFLAGS = `pkg-config --libs gtk+-3.0`
 
-beeterface: beeterface.o
+beeterface: beeterface.o main_win.o modif_win.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
