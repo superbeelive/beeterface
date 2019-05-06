@@ -35,10 +35,13 @@ typedef struct {
     GtkWidget *choix_tri;
     GtkWidget *txt_trier_par;
     GtkWidget *txt_visualiser;
+    GtkWidget *button_info;
+    GtkWidget *image_button_info;
 
 } main_win_t ;
 
 main_win_t* main_win_new() ;
+void main_win_del( main_win_t* ) ;
 void main_win_show( main_win_t* ) ;
 
 #endif

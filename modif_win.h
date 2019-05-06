@@ -14,11 +14,24 @@ typedef struct {
     GtkWidget *box_outil_video;
     GtkWidget *image_video;
     GtkWidget *titre_video;
-    GtkWidget *button_ex_1;
-    GtkWidget *button_ex_2;
-    GtkWidget *button_ex_3;
-    GtkWidget *button_ex_4;
-    GtkWidget *button_ex_5;
+    GtkWidget *text_boite_outils;
+
+    GtkWidget *button_croix;
+    GtkWidget *image_button_croix;
+
+    GtkWidget *button_cercle;
+    GtkWidget *image_button_cercle;
+
+    GtkWidget *button_rectangle;
+    GtkWidget *image_button_rectangle;
+
+    GtkWidget *button_fleche;
+    GtkWidget *image_button_fleche;
+
+    GtkWidget *button_gomme;
+    GtkWidget *image_button_gomme;
+
+
     GtkWidget *barre_temps;
     GtkWidget *button_ex2_1;
     GtkWidget *button_ex2_2;
@@ -33,9 +46,10 @@ typedef struct {
     GtkWidget *box_up;
     GtkWidget *box_time;
 
-} modif_win_t ;
+} modif_win_t ; //typedef + struct sur la même ligne
 
-modif_win_t* modif_win_new() ;
+//pré déclaration des fonctions 
+modif_win_t* modif_win_new() ; 
 void modif_win_show( modif_win_t* ) ;
 
 #endif

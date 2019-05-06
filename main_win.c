@@ -19,7 +19,7 @@ main_win_t* main_win_new() {
     tmp->box_video = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_menu_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_info_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
-    tmp->box_quit = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    tmp->box_quit = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_search_1 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_search_2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     
@@ -43,6 +43,10 @@ main_win_t* main_win_new() {
     tmp->image_button_photo = gtk_image_new_from_file ("images/icone_photo3.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_photo), tmp->image_button_photo);
 
+    tmp->button_info = gtk_button_new ();
+    tmp->image_button_info = gtk_image_new_from_file ("images/inter.png");
+    gtk_button_set_image (GTK_BUTTON (tmp->button_info), tmp->image_button_info);
+    
     //IMAGES  
     tmp->image_exemple = gtk_image_new_from_file ("images/bee2.jpg");
     tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png");
@@ -92,6 +96,8 @@ main_win_t* main_win_new() {
 
                  //Dans tmp->box_quit
                  gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_quit, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_info, FALSE, FALSE, 0);
+
             //Dans tmp->box_all
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_gauche, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->sep, FALSE, FALSE, 0);
@@ -140,34 +146,13 @@ void main_win_show ( main_win_t* tmp ) {
 
   
     //BOX
+
+    gtk_widget_show (tmp->window);
     gtk_widget_show_all ( tmp->box_principal);
     gtk_widget_show_all (tmp->box_up);
-    gtk_widget_show (tmp->box_all);
-    gtk_widget_show (tmp->box_menu_droit);
-    gtk_widget_show (tmp->box_gauche);
-    gtk_widget_show (tmp->box_video);
-    gtk_widget_show (tmp->box_menu_video);
-
-    //BUTTONS
-    gtk_widget_show (tmp->button_quit); 
-    gtk_widget_show (tmp->button_enregistrer);
-    gtk_widget_show (tmp->button_stop); 
-    gtk_widget_show (tmp->button_photo);
-    
-    
-    //IMAGE
-    gtk_widget_show (tmp->image_exemple);
-
-    //TEXTE
-    gtk_widget_show (tmp->nom_video);
-
-    //AUTRE
-    gtk_widget_show (tmp->sep);
-    gtk_widget_show (tmp->fichiers);
-    gtk_widget_show (tmp->choix_camera);
-
-    //FENETRE
-    gtk_widget_show (tmp->window);
 
 }
 
+void main_win_del( main_win_t* W ) {
+    free(W) ;
+}

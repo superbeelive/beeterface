@@ -34,6 +34,11 @@ int main (int argc, char *argv[])
 
 //AFFICHAGE 
   gtk_main ();
-    return 0;
+
+  
+  
+  main_win_del( fenetre ) ;
+  
+  return 0;
 
 }

@@ -27,15 +27,37 @@ modif_win_t* modif_win_new() {
     gtk_label_set_markup(GTK_LABEL(tmp->titre_video), "<span foreground=\"black\" font=\"16\">Nom de la vidéo</span>");
 
 
+    tmp->text_boite_outils = gtk_label_new("");
+    gtk_label_set_markup(GTK_LABEL(tmp->text_boite_outils), "<span foreground=\"black\" font=\"10\"> <b> Boîte à outils </b> </span>");
+
+
     tmp->time_deb = gtk_label_new("0:00");
     tmp->time_fin = gtk_label_new("2:30");
 
     //Button
-    tmp->button_ex_1 = gtk_button_new_with_label ("ex1");
-    tmp->button_ex_2 = gtk_button_new_with_label ("ex2");
-    tmp->button_ex_3 = gtk_button_new_with_label ("ex3");
-    tmp->button_ex_4 = gtk_button_new_with_label ("ex4");
-    tmp->button_ex_5 = gtk_button_new_with_label ("ex5");
+
+    tmp->button_croix = gtk_button_new ();
+    tmp->image_button_croix = gtk_image_new_from_file ("images/croix.png");
+    gtk_button_set_image (GTK_BUTTON (tmp->button_croix), tmp->image_button_croix);
+    
+
+    tmp->button_cercle = gtk_button_new ();
+    tmp->image_button_cercle = gtk_image_new_from_file ("images/cercle.png");
+    gtk_button_set_image (GTK_BUTTON (tmp->button_cercle), tmp->image_button_cercle);
+
+    tmp->button_rectangle = gtk_button_new ();
+    tmp->image_button_rectangle = gtk_image_new_from_file ("images/rectangle.png");
+    gtk_button_set_image (GTK_BUTTON (tmp->button_rectangle), tmp->image_button_rectangle);
+
+    tmp->button_fleche = gtk_button_new ();
+    tmp->image_button_fleche = gtk_image_new_from_file ("images/fleche.png");
+    gtk_button_set_image (GTK_BUTTON (tmp->button_fleche), tmp->image_button_fleche);
+
+    tmp->button_gomme = gtk_button_new ();
+    tmp->image_button_gomme = gtk_image_new_from_file ("images/gomme.png");
+    gtk_button_set_image (GTK_BUTTON (tmp->button_gomme), tmp->image_button_gomme);
+
+
         //Pour le menu de la video (bas)
     tmp->button_ex2_1 = gtk_button_new_with_label ("Test1");
     tmp->button_ex2_2 = gtk_button_new_with_label ("Test2");
@@ -83,12 +105,13 @@ modif_win_t* modif_win_new() {
                 gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_4, TRUE, TRUE, 0);
                 
 
-             //Dans box_milieu
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_ex_1, FALSE, FALSE, 0);
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_ex_2, FALSE, FALSE, 0);
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_ex_3, FALSE, FALSE, 0);
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_ex_4, FALSE, FALSE, 0);
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_ex_5, FALSE, FALSE, 0);
+             //Dans box_milieu (boite à outils)
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->text_boite_outils, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_croix, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_cercle, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_rectangle, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_fleche, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_gomme, FALSE, FALSE, 0);
              // gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->outils, FALSE, FALSE, 0);
 
              //Dans box_droit
