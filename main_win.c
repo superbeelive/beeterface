@@ -22,7 +22,8 @@ main_win_t* main_win_new() {
     tmp->box_quit = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_search_1 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_search_2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
-    
+    tmp->box_info_sup = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+
 
     //BOUTONS
     tmp->button_quit = gtk_button_new (); //Definition sur deux lignes  
@@ -60,11 +61,13 @@ main_win_t* main_win_new() {
     tmp->txt_visualiser = gtk_label_new("");
     gtk_label_set_markup(GTK_LABEL(tmp->txt_visualiser), "<span foreground=\"black\" font=\"10\">Visualiser :</span>");
 
-
+    tmp->txt_info = gtk_label_new("");
+    gtk_label_set_markup(GTK_LABEL(tmp->txt_info), "<span foreground=\"black\" font=\"10\">Degré</span>");
 
     //AUTRES 
     tmp->fichiers = gtk_places_sidebar_new ();
     tmp->sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+    tmp->sep_haut = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     tmp->search = gtk_search_entry_new ();
     
     tmp->choix_camera = gtk_combo_box_text_new();
@@ -89,6 +92,7 @@ main_win_t* main_win_new() {
 
             //Dans tmp->box_up
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_quit, TRUE, TRUE, 0); 
+            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->sep_haut, TRUE, TRUE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_info_video, TRUE, TRUE, 0); 
                  //Dans tmp->box_info_video   
                  gtk_box_pack_start(GTK_BOX(tmp->box_info_video), tmp->logo_type_video, FALSE, FALSE, 20);
@@ -100,8 +104,10 @@ main_win_t* main_win_new() {
 
             //Dans tmp->box_all
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_gauche, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_info_sup, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->sep, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_menu_droit, TRUE, TRUE, 0);
+
 
                 //Dans tmp->box_menu_droit
                  gtk_box_pack_start(GTK_BOX(tmp->box_menu_droit), tmp->box_search_1, FALSE, FALSE, 0);
@@ -129,7 +135,8 @@ main_win_t* main_win_new() {
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->button_stop, FALSE, FALSE, 0);
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->button_photo, FALSE, FALSE, 0);
 
-
+            //Dans box_info_sup 
+                   gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->txt_info, FALSE, FALSE, 0);
 
 //AUTRE 
     gtk_window_set_title (GTK_WINDOW (tmp->window), "BEETERFACE"); //Nomme la fenêtre 
