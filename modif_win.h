@@ -18,7 +18,11 @@ typedef struct {
     GtkWidget *image_video;
     GtkWidget *titre_video;
     GtkWidget *text_boite_outils;
+    
+    GtkWidget* btn_list_outils_dessin[5];
+    GtkWidget* img_btn_list_outils_dessin[5];
 
+    /*
     GtkWidget *button_croix;
     GtkWidget *image_button_croix;
 
@@ -33,15 +37,11 @@ typedef struct {
 
     GtkWidget *button_gomme;
     GtkWidget *image_button_gomme;
-
+    */
 
     GtkWidget *barre_temps;
 
     
- /*   GtkWidget *button_ex2_1;
-    GtkWidget *button_ex2_2;
-    GtkWidget *button_ex2_3;
-    GtkWidget *button_ex2_4; */
     GtkWidget *tags;
     GtkWidget *outils;
     GtkAdjustment *adjustement_barre_temps;
@@ -51,6 +51,8 @@ typedef struct {
     GtkWidget *box_up;
     GtkWidget *box_time; 
 
+    //Boutons sous la vidéo
+    //Voir images_boutons pour les images dans le .c
     GtkWidget* button_list[4];
     GtkWidget* image_button_list[4];
 

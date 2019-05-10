@@ -2,6 +2,7 @@
 
 #include "modif_win.h"
  const gchar* images_boutons[] = {"./images/ciseaux.png", "./images/next.png", "./images/next.png", "./images/save.png" };
+ const gchar* img_btn_outils_dessin[] = {"./images/croix.png","./images/cercle.png","./images/rectangles.png","./image/fleche.png", "./images/gomme.png"};
 
 
 modif_win_t* modif_win_new() {
@@ -10,6 +11,7 @@ modif_win_t* modif_win_new() {
     tmp = malloc ( sizeof(modif_win_t) ) ;
 
 
+    gint i;
 //CREATION
     //Fenetre
     tmp->window2 = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -38,7 +40,17 @@ modif_win_t* modif_win_new() {
     tmp->time_fin = gtk_label_new("2:30");
 
     //Button
+    for ( i = 0; i < 5; i++) {
+       tmp -> btn_list_outils_dessin[i] = gtk_button_new ();
+       tmp -> img_btn_list_outils_dessin[i] = gtk_image_new_from_file (img_btn_outils_dessin[i]);
+       gtk_button_set_image (GTK_BUTTON (tmp->btn_list_outils_dessin[i]), tmp->img_btn_list_outils_dessin[i]);
 
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->text_boite_outils, FALSE, FALSE, 0);
+       gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->btn_list_outils_dessin[i], TRUE, TRUE, 0);
+    }
+
+    
+    /*
     tmp->button_croix = gtk_button_new ();
     tmp->image_button_croix = gtk_image_new_from_file ("images/croix.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_croix), tmp->image_button_croix);
@@ -59,12 +71,10 @@ modif_win_t* modif_win_new() {
     tmp->button_gomme = gtk_button_new ();
     tmp->image_button_gomme = gtk_image_new_from_file ("images/gomme.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_gomme), tmp->image_button_gomme);
-
+    */
         //Pour le menu de la video (bas)
     
-    gint i;
-    for  (i = 0; i < 4; i++)
-    {
+    for  (i = 0; i < 4; i++) {
         tmp->button_list[i] = gtk_button_new ();
         tmp->image_button_list[i] =  gtk_image_new_from_file (images_boutons[i]);
         gtk_button_set_image (GTK_BUTTON (tmp->button_list[i]), tmp->image_button_list[i]);
@@ -106,21 +116,16 @@ modif_win_t* modif_win_new() {
                    gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_deb, TRUE, TRUE, 0);
                    gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_fin, TRUE, TRUE, 0);
 
-                //Dans box_outil_video
-              /*  gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_1, TRUE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_2, TRUE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_3, TRUE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_4, TRUE, TRUE, 0); */
-
+                    //Dans box_outils_video
+                    //Déclaration des boutons sous forme de for
                 
 
              //Dans box_milieu (boite à outils)
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->text_boite_outils, FALSE, FALSE, 0);
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_croix, FALSE, FALSE, 0);
+       /*      gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_croix, FALSE, FALSE, 0);
              gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_cercle, FALSE, FALSE, 0);
              gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_rectangle, FALSE, FALSE, 0);
              gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_fleche, FALSE, FALSE, 0);
-             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_gomme, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->button_gomme, FALSE, FALSE, 0); */
              // gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->outils, FALSE, FALSE, 0);
 
              //Dans box_droit
