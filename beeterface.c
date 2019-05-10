@@ -17,7 +17,7 @@ int main (int argc, char *argv[])
 {
 
 //DECLARATIONS
-
+    //gint i;
     main_win_t*  fenetre ;
     modif_win_t* fenetre_modif ;
     

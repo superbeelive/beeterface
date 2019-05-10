@@ -37,6 +37,9 @@ typedef struct {
     GtkWidget *txt_visualiser;
     GtkWidget *button_info;
     GtkWidget *image_button_info;
+    GtkWidget *box_info_sup;
+    GtkWidget *txt_info;
+    GtkWidget *sep_haut;
 
 } main_win_t ;
 

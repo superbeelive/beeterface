@@ -1,11 +1,14 @@
 #include <stdlib.h>
 
 #include "modif_win.h"
+ const gchar* images_boutons[] = {"./images/ciseaux.png", "./images/next.png", "./images/next.png", "./images/save.png" };
+
 
 modif_win_t* modif_win_new() {
-
+    
     modif_win_t* tmp ;
     tmp = malloc ( sizeof(modif_win_t) ) ;
+
 
 //CREATION
     //Fenetre
@@ -57,12 +60,17 @@ modif_win_t* modif_win_new() {
     tmp->image_button_gomme = gtk_image_new_from_file ("images/gomme.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_gomme), tmp->image_button_gomme);
 
-
         //Pour le menu de la video (bas)
-    tmp->button_ex2_1 = gtk_button_new_with_label ("Test1");
-    tmp->button_ex2_2 = gtk_button_new_with_label ("Test2");
-    tmp->button_ex2_3 = gtk_button_new_with_label ("Test3");
-    tmp->button_ex2_4 = gtk_button_new_with_label ("Test4");
+    
+    gint i;
+    for  (i = 0; i < 4; i++)
+    {
+        tmp->button_list[i] = gtk_button_new ();
+        tmp->image_button_list[i] =  gtk_image_new_from_file (images_boutons[i]);
+        gtk_button_set_image (GTK_BUTTON (tmp->button_list[i]), tmp->image_button_list[i]);
+
+        gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_list[i], TRUE, TRUE, 0);
+    } 
 
     //Autre
     tmp->adjustement_barre_temps = gtk_adjustment_new (10,0,500,1,1,2);
@@ -99,10 +107,11 @@ modif_win_t* modif_win_new() {
                    gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_fin, TRUE, TRUE, 0);
 
                 //Dans box_outil_video
-                gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_1, TRUE, TRUE, 0);
+              /*  gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_1, TRUE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_2, TRUE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_3, TRUE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_4, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->button_ex2_4, TRUE, TRUE, 0); */
+
                 
 
              //Dans box_milieu (boite à outils)

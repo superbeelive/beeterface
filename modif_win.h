@@ -3,6 +3,9 @@
 
 #include <gtk/gtk.h>
 
+//const gchar* names[] = {"test1", "test2", "test3", "test4" };
+
+
 typedef struct {
 
     GtkWidget *window2; //Fenetre changements
@@ -33,10 +36,12 @@ typedef struct {
 
 
     GtkWidget *barre_temps;
-    GtkWidget *button_ex2_1;
+
+    
+ /*   GtkWidget *button_ex2_1;
     GtkWidget *button_ex2_2;
     GtkWidget *button_ex2_3;
-    GtkWidget *button_ex2_4;
+    GtkWidget *button_ex2_4; */
     GtkWidget *tags;
     GtkWidget *outils;
     GtkAdjustment *adjustement_barre_temps;
@@ -44,8 +49,12 @@ typedef struct {
     GtkWidget *time_fin;
     GtkWidget *box_menus;
     GtkWidget *box_up;
-    GtkWidget *box_time;
+    GtkWidget *box_time; 
 
+    GtkWidget* button_list[4];
+    GtkWidget* image_button_list[4];
+
+    
 } modif_win_t ; //typedef + struct sur la même ligne
 
 //pré déclaration des fonctions 
