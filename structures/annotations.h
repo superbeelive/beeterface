@@ -34,6 +34,7 @@ oblong_t* oblong_new();
 void oblong_del ( oblong_t* ) ;
 void oblong_show ( oblong_t* ) ;
 
+
 void oblong_add_tag ( oblong_t*, int tag ) ; 
 void oblong_remove_tag ( oblong_t*, int tag ) ;
 void oblong_show_tag ( oblong_t* ) ; 
@@ -80,6 +81,7 @@ typedef struct {
     int y;
 
 } cross_t;
+
 
 cross_t* cross_new();
 void cross_del ( cross_t* ) ;
@@ -191,7 +193,7 @@ void text_set_description ( text_t*, char* descr ) ;
 char* text_get_description ( text_t* ) ;
 
 void text_set_comment ( text_t*, char* com ) ;
-char* text_get_description ( text_t* ) ; 
+char* text_get_comment ( text_t* ) ; 
 
 
 ////////////////////MEASUREMENT
