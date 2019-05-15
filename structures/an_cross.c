@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-#include <stldib.h>
+#include <stdlib.h>
 
 #include "annotations.h" 
 
@@ -16,15 +15,13 @@ cross_t* cross_new(){
     cr->auteur = malloc ( sizeof (TAILLE) ) ; 
     cr->description = malloc ( sizeof (TAILLE) ) ;
 
-    sprintf(cr->auteur, "OSP");
-    sprintf(cr->color, "RGB");
-    sprintf(cr->time_start "0:45");
-    sprintf(cr->time_end "2:00");
-    sprintf(cr->description "Ceci est une description");
-    sprintf(cr->x_start "3");
-    sprintf(cr->y_start "5");
-    sprintf(cr->x_end "8");
-    sprintf(cr->y_end "15");   
+   // sprintf(cr->auteur, "OSP");
+   // sprintf(cr->color, "RGB");
+   // sprintf(cr->time_start "0:45");
+   // sprintf(cr->time_end "2:00");
+    sprintf(cr->description, "Ceci est une description");
+    cr->x = 3 ;
+    cr->y = 5 ;
 
     return cr;
 }
@@ -39,18 +36,16 @@ void cross_del ( cross_t* cr) {
 
 //Pas de visualisation des tags ici
 void cross_show ( cross_t* cr) {
-    printf("%s %s %s %s %s %s\n", cr->auteur,
-                                  cr->color,
-                                  cr->time_start,
-                                  cr->time_end,
+    printf("%s %d %d\n", //cr->auteur,
+                                  //cr->color,
+                                  //cr->time_start,
+                                  //cr->time_end,
                                   cr->description,
-                                  cr->x_start,
-                                  cr->y_start, 
-                                  cr->x_end, 
-                                  cr->y_end);
+                                  cr->x,
+                                  cr->y ) ;
 
 }
-
+/*
 /////////////////////////TAGS/////////////////////////////
 
 void cross_add_tag (cross_t* cr, int tag ) { //TODO
@@ -90,7 +85,7 @@ void cross_set_time_end ( cross_t* cr, timecode_t time_e ) {
 timecode_t cross_get_time_end ( cross_t* cr ) {
     return cr->time_end ; 
 }
-
+*/
 ////////////////////////DESCRIPTION///////////////////////
 
 void cross_set_description ( cross_t* cr, char* descr ) {
@@ -107,7 +102,7 @@ void cross_set_x ( cross_t* cr, int x ) {
     cr->x = x ;
 }
 
-int cross_get_x ( cross_t* cr, int x ) {
+int cross_get_x ( cross_t* cr ) {
     return cr->x ;
 }
 
@@ -116,7 +111,7 @@ void cross_set_y ( cross_t* cr, int y ) {
     cr->y = y ;
 }
 
-int cross_get_y ( cross_t* cr, int y ) {
+int cross_get_y ( cross_t* cr ) {
     return cr->y ;
 }
 

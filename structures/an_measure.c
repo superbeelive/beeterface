@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include <stldib.h>
+#include <stdlib.h>
 
 #include "annotations.h" 
 
@@ -16,15 +16,12 @@ measure_t* measure_new(){
     mea->auteur = malloc ( sizeof (TAILLE) ) ; 
     mea->description = malloc ( sizeof (TAILLE) ) ;
 
-    sprintf(mea->auteur, "OSP");
-    sprintf(mea->color, "RGB");
-    sprintf(mea->time_start "0:45");
-    sprintf(mea->time_end "2:00");
-    sprintf(mea->description "Ceci est une description");
-    sprintf(mea->x_start "3");
-    sprintf(mea->y_start "5");
-    sprintf(mea->x_end "8");
-    sprintf(mea->y_end "15");   
+    //sprintf(mea->auteur, "OSP");
+    //sprintf(mea->color, "RGB");
+    //sprintf(mea->time_start "0:45");
+    //sprintf(mea->time_end "2:00");
+    sprintf(mea->description, "Ceci est une description");
+    mea->value = 1 ;
 
     return mea;
 }
@@ -39,20 +36,16 @@ void measure_del ( measure_t* mea) {
 
 //Pas de visualisation des tags ici
 void measure_show ( measure_t* mea) {
-    printf("%s %s %s %s %s %s\n", mea->auteur,
-                                  mea->color,
-                                  mea->time_start,
-                                  mea->time_end,
+    printf("%s %f\n", //mea->auteur,
+                                  //mea->color,
+                                  //mea->time_start,
+                                  //mea->time_end,
                                   mea->description,
-                                  mea->x_start,
-                                  mea->y_start, 
-                                  mea->x_end, 
-                                  mea->y_end);
-
+                                  mea->value ) ; 
 }
 
 /////////////////////////TAGS/////////////////////////////
-
+/*
 void measure_add_tag (measure_t* mea, int tag ) { //TODO
 } 
 
@@ -90,7 +83,7 @@ void measure_set_time_end ( measure_t* mea, timecode_t time_e ) {
 timecode_t measure_get_time_end ( measure_t* mea ) {
     return mea->time_end ; 
 }
-
+*/
 ////////////////////////DESCRIPTION///////////////////////
 
 void measure_set_description ( measure_t* mea, char* descr ) {

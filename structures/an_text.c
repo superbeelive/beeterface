@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include <stldib.h>
+#include <stdlib.h>
 
 #include "annotations.h" 
 
@@ -15,16 +15,14 @@ text_t* text_new(){
     txt = malloc ( sizeof (text_t) ) ; 
     txt->auteur = malloc ( sizeof (TAILLE) ) ; 
     txt->description = malloc ( sizeof (TAILLE) ) ;
+    txt->comment = malloc ( sizeof (TAILLE) ) ; 
 
-    sprintf(txt->auteur, "OSP");
+   /* sprintf(txt->auteur, "OSP");
     sprintf(txt->color, "RGB");
     sprintf(txt->time_start "0:45");
-    sprintf(txt->time_end "2:00");
-    sprintf(txt->description "Ceci est une description");
-    sprintf(txt->x_start "3");
-    sprintf(txt->y_start "5");
-    sprintf(txt->x_end "8");
-    sprintf(txt->y_end "15");   
+    sprintf(txt->time_end "2:00"); TODO */
+    sprintf ( txt->description, "Ceci est une description" ) ;
+    sprintf (txt->comment, "Ceci est un commentaire" ) ;
 
     return txt;
 }
@@ -32,27 +30,24 @@ text_t* text_new(){
 void text_del ( text_t* txt) {
     free ( txt->auteur ) ;
     free ( txt->description ) ;
+    free ( txt->comment ) ;
     free ( txt ) ;
-
 }
 
 
 //Pas de visualisation des tags ici
 void text_show ( text_t* txt) {
-    printf("%s %s %s %s %s %s\n", txt->auteur,
+    printf("%s %s\n", /*txt->auteur,
                                   txt->color,
                                   txt->time_start,
-                                  txt->time_end,
-                                  txt->description,
-                                  txt->x_start,
-                                  txt->y_start, 
-                                  txt->x_end, 
-                                  txt->y_end);
+                                  txt->time_end, */
+                                  txt->description, 
+                                  txt->comment);
 
 }
 
 /////////////////////////TAGS/////////////////////////////
-
+/*
 void text_add_tag (text_t* txt, int tag ) { //TODO
 } 
 
@@ -90,7 +85,7 @@ void text_set_time_end ( text_t* txt, timecode_t time_e ) {
 timecode_t text_get_time_end ( text_t* txt ) {
     return txt->time_end ; 
 }
-
+*/
 ////////////////////////DESCRIPTION///////////////////////
 
 void text_set_description ( text_t* txt, char* descr ) {

@@ -173,6 +173,7 @@ typedef struct {
 
 } text_t;
 
+text_t* text_new() ;
 void text_del ( text_t* ) ;
 void text_show ( text_t* ) ;
 
@@ -211,6 +212,7 @@ typedef struct {
     
 } measure_t;
 
+measure_t* measure_new () ; 
 void measure_del ( measure_t* ) ;
 void measure_show ( measure_t* ) ;
 
@@ -249,6 +251,7 @@ typedef struct { //TODO
 
 } moving_cross_t;
 
+moving_cross_t* moving_cross_new() ; 
 void moving_cross_del (  moving_cross_t* ) ;
 void  moving_cross_show (  moving_cross_t* ) ;
 
