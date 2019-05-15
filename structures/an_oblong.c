@@ -64,7 +64,7 @@ void oblong_show_tag ( oblong_t* ob, int taf ) { //TODO
 
 //////////////////////COLORS/////////////////////////////
 
-
+//TODO
 void oblong_set_color ( oblong_t* ob, color_t* col ) { 
     sprintf(ob->color,"%s",col);
 }
@@ -74,7 +74,7 @@ color_t oblong_get_color ( oblong_t* ob ) {
 }
 
 ////////////////////////TIME//////////////////////////////
-
+//TODO
 void oblong_set_time_start ( oblong_t* ob, timecode_t time_s ) {
     sprintf ( ob->time_start, "%s", time_s ) ;
 }
@@ -103,7 +103,7 @@ char* oblong_get_description ( oblong_t* ob ) {
 //////////////////////// POINTS //////////////////////////
 
 void oblong_set_x_start ( oblong_t* ob, int x_s ) {
-    sprintf ( ob->x_start, "%s", x_s ) ;
+     ob->x_start = x_s
 }
 
 int oblong_get_x_start ( oblong_t* ob, int x_s ) {
@@ -112,7 +112,7 @@ int oblong_get_x_start ( oblong_t* ob, int x_s ) {
 
 
 void oblong_set_y_start ( oblong_t* ob, int y_s ) {
-    sprintf ( ob->y_start, "%s", y_s ) ;
+     ob->y_start = y_s ;
 }
 
 int oblong_get_y_start ( oblong_t* ob, int y_s ) {
@@ -121,7 +121,7 @@ int oblong_get_y_start ( oblong_t* ob, int y_s ) {
 
 
 void oblong_set_x_end ( oblong_t* ob, int x_e ) {
-    sprintf ( ob->x_end, "%s", x_e ) ;
+     ob->x_end = x_e ;
 }
 
 int oblong_get_x_end ( oblong_t* ob, int x_e ) {
@@ -130,7 +130,7 @@ int oblong_get_x_end ( oblong_t* ob, int x_e ) {
 
 
 void oblong_set_y_end ( oblong_t* ob, int y_e ) {
-    sprintf ( ob->y_end, "%s", y_e ) ;
+     ob->y_end = y_e ;
 }
 
 int oblong_get_y_end ( oblong_t* ob, int y_e ) {

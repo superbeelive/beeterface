@@ -64,7 +64,7 @@ void text_show_tag ( text_t* txt, int taf ) { //TODO
 
 
 //////////////////////COLORS/////////////////////////////
-
+//TODO
 
 void text_set_color ( text_t* txt, color_t* col ) { 
     sprintf(txt->color,"%s",col);
@@ -75,7 +75,7 @@ color_t text_get_color ( text_t* txt ) {
 }
 
 ////////////////////////TIME//////////////////////////////
-
+//TODO
 void text_set_time_start ( text_t* txt, timecode_t time_s ) {
     sprintf ( txt->time_start, "%s", time_s ) ;
 }

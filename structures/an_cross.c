@@ -65,7 +65,7 @@ void cross_show_tag ( cross_t* cr, int taf ) { //TODO
 
 //////////////////////COLORS/////////////////////////////
 
-
+//TODO
 void cross_set_color ( cross_t* cr, color_t* col ) { 
     sprintf(cr->color,"%s",col);
 }
@@ -75,7 +75,7 @@ color_t cross_get_color ( cross_t* cr ) {
 }
 
 ////////////////////////TIME//////////////////////////////
-
+//TODO
 void cross_set_time_start ( cross_t* cr, timecode_t time_s ) {
     sprintf ( cr->time_start, "%s", time_s ) ;
 }
@@ -104,7 +104,7 @@ char* cross_get_description ( cross_t* cr ) {
 //////////////////////// POINTS //////////////////////////
 
 void cross_set_x ( cross_t* cr, int x ) {
-    sprintf ( cr->x, "%s", x ) ;
+    cr->x = x ;
 }
 
 int cross_get_x ( cross_t* cr, int x ) {
@@ -113,7 +113,7 @@ int cross_get_x ( cross_t* cr, int x ) {
 
 
 void cross_set_y ( cross_t* cr, int y ) {
-    sprintf ( cr->y, "%s", y ) ;
+    cr->y = y ;
 }
 
 int cross_get_y ( cross_t* cr, int y ) {

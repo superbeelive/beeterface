@@ -65,7 +65,7 @@ void measure_show_tag ( measure_t* mea, int taf ) { //TODO
 
 //////////////////////COLORS/////////////////////////////
 
-
+//TODO
 void measure_set_color ( measure_t* mea, color_t* col ) { 
     sprintf(mea->color,"%s",col);
 }
@@ -75,7 +75,7 @@ color_t measure_get_color ( measure_t* mea ) {
 }
 
 ////////////////////////TIME//////////////////////////////
-
+//TODO
 void measure_set_time_start ( measure_t* mea, timecode_t time_s ) {
     sprintf ( mea->time_start, "%s", time_s ) ;
 }
@@ -104,7 +104,7 @@ char* measure_get_description ( measure_t* mea ) {
 //////////////////////// COMMENT //////////////////////////
 
 void measure_set_value ( measure_t* mea, double val ) {
-    sprintf ( mea->value, "%s", val ) ;
+    mea->value = val ;
 }
 
 double measure_get_value ( measure_t* mea ) {

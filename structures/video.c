@@ -8,17 +8,17 @@ video_t* video_new() {
     vid = malloc ( sizeof( video_t ) ) ;
     vid->name_ruche = malloc ( TAILLE ) ;
     vid->description = malloc ( TAILLE ) ; 
-    vid->date = malloc ( time_t ) ; //FIXME : doute sur cette déclaration : je dois faire comme en dessous ou au dessus ? 
-    auteur_new(); 
-    camera_new();
+    vid->date = time ( NULL ) ; //Contient l'heure actuelle 
+    vid->auteur = auteur_new(); 
+    vid->camera = camera_new();
 
     sprintf ( vid->name_ruche, "Nom_de_la_ruche" ) ;
     sprintf ( vid->nruche, "0" ) ;
     sprintf ( vid->ncadre, "0" ) ;
     sprintf ( vid->description, "Description_de_la_video" ) ;
-
-    //Et pour la date ? 
-
+    
+    //Afficher time_t : voir comment l'afficher correctement, sinon ce serait un entier moche 
+    
     return vid ;
 }
 

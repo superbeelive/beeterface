@@ -131,18 +131,18 @@ arrow_t* arrow_new();
 void arrow_del ( arrow_t* ) ;
 void arrow_show ( arrow_t* ) ;
 
-void arrow_add_tag ( arrow_t*, int tag ) ; 
-void arrow_remove_tag ( arrow_t*, int tag ) ;
-void arrow_show_tag ( arrow_t* ) ; 
+void arrow_add_tag ( arrow_t*, int tag ) ; //TODO  
+void arrow_remove_tag ( arrow_t*, int tag ) ; //TODO
+void arrow_show_tag ( arrow_t* ) ; //TODO 
 
-void arrow_set_color ( arrow_t*, color_t* color) ;
-color_t arrow_get_color ( arrow_t* ) ;
+void arrow_set_color ( arrow_t*, color_t* color) ; //TODO
+color_t arrow_get_color ( arrow_t* ) ; //TODO 
 
-void arrow_set_time_start ( arrow_t*, timecode_t time_s ) ;
-timecode_t arrow_get_time_start ( arrow_t* );
+void arrow_set_time_start ( arrow_t*, timecode_t time_s ) ; //TODO
+timecode_t arrow_get_time_start ( arrow_t* ); //TODO
 
-void arrow_set_time_end ( arrow_t*, timecode_t time_e ) ;
-timecode_t arrow_get_time_end ( arrow_t* );
+void arrow_set_time_end ( arrow_t*, timecode_t time_e ) ; //TODO
+timecode_t arrow_get_time_end ( arrow_t* ); //TODO 
 
 void arrow_set_description ( arrow_t*, char* descr ) ;
 char* arrow_get_description ( arrow_t* ) ;
