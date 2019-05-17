@@ -15,6 +15,7 @@ int main (int argc, char *argv[]) {
         char* test1 ;
         test1 = moving_cross_get_description ( axolot ) ;
         printf ( "descripion : %s\n", test1 ) ;
-        
+
+        moving_cross_del ( axolot ) ;
         return 0;
 }

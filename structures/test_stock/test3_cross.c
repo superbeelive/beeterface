@@ -25,6 +25,7 @@ int main (int argc, char *argv[]) {
         int test3 ;
         test3 = cross_get_y ( miaou ) ; 
         printf ( "y : %d\n", test3) ; 
-        
+       
+        cross_del (miaou) ; 
         return 0;
 }

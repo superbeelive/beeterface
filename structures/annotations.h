@@ -2,7 +2,7 @@
 #define ANNOTATIONS_H
 
 #define TAILLE 128
-
+#include <time.h>
 #include "auteur.h"
 
 typedef int timecode_t; //TODO 
@@ -19,8 +19,8 @@ typedef struct {
     int tag_size;
     auteur_t* auteur;
     color_t color;
-    timecode_t time_start;
-    timecode_t time_end;
+    char* time_start;
+    char* time_end;
     char* description; 
 
     int x_start;
@@ -42,8 +42,8 @@ void oblong_show_tag ( oblong_t* ) ;
 void oblong_set_color ( oblong_t*, color_t* color) ;
 color_t oblong_get_color ( oblong_t* ) ;
 
-void oblong_set_time_start ( oblong_t*, timecode_t time_s ) ;
-timecode_t oblong_get_time_start ( oblong_t* );
+void oblong_set_time_start ( oblong_t* ) ;
+char* oblong_get_time_start ( oblong_t* );
 
 void oblong_set_time_end ( oblong_t*, timecode_t time_e ) ;
 timecode_t oblong_get_time_end ( oblong_t* );

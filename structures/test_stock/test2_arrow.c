@@ -33,6 +33,7 @@ int main (int argc, char *argv[]) {
         test4 = arrow_get_angle ( poulpe ) ;
         printf ( "angle : %d\n", test4 ) ;
         
+        arrow_del(poulpe); 
 
          return 0;
 }    

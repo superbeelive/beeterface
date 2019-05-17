@@ -40,6 +40,6 @@ int main (int argc, char *argv[]) {
         test5 = oblong_get_y_end ( ficus ) ;
         printf ( "y fin : %d\n", test5 ) ;
 
-
+        oblong_del ( ficus ) ;
         return 0;
 }

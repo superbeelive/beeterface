@@ -20,6 +20,8 @@ int main (int argc, char *argv[]) {
         int test2 ;
         test2 = measure_get_value ( ouaf ) ;
         printf ( "Mesure : %d\n", test2) ;
-        
+
+        measure_del (ouaf) ; 
+
         return 0;
 }

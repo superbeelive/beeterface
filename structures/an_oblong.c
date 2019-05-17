@@ -14,11 +14,13 @@ oblong_t* oblong_new(){
     ob = malloc ( sizeof (oblong_t) ) ; 
     ob->auteur = malloc ( sizeof (TAILLE) ) ; 
     ob->description = malloc ( sizeof (TAILLE) ) ;
+    ob->time_start = malloc ( sizeof (TAILLE) ) ;
 
    /* sprintf(ob->auteur, "OSP");
     sprintf(ob->color, "RGB");
-    sprintf(ob->time_start "0:45");
     sprintf(ob->time_end "2:00"); */
+   
+    sprintf(ob->time_start, "0:45");
     sprintf(ob->description, "Ceci est une description");
     ob->x_start = 3 ;
     ob->y_start = 5 ;
@@ -29,19 +31,23 @@ oblong_t* oblong_new(){
 }
 
 void oblong_del ( oblong_t* ob) {
+
+
+    free ( ob->time_start ) ; //ce free pose soucis !  IDK pourquoi 
     free ( ob->auteur ) ;
     free ( ob->description ) ;
     free ( ob ) ;
+    
 
 }
 
 
 //Pas de visualisation des tags ici
 void oblong_show ( oblong_t* ob) {
-    printf("%s %d %d %d %d\n", /*ob->auteur,
+    printf("%s %s %d %d %d %d \n", /*ob->auteur,
                                   ob->color,
-                                  ob->time_start,
                                   ob->time_end, */
+                                  ob->time_start,
                                   ob->description,
                                   ob->x_start,
                                   ob->y_start, 
@@ -72,17 +78,27 @@ void oblong_set_color ( oblong_t* ob, color_t* col ) {
 color_t oblong_get_color ( oblong_t* ob ) { 
     return ob->color ;
 }
-
+*/
 ////////////////////////TIME//////////////////////////////
-//TODO
-void oblong_set_time_start ( oblong_t* ob, timecode_t time_s ) {
+
+void oblong_set_time_start ( oblong_t* ob ) { 
+
+    time_t temps;
+    time(&temps);
+
+    char* time_s;
+    time_s = ctime(&temps) ;
+
     sprintf ( ob->time_start, "%s", time_s ) ;
 }
 
-timecode_t oblong_get_time_start ( oblong_t* ob ) {
+char* oblong_get_time_start ( oblong_t* ob ) {
     return ob->time_start ;
 }
 
+
+//TODO
+/*
 void oblong_set_time_end ( oblong_t* ob, timecode_t time_e ) {
     sprintf ( ob->time_end,"%s",time_e ) ; 
 

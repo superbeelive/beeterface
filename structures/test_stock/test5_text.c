@@ -21,5 +21,7 @@ int main (int argc, char *argv[]) {
         test2 = text_get_comment ( cuic ) ;
         printf ( "Commentaire : %s\n", test2) ;
         
+        text_del (cuic) ; 
+
         return 0;
 }
