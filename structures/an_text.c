@@ -13,9 +13,9 @@ text_t* text_new(){
     text_t* txt;
 
     txt = malloc ( sizeof (text_t) ) ; 
-    txt->auteur = malloc ( sizeof (TAILLE) ) ; 
-    txt->description = malloc ( sizeof (TAILLE) ) ;
-    txt->comment = malloc ( sizeof (TAILLE) ) ; 
+    txt->auteur = malloc ( TAILLE ) ; 
+    txt->description = malloc ( TAILLE ) ;
+    txt->comment = malloc ( TAILLE ) ; 
 
    /* sprintf(txt->auteur, "OSP");
     sprintf(txt->color, "RGB");

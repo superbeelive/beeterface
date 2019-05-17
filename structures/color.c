@@ -9,7 +9,7 @@
 color_t* color_new () {
     color_t* col ; 
     col = malloc(sizeof(color_t)) ;
-    col->name = malloc(sizeof(TAILLE)) ;
+    col->name = malloc(TAILLE) ;
    
     sprintf ( col->name, "Nom de la couleur" ) ;
     col->R = 1 ;

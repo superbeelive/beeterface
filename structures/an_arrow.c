@@ -12,8 +12,8 @@ arrow_t* arrow_new(){
     arrow_t* ar;
 
     ar = malloc ( sizeof (arrow_t) ) ; 
-    ar->auteur = malloc ( sizeof (TAILLE) ) ; 
-    ar->description = malloc ( sizeof (TAILLE) ) ;
+    ar->auteur = malloc ( TAILLE ) ; 
+    ar->description = malloc ( TAILLE ) ;
 
    // sprintf(ar->auteur, "OSP"); TODO : ajouter auteur 
    //  sprintf(ar->color, "RGB"); TODO : ajouter couleur 

@@ -12,8 +12,8 @@ cross_t* cross_new(){
     cross_t* cr;
 
     cr = malloc ( sizeof (cross_t) ) ; 
-    cr->auteur = malloc ( sizeof (TAILLE) ) ; 
-    cr->description = malloc ( sizeof (TAILLE) ) ;
+    cr->auteur = malloc ( TAILLE ) ; 
+    cr->description = malloc ( TAILLE ) ;
 
    // sprintf(cr->auteur, "OSP");
    // sprintf(cr->color, "RGB");

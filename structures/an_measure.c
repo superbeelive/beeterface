@@ -13,8 +13,8 @@ measure_t* measure_new(){
     measure_t* mea;
 
     mea = malloc ( sizeof (measure_t) ) ; 
-    mea->auteur = malloc ( sizeof (TAILLE) ) ; 
-    mea->description = malloc ( sizeof (TAILLE) ) ;
+    mea->auteur = malloc ( TAILLE ) ; 
+    mea->description = malloc ( TAILLE ) ;
 
     //sprintf(mea->auteur, "OSP");
     //sprintf(mea->color, "RGB");

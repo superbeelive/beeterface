@@ -13,8 +13,8 @@ moving_cross_t* moving_cross_new(){
     moving_cross_t* cr;
 
     cr = malloc ( sizeof (moving_cross_t) ) ; 
-    cr->auteur = malloc ( sizeof (TAILLE) ) ; 
-    cr->description = malloc ( sizeof (TAILLE) ) ;
+    cr->auteur = malloc ( TAILLE ) ; 
+    cr->description = malloc ( TAILLE ) ;
 
    /* sprintf(cr->auteur, "OSP");
     sprintf(cr->color, "RGB");

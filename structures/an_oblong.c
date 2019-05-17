@@ -12,9 +12,9 @@ oblong_t* oblong_new(){
     oblong_t* ob;
 
     ob = malloc ( sizeof (oblong_t) ) ; 
-    ob->auteur = malloc ( sizeof (TAILLE) ) ; 
-    ob->description = malloc ( sizeof (TAILLE) ) ;
-    ob->time_start = malloc ( sizeof (TAILLE) ) ;
+    ob->auteur = malloc ( TAILLE ) ; 
+    ob->description = malloc ( TAILLE ) ;
+    ob->time_start = malloc ( TAILLE ) ;
 
    /* sprintf(ob->auteur, "OSP");
     sprintf(ob->color, "RGB");
