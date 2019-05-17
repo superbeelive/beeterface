@@ -40,6 +40,12 @@ int main (int argc, char *argv[]) {
         test5 = oblong_get_y_end ( ficus ) ;
         printf ( "y fin : %d\n", test5 ) ;
 
-        oblong_del ( ficus ) ;
+        oblong_set_time_start ( ficus ) ;
+        char* test6 ;
+        test6 = oblong_get_time_start ( ficus ) ; 
+        printf ( "Date de début : %s\n", test6 ) ; 
+
+        oblong_del ( ficus ) ; 
+
         return 0;
 }
