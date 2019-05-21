@@ -28,7 +28,7 @@ void auteur_del ( auteur_t* auteur_a_dell ) {
 
 void auteur_show (auteur_t* auteur_affiche ) {
 
-    printf("%s %s %s", auteur_affiche->nom, 
+    printf("Auteur : %s %s \nEmail : %s", auteur_affiche->nom, 
                        auteur_affiche->prenom,
                        auteur_affiche->email);
 }

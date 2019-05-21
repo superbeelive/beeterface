@@ -1,28 +1,36 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "color.h"
+#include "annotations.h"
 
 int main (int argc, char *argv[]) {
 
-        color_t* ficus;
 
-        ficus = color_new() ; 
-        color_show ( ficus ) ;
+        text_t* ficus;
+        ficus = text_new() ; 
+        text_show ( ficus ) ;
+        
+        printf("\n-----------------------------------------------------\n") ;
 
-        color_set_name ( ficus, "PONEY" ) ;
-        char* nom ;
-        nom = color_get_name (ficus) ;
-        printf("nom %s",nom); 
+        text_set_description ( ficus, "C'est un joli mot ça" ) ;
+        char* test1 ;
+        test1 = text_get_description ( ficus ) ;
+        printf ( "descripion : %s\n", test1 ) ;
+        
 
-        printf ("\n") ; 
-        color_set_R ( ficus, 12 ) ;
-        int col1 ; 
-        col1 = color_get_R ( ficus ) ;
-        printf ("R : %d", col1) ;
+        text_set_comment ( ficus, "commentaire/20" ) ;
+        char* test3 ;
+        test3 = text_get_comment ( ficus ) ;
+        printf ( "Commentaire : %s\n", test3 ) ;
 
 
-        color_del ( ficus ) ;
+        text_set_time_start ( ficus ) ;
+        char* test6 ;
+        test6 = text_get_time_start ( ficus ) ; 
+        printf ( "Date de début : %s\n", test6 ) ; 
+
+        text_del ( ficus ) ; 
+
 
         return 0;
 }

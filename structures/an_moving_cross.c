@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include <stdlib.h>
 
 #include "annotations.h" 
@@ -13,19 +12,27 @@ moving_cross_t* moving_cross_new(){
     moving_cross_t* cr;
 
     cr = malloc ( sizeof (moving_cross_t) ) ; 
-    cr->auteur = malloc ( TAILLE ) ; 
     cr->description = malloc ( TAILLE ) ;
+    cr->time_start = malloc ( TAILLE ) ; 
+    cr->time_end = malloc ( TAILLE ) ;
 
-   /* sprintf(cr->auteur, "OSP");
-    sprintf(cr->color, "RGB");
-    sprintf(cr->time_start "0:45");
-    sprintf(cr->time_end "2:00"); */
+    
+    sprintf(cr->time_start, "0:45");
+    sprintf(cr->time_end, "2:00"); 
     sprintf(cr->description, "Ceci est une description");
+
+    cr->color = color_new() ; 
+    cr->auteur = auteur_new() ; 
 
     return cr;
 }
 
 void moving_cross_del ( moving_cross_t* cr) {
+    
+    color_del ( cr->color ) ;
+    auteur_del ( cr->auteur ) ; 
+    free ( cr->time_start ) ;
+    free ( cr->time_end ) ; 
     free ( cr->auteur ) ;
     free ( cr->description ) ;
     free ( cr ) ;
@@ -33,14 +40,13 @@ void moving_cross_del ( moving_cross_t* cr) {
 }
 
 
-//Pas de visualisation des tags ici
 void moving_cross_show ( moving_cross_t* cr) {
-    printf("%s\n", /*cr->auteur,
-                                  cr->color,
-                                  cr->time_start,
-                                  cr->time_end, */
-                                  cr->description ) ;
-                                            
+    printf("%s %s\n",cr->time_end,
+                     cr->time_start,
+                     cr->description ) ;
+    
+    color_show ( cr->color ) ; 
+    auteur_show ( cr->auteur ) ;
 }
 /*
 /////////////////////////TAGS/////////////////////////////
@@ -54,35 +60,34 @@ void moving_cross_remove_tag ( moving_cross_t* cr, int tag ) { //TODO
 void moving_cross_show_tag ( moving_cross_t* cr, int taf ) { //TODO
 }
 
-
-//////////////////////COLORS/////////////////////////////
-
-//TODO
-void moving_cross_set_color ( moving_cross_t* cr, color_t* col ) { 
-    sprintf(cr->color,"%s",col);
-}
-
-color_t moving_cross_get_color ( moving_cross_t* cr ) { 
-    return cr->color ;
-}
-
 ////////////////////////TIME//////////////////////////////
-//TODO
-void moving_cross_set_time_start ( moving_cross_t* cr, timecode_t time_s ) {
+*/
+
+void moving_cross_set_time_start ( moving_cross_t* cr ) { 
+
+    time_t temps;
+    time(&temps);
+
+    char* time_s;
+    time_s = ctime(&temps) ;
+
     sprintf ( cr->time_start, "%s", time_s ) ;
 }
 
-timecode_t moving_cross_get_time_start ( moving_cross_t* cr ) {
+char* moving_cross_get_time_start ( moving_cross_t* cr ) {
     return cr->time_start ;
 }
 
-void moving_cross_set_time_end ( moving_cross_t* cr, timecode_t time_e ) {
-    sprintf ( cr->time_end,"%s",time_e ) ; 
+//TIME END 
 
-timecode_t moving_cross_get_time_end ( moving_cross_t* cr ) {
+void moving_cross_set_time_end ( moving_cross_t* cr ) { 
+    sprintf ( cr->time_end, "%s", cr->time_start ) ;
+}
+
+char* moving_cross_get_time_end ( moving_cross_t* cr ) {
     return cr->time_end ; 
 }
-*/
+
 ////////////////////////DESCRIPTION///////////////////////
 
 void moving_cross_set_description ( moving_cross_t* cr, char* descr ) {

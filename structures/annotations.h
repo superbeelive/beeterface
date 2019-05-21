@@ -4,10 +4,7 @@
 #define TAILLE 128
 #include <time.h>
 #include "auteur.h"
-
-typedef int timecode_t; //TODO 
-typedef int color_t; //TODO
-//3 chars 
+#include "color.h"
 
 /* Tag = pile de tag, une fonction unique(passe partout) TODO*/
 
@@ -18,7 +15,7 @@ typedef struct {
     int tag[TAILLE];
     int tag_size;
     auteur_t* auteur;
-    color_t color;
+    color_t* color;
     char* time_start;
     char* time_end;
     char* description; 
@@ -45,8 +42,8 @@ color_t oblong_get_color ( oblong_t* ) ;
 void oblong_set_time_start ( oblong_t* ) ;
 char* oblong_get_time_start ( oblong_t* );
 
-void oblong_set_time_end ( oblong_t*, timecode_t time_e ) ;
-timecode_t oblong_get_time_end ( oblong_t* );
+void oblong_set_time_end ( oblong_t* ) ;
+char * oblong_get_time_end ( oblong_t* );
 
 void oblong_set_description ( oblong_t*, char* descr ) ;
 char* oblong_get_description ( oblong_t* ) ;
@@ -72,9 +69,9 @@ typedef struct {
     int tag[TAILLE];
     int tag_size;
     auteur_t* auteur;
-    color_t color;
-    timecode_t time_start;
-    timecode_t time_end;
+    color_t* color;
+    char * time_start;
+    char * time_end;
     char* description; 
     
     int x;
@@ -94,11 +91,11 @@ void cross_show_tag ( cross_t* ) ;
 void cross_set_color ( cross_t*, color_t* color) ;
 color_t cross_get_color ( cross_t* ) ;
 
-void cross_set_time_start ( cross_t*, timecode_t time_s ) ;
-timecode_t cross_get_time_start ( cross_t* );
+void cross_set_time_start ( cross_t*) ;
+char* cross_get_time_start ( cross_t* );
 
-void cross_set_time_end ( cross_t*, timecode_t time_e ) ;
-timecode_t cross_get_time_end ( cross_t* );
+void cross_set_time_end ( cross_t*) ;
+char* cross_get_time_end ( cross_t* );
 
 void cross_set_description ( cross_t*, char* descr ) ;
 char* cross_get_description ( cross_t* ) ;
@@ -116,9 +113,9 @@ typedef struct {
     int tag[TAILLE];
     int tag_size;
     auteur_t* auteur;
-    color_t color;
-    timecode_t time_start;
-    timecode_t time_end;
+    color_t* color;
+    char * time_start;
+    char * time_end;
     char* description; 
     
     int x;
@@ -133,16 +130,16 @@ void arrow_show ( arrow_t* ) ;
 
 void arrow_add_tag ( arrow_t*, int tag ) ; //TODO  
 void arrow_remove_tag ( arrow_t*, int tag ) ; //TODO
-void arrow_show_tag ( arrow_t* ) ; //TODO 
+void arrow_show_tag ( arrow_t* ) ; //TODO
 
-void arrow_set_color ( arrow_t*, color_t* color) ; //TODO
-color_t arrow_get_color ( arrow_t* ) ; //TODO 
+void arrow_set_color ( arrow_t*, color_t* color) ; 
+color_t arrow_get_color ( arrow_t* ) ;  
 
-void arrow_set_time_start ( arrow_t*, timecode_t time_s ) ; //TODO
-timecode_t arrow_get_time_start ( arrow_t* ); //TODO
+void arrow_set_time_start ( arrow_t* ) ;
+char* arrow_get_time_start ( arrow_t* );
 
-void arrow_set_time_end ( arrow_t*, timecode_t time_e ) ; //TODO
-timecode_t arrow_get_time_end ( arrow_t* ); //TODO 
+void arrow_set_time_end ( arrow_t* ) ; 
+char* arrow_get_time_end ( arrow_t* );  
 
 void arrow_set_description ( arrow_t*, char* descr ) ;
 char* arrow_get_description ( arrow_t* ) ;
@@ -164,9 +161,9 @@ typedef struct {
     int tag[TAILLE];
     int tag_size;
     auteur_t* auteur;
-    color_t color;
-    timecode_t time_start;
-    timecode_t time_end;
+    color_t* color;
+    char* time_start;
+    char* time_end;
     char* description; 
 
     char* comment;
@@ -177,18 +174,18 @@ text_t* text_new() ;
 void text_del ( text_t* ) ;
 void text_show ( text_t* ) ;
 
-void text_add_tag ( text_t*, int tag ) ; 
-void text_remove_tag ( text_t*, int tag ) ;
-void text_show_tag ( text_t* ) ; 
+void text_add_tag ( text_t*, int tag ) ; //TODO 
+void text_remove_tag ( text_t*, int tag ) ; //TODO
+void text_show_tag ( text_t* ) ; //TODO 
 
 void text_set_color ( text_t*, color_t* color) ;
 color_t text_get_color ( text_t* ) ;
 
-void text_set_time_start ( text_t*, timecode_t time_s ) ;
-timecode_t text_get_time_start ( text_t* );
+void text_set_time_start ( text_t*) ;
+char * text_get_time_start ( text_t* );
 
-void text_set_time_end ( text_t*, timecode_t time_e ) ;
-timecode_t text_get_time_end ( text_t* );
+void text_set_time_end ( text_t*) ;
+char * text_get_time_end ( text_t* );
 
 void text_set_description ( text_t*, char* descr ) ;
 char* text_get_description ( text_t* ) ;
@@ -203,9 +200,9 @@ typedef struct {
     int tag[TAILLE];
     int tag_size;
     auteur_t* auteur;
-    color_t color;
-    timecode_t time_start;
-    timecode_t time_end;
+    color_t* color;
+    char * time_start;
+    char * time_end;
     char* description; //On y précisera l'unité
    
     double value; 
@@ -223,11 +220,11 @@ void measure_show_tag ( measure_t* ) ;
 void measure_set_color ( measure_t*, color_t* color) ;
 color_t measure_get_color ( measure_t* ) ;
 
-void measure_set_time_start ( measure_t*, timecode_t time_s ) ;
-timecode_t measure_get_time_start ( measure_t* );
+void measure_set_time_start ( measure_t*) ;
+char * measure_get_time_start ( measure_t* );
 
-void measure_set_time_end ( measure_t*, timecode_t time_e ) ;
-timecode_t measure_get_time_end ( measure_t* );
+void measure_set_time_end ( measure_t* ) ;
+char * measure_get_time_end ( measure_t* );
 
 void measure_set_description ( measure_t*, char* descr ) ;
 char* measure_get_description ( measure_t* ) ;
@@ -243,7 +240,7 @@ typedef struct { //TODO
     int tag[TAILLE];
     int tag_size;
     auteur_t* auteur;
-    char* color;
+    color_t* color;
     char* time_start;
     char* time_end;
 
@@ -262,11 +259,11 @@ void moving_cross_show_tag ( moving_cross_t* ) ;
 void moving_cross_set_color ( moving_cross_t*, color_t* color) ;
 color_t moving_cross_get_color ( moving_cross_t* ) ;
 
-void moving_cross_set_time_start ( moving_cross_t*, timecode_t time_s ) ;
-timecode_t moving_cross_get_time_start ( moving_cross_t* );
+void moving_cross_set_time_start ( moving_cross_t* ) ;
+char * moving_cross_get_time_start ( moving_cross_t* );
 
-void moving_cross_set_time_end ( moving_cross_t*, timecode_t time_e ) ;
-timecode_t moving_cross_get_time_end ( moving_cross_t* );
+void moving_cross_set_time_end ( moving_cross_t*) ;
+char * moving_cross_get_time_end ( moving_cross_t* );
 
 void moving_cross_set_description ( moving_cross_t*, char* descr ) ;
 char* moving_cross_get_description ( moving_cross_t* ) ;

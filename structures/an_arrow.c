@@ -7,44 +7,50 @@
 
 /////////////////////FONCTIONS DE BASE///////////////////////
 
-
 arrow_t* arrow_new(){
     arrow_t* ar;
 
     ar = malloc ( sizeof (arrow_t) ) ; 
     ar->auteur = malloc ( TAILLE ) ; 
     ar->description = malloc ( TAILLE ) ;
-
-   // sprintf(ar->auteur, "OSP"); TODO : ajouter auteur 
-   //  sprintf(ar->color, "RGB"); TODO : ajouter couleur 
-   // sprintf(ar->time_start "0:45"); TODO
-   //  sprintf(ar->time_end "2:00"); TODO
+    ar->time_start = malloc ( TAILLE ) ; 
+    ar->time_end = malloc ( TAILLE ) ; 
+    
+    sprintf(ar->time_start, "0:45"); 
+    sprintf(ar->time_end, "2:25"); 
     sprintf ( ar->description, "Ceci est une description" ) ;
     ar->x = 3 ;
     ar->y = 5 ;
     ar->angle = 45 ; 
+
+    ar->color = color_new() ; 
+    ar->auteur = auteur_new() ;
+
     return ar;
 }
 
 void arrow_del ( arrow_t* ar) {
+    
+    color_del ( ar->color ) ;
+    auteur_del (ar->auteur ) ;
+    free ( ar->time_start ) ;
+    free ( ar->time_end ) ;
     free ( ar->auteur ) ;
     free ( ar->description ) ;
     free ( ar ) ;
 
 }
 
-
-//Pas de visualisation des tags ici
 void arrow_show ( arrow_t* ar) {
-    printf("%s %d %d %d \n", //ar->auteur,
-                                  //ar->color,
-                                  //ar->time_start,
-                                  //ar->time_end,
+    printf("Début : %s \nFin : %s \nDescription : %s \nx départ : %d \ny départ : %d \n", 
+                                  ar->time_start,
+                                  ar->time_end, 
                                   ar->description,
                                   ar->x,
-                                  ar->y, 
-                                  ar->angle);
+                                  ar->y ) ; 
 
+    color_show ( ar->color ) ;
+    auteur_show ( ar->auteur ) ;
 }
 
 /////////////////////////TAGS/////////////////////////////
@@ -58,36 +64,33 @@ void arrow_remove_tag ( arrow_t* ar, int tag ) { //TODO
 void arrow_show_tag ( arrow_t* ar, int taf ) { //TODO
 }
 
-
-//////////////////////COLORS/////////////////////////////
-
-//TODO 
-
-void arrow_set_color ( arrow_t* ar, color_t* col ) { 
-    sprintf(ar->color,"%s",col);
-}
-
-color_t arrow_get_color ( arrow_t* ar ) { 
-    return ar->color ;
-}
-
 ////////////////////////TIME//////////////////////////////
-//TODO
-void arrow_set_time_start ( arrow_t* ar, timecode_t time_s ) {
+*/
+void arrow_set_time_start ( arrow_t* ar ) { 
+
+    time_t temps;
+    time(&temps);
+
+    char* time_s;
+    time_s = ctime(&temps) ;
+
     sprintf ( ar->time_start, "%s", time_s ) ;
 }
 
-timecode_t arrow_get_time_start ( arrow_t* ar ) {
+char* arrow_get_time_start ( arrow_t* ar ) {
     return ar->time_start ;
 }
 
-void arrow_set_time_end ( arrow_t* ar, timecode_t time_e ) {
-    sprintf ( ar->time_end,"%s",time_e ) ; 
+///TIME END 
 
-timecode_t arrow_get_time_end ( arrow_t* ar ) {
+void arrow_set_time_end ( arrow_t* ar ) { 
+    sprintf ( ar->time_end, "%s", ar->time_start ) ;
+}
+
+char* arrow_get_time_end ( arrow_t* ar ) {
     return ar->time_end ; 
 }
-*/
+
 ////////////////////////DESCRIPTION///////////////////////
 
 void arrow_set_description ( arrow_t* ar, char* desar ) {

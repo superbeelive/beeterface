@@ -9,7 +9,7 @@ int main (int argc, char *argv[]) {
         ficus = oblong_new() ; 
         oblong_show ( ficus ) ;
         
-        printf("\n") ;
+        printf("\n-----------------------------------------------------\n") ;
 
         oblong_set_description ( ficus, "C'est un joli mot ça" ) ;
         char* test1 ;

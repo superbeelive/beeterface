@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include <stdlib.h>
 
 #include "annotations.h" 
@@ -13,35 +12,37 @@ measure_t* measure_new(){
     measure_t* mea;
 
     mea = malloc ( sizeof (measure_t) ) ; 
-    mea->auteur = malloc ( TAILLE ) ; 
     mea->description = malloc ( TAILLE ) ;
+    mea->time_start = malloc ( TAILLE ) ; 
+    mea->time_end = malloc ( TAILLE ) ; 
 
-    //sprintf(mea->auteur, "OSP");
-    //sprintf(mea->color, "RGB");
-    //sprintf(mea->time_start "0:45");
-    //sprintf(mea->time_end "2:00");
+    sprintf(mea->time_start, "0:45");
+    sprintf(mea->time_end, "2:00");
     sprintf(mea->description, "Ceci est une description");
     mea->value = 1 ;
+    
+    mea->color = color_new() ;
+    mea->auteur = auteur_new() ;
 
     return mea;
 }
 
 void measure_del ( measure_t* mea) {
-    free ( mea->auteur ) ;
+
+    color_del ( mea->color ) ;
+    auteur_del ( mea->auteur ) ;
+    free ( mea->time_start ) ;
     free ( mea->description ) ;
     free ( mea ) ;
 
 }
 
-
-//Pas de visualisation des tags ici
 void measure_show ( measure_t* mea) {
-    printf("%s %f\n", //mea->auteur,
-                                  //mea->color,
-                                  //mea->time_start,
-                                  //mea->time_end,
-                                  mea->description,
-                                  mea->value ) ; 
+    printf("%s %s %f\n", mea->description,
+                         mea->time_start,
+                         mea->value ) ; 
+    color_show ( mea->color ) ; 
+    auteur_show ( mea->auteur ) ; 
 }
 
 /////////////////////////TAGS/////////////////////////////
@@ -55,35 +56,35 @@ void measure_remove_tag ( measure_t* mea, int tag ) { //TODO
 void measure_show_tag ( measure_t* mea, int taf ) { //TODO
 }
 
-
-//////////////////////COLORS/////////////////////////////
-
-//TODO
-void measure_set_color ( measure_t* mea, color_t* col ) { 
-    sprintf(mea->color,"%s",col);
-}
-
-color_t measure_get_color ( measure_t* mea ) { 
-    return mea->color ;
-}
+*/
 
 ////////////////////////TIME//////////////////////////////
-//TODO
-void measure_set_time_start ( measure_t* mea, timecode_t time_s ) {
+// TIME START 
+void measure_set_time_start ( measure_t* mea ) { 
+
+    time_t temps;
+    time(&temps);
+
+    char* time_s;
+    time_s = ctime(&temps) ;
+
     sprintf ( mea->time_start, "%s", time_s ) ;
 }
 
-timecode_t measure_get_time_start ( measure_t* mea ) {
+char* measure_get_time_start ( measure_t* mea ) {
     return mea->time_start ;
 }
 
-void measure_set_time_end ( measure_t* mea, timecode_t time_e ) {
-    sprintf ( mea->time_end,"%s",time_e ) ; 
+// TIME END 
 
-timecode_t measure_get_time_end ( measure_t* mea ) {
+void measure_set_time_end ( measure_t* mea ) { 
+    sprintf ( mea->time_end, "%s", mea->time_start ) ;
+}
+
+char* measure_get_time_end ( measure_t* mea ) {
     return mea->time_end ; 
 }
-*/
+
 ////////////////////////DESCRIPTION///////////////////////
 
 void measure_set_description ( measure_t* mea, char* descr ) {

@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include <stdlib.h>
 
 #include "annotations.h" 
@@ -16,33 +15,39 @@ text_t* text_new(){
     txt->auteur = malloc ( TAILLE ) ; 
     txt->description = malloc ( TAILLE ) ;
     txt->comment = malloc ( TAILLE ) ; 
+    txt->time_start = malloc ( TAILLE ) ; 
+    txt->time_end = malloc ( TAILLE ) ;
 
-   /* sprintf(txt->auteur, "OSP");
-    sprintf(txt->color, "RGB");
-    sprintf(txt->time_start "0:45");
-    sprintf(txt->time_end "2:00"); TODO */
+    sprintf ( txt->time_end, "2:45" ) ;  
+    sprintf ( txt->time_start, "0:45" );
     sprintf ( txt->description, "Ceci est une description" ) ;
-    sprintf (txt->comment, "Ceci est un commentaire" ) ;
+    sprintf ( txt->comment, "Ceci est un commentaire" ) ;
+
+    txt->color = color_new() ; 
+    txt->auteur = auteur_new() ; 
 
     return txt;
 }
-
 void text_del ( text_t* txt) {
+    
+    color_del ( txt->color ) ;
+    auteur_del ( txt->auteur ) ;
+    free ( txt->time_start ) ;
     free ( txt->auteur ) ;
     free ( txt->description ) ;
     free ( txt->comment ) ;
     free ( txt ) ;
 }
 
-
-//Pas de visualisation des tags ici
 void text_show ( text_t* txt) {
-    printf("%s %s\n", /*txt->auteur,
-                                  txt->color,
+    printf("Début : %s \nFin : %s \nDescription : %s\nCommentaire : %s", 
                                   txt->time_start,
-                                  txt->time_end, */
-                                  txt->description, 
-                                  txt->comment);
+                                  txt->time_end, 
+                                  txt->description,
+                                  txt->comment ) ; 
+
+    color_show ( txt->color ) ;
+    auteur_show ( txt->auteur ) ;
 
 }
 
@@ -58,34 +63,33 @@ void text_show_tag ( text_t* txt, int taf ) { //TODO
 }
 
 
-//////////////////////COLORS/////////////////////////////
-//TODO
-
-void text_set_color ( text_t* txt, color_t* col ) { 
-    sprintf(txt->color,"%s",col);
-}
-
-color_t text_get_color ( text_t* txt ) { 
-    return txt->color ;
-}
-
 ////////////////////////TIME//////////////////////////////
-//TODO
-void text_set_time_start ( text_t* txt, timecode_t time_s ) {
+*/
+void text_set_time_start ( text_t* txt ) { 
+
+    time_t temps;
+    time(&temps);
+
+    char* time_s;
+    time_s = ctime(&temps) ;
+
     sprintf ( txt->time_start, "%s", time_s ) ;
 }
 
-timecode_t text_get_time_start ( text_t* txt ) {
+char* text_get_time_start ( text_t* txt ) {
     return txt->time_start ;
 }
 
-void text_set_time_end ( text_t* txt, timecode_t time_e ) {
-    sprintf ( txt->time_end,"%s",time_e ) ; 
+//TIME END 
 
-timecode_t text_get_time_end ( text_t* txt ) {
+void text_set_time_end ( text_t* txt ) { 
+    sprintf ( txt->time_end, "%s", txt->time_start ) ;
+}
+
+char* text_get_time_end ( text_t* txt ) {
     return txt->time_end ; 
 }
-*/
+
 ////////////////////////DESCRIPTION///////////////////////
 
 void text_set_description ( text_t* txt, char* descr ) {

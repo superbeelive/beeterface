@@ -14,35 +14,45 @@ cross_t* cross_new(){
     cr = malloc ( sizeof (cross_t) ) ; 
     cr->auteur = malloc ( TAILLE ) ; 
     cr->description = malloc ( TAILLE ) ;
+    cr->time_start = malloc ( TAILLE ) ;
+    cr->time_end = malloc ( TAILLE ) ;
 
-   // sprintf(cr->auteur, "OSP");
-   // sprintf(cr->color, "RGB");
-   // sprintf(cr->time_start "0:45");
-   // sprintf(cr->time_end "2:00");
-    sprintf(cr->description, "Ceci est une description");
+    sprintf ( cr->time_start, "0:45" ) ;
+    sprintf ( cr->time_end, "2:00" ) ;
+    sprintf ( cr->description, "Ceci est une description" ) ;
     cr->x = 3 ;
     cr->y = 5 ;
+
+    cr->color = color_new() ; 
+    cr->auteur = auteur_new() ; 
 
     return cr;
 }
 
 void cross_del ( cross_t* cr) {
+
+    color_del ( cr->color ) ; 
+    auteur_del ( cr->auteur ) ; 
+    free ( cr->time_start ) ;
+    free ( cr->time_end ) ;
     free ( cr->auteur ) ;
     free ( cr->description ) ;
     free ( cr ) ;
 
 }
 
-
 //Pas de visualisation des tags ici
 void cross_show ( cross_t* cr) {
-    printf("%s %d %d\n", //cr->auteur,
-                                  //cr->color,
-                                  //cr->time_start,
-                                  //cr->time_end,
+    printf("Début : %s \nFin : %s \nDescription : %s \nx : %d \ny : %d\n", 
+                                  cr->time_start,
+                                  cr->time_end, 
                                   cr->description,
                                   cr->x,
-                                  cr->y ) ;
+                                  cr->y ) ; 
+                                    
+                                  
+    color_show ( cr->color ) ;
+    auteur_show ( cr->auteur ) ; 
 
 }
 /*
@@ -57,35 +67,33 @@ void cross_remove_tag ( cross_t* cr, int tag ) { //TODO
 void cross_show_tag ( cross_t* cr, int taf ) { //TODO
 }
 
-
-//////////////////////COLORS/////////////////////////////
-
-//TODO
-void cross_set_color ( cross_t* cr, color_t* col ) { 
-    sprintf(cr->color,"%s",col);
-}
-
-color_t cross_get_color ( cross_t* cr ) { 
-    return cr->color ;
-}
-
+*/
 ////////////////////////TIME//////////////////////////////
-//TODO
-void cross_set_time_start ( cross_t* cr, timecode_t time_s ) {
+
+void cross_set_time_start ( cross_t* cr ) { 
+    time_t temps;
+    time(&temps);
+
+    char* time_s;
+    time_s = ctime(&temps) ;
+
     sprintf ( cr->time_start, "%s", time_s ) ;
 }
 
-timecode_t cross_get_time_start ( cross_t* cr ) {
+char* cross_get_time_start ( cross_t* cr ) {
     return cr->time_start ;
 }
 
-void cross_set_time_end ( cross_t* cr, timecode_t time_e ) {
-    sprintf ( cr->time_end,"%s",time_e ) ; 
+//TIME END 
 
-timecode_t cross_get_time_end ( cross_t* cr ) {
+void cross_set_time_end ( cross_t* cr ) { 
+    sprintf ( cr->time_end, "%s", cr->time_start ) ;
+}
+
+char* cross_get_time_end ( cross_t* cr ) {
     return cr->time_end ; 
 }
-*/
+
 ////////////////////////DESCRIPTION///////////////////////
 
 void cross_set_description ( cross_t* cr, char* descr ) {

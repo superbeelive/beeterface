@@ -4,7 +4,7 @@ LDFLAGS =
 
 all: test
 
-test: an_moving_cross.o test.o 
+test: an_moving_cross.o test.o color.o auteur.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %o: %.c

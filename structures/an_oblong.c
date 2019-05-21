@@ -5,56 +5,57 @@
 
 #define TAILLE 128
 
-/////////////////////FONCTIONS DE BASE///////////////////////
-//
+/////////////////////FONCTIONS DE BASE////////////////////////
 
 oblong_t* oblong_new(){
     oblong_t* ob;
 
     ob = malloc ( sizeof (oblong_t) ) ; 
-    ob->auteur = malloc ( TAILLE ) ; 
     ob->description = malloc ( TAILLE ) ;
     ob->time_start = malloc ( TAILLE ) ;
-
-   /* sprintf(ob->auteur, "OSP");
-    sprintf(ob->color, "RGB");
-    sprintf(ob->time_end "2:00"); */
+    ob->time_end = malloc ( TAILLE ) ;
    
-    sprintf(ob->time_start, "0:45");
+    sprintf ( ob->time_start, "0:45" ) ;
+    sprintf ( ob->time_end, "1:25" ) ; 
     sprintf(ob->description, "Ceci est une description");
     ob->x_start = 3 ;
     ob->y_start = 5 ;
     ob->x_end = 8 ;
     ob->y_end =15 ;   
+    
+    ob->color = color_new() ;
+    ob->auteur = auteur_new() ;
 
     return ob;
 }
 
 void oblong_del ( oblong_t* ob) {
 
-
-    free ( ob->time_start ) ; //ce free pose soucis !  IDK pourquoi 
+    color_del ( ob->color ) ;
+    auteur_del ( ob->auteur ) ;
+    free ( ob->time_start ) ;  
+    free ( ob->time_end ) ;  
     free ( ob->auteur ) ;
     free ( ob->description ) ;
     free ( ob ) ;
     
-
 }
 
 
-//Pas de visualisation des tags ici
 void oblong_show ( oblong_t* ob) {
-    printf("%s %s %d %d %d %d \n", /*ob->auteur,
-                                  ob->color,
-                                  ob->time_end, */
+    printf("Début : %s \nFin : %s \nDescription : %s \nx départ : %d \ny départ : %d \nx fin %d \ny fin %d \n", 
                                   ob->time_start,
+                                  ob->time_end, 
                                   ob->description,
                                   ob->x_start,
                                   ob->y_start, 
                                   ob->x_end, 
                                   ob->y_end);
 
+    color_show ( ob->color ) ;
+    auteur_show ( ob->auteur ) ;
 }
+
 /*
 /////////////////////////TAGS/////////////////////////////
 
@@ -67,20 +68,12 @@ void oblong_remove_tag ( oblong_t* ob, int tag ) { //TODO
 void oblong_show_tag ( oblong_t* ob, int taf ) { //TODO
 }
 
+IL NAGE MON BEBOU
 
-//////////////////////COLORS/////////////////////////////
-
-//TODO
-void oblong_set_color ( oblong_t* ob, color_t* col ) { 
-    sprintf(ob->color,"%s",col);
-}
-
-color_t oblong_get_color ( oblong_t* ob ) { 
-    return ob->color ;
-}
 */
 ////////////////////////TIME//////////////////////////////
 
+// TIME START 
 void oblong_set_time_start ( oblong_t* ob ) { 
 
     time_t temps;
@@ -96,16 +89,17 @@ char* oblong_get_time_start ( oblong_t* ob ) {
     return ob->time_start ;
 }
 
+//TIME END 
 
-//TODO
-/*
-void oblong_set_time_end ( oblong_t* ob, timecode_t time_e ) {
-    sprintf ( ob->time_end,"%s",time_e ) ; 
+void oblong_set_time_end ( oblong_t* ob ) { 
+    sprintf ( ob->time_end, "%s", ob->time_start ) ;
+}
 
-timecode_t oblong_get_time_end ( oblong_t* ob ) {
+char* oblong_get_time_end ( oblong_t* ob ) {
     return ob->time_end ; 
 }
-*/
+
+
 ////////////////////////DESCRIPTION///////////////////////
 
 void oblong_set_description ( oblong_t* ob, char* descr ) {
