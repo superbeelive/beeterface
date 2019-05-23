@@ -29,6 +29,9 @@ typedef struct {
     GtkWidget *img_modify1 ; 
     GtkWidget *img_modify2 ; 
     GtkWidget *img_modify3 ; 
+
+    GtkWidget *label_test ;
+
     
   } auteur_win_t ; 
 

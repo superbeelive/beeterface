@@ -54,3 +54,6 @@ time_t* vide_get_date ( video_t* ) ;
 
 //proposition 
 void video_set_date_auto ( video_t*, time_t* ) ;
+
+#endif
+

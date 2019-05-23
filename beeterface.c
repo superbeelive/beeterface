@@ -1,8 +1,6 @@
 #include <stdlib.h>
 
-#include "main_win.h"
-#include "modif_win.h"
-#include "auteur_win.h"
+#include "beeterface.h"
 
 void destroy (GtkWidget *widget, gpointer data)
 {
@@ -19,20 +17,38 @@ void auteur (GtkWidget *widget, gpointer data)
     auteur_win_show(data) ; 
 }
 
+void click_modify (){
+}
+
+
+
 int main (int argc, char *argv[])
 {
 
-//Déclaration des fenêtres 
+
+//DECLARATION FENETRES 
     main_win_t*  win_main ;
     modif_win_t* win_modif ;
     auteur_win_t* win_auteur ; 
-
+    
+//DECLARATION OBJETS 
+    projet_t* bidule ; 
+    auteur_t* auteur ; 
 
     gtk_init (&argc, &argv);
-//Création des fenêtres 
+
+//DEFINITION DES FENETRES  
     win_main = main_win_new() ;
     win_modif = modif_win_new() ;
     win_auteur = auteur_win_new() ; 
+
+//DEFINITION DES OBJETS
+    bidule = projet_new() ; 
+    auteur = auteur_new() ; 
+ 
+//EMBALLAGE PAPIER KDO
+    bidule->auteur = auteur ; 
+
 
 //Affichage de la fenêtre principale 
     main_win_show( win_main ) ;
@@ -41,6 +57,8 @@ int main (int argc, char *argv[])
     g_signal_connect (win_main->button_quit, "clicked", G_CALLBACK(destroy),NULL);
     g_signal_connect (win_main->button_enregistrer, "clicked", G_CALLBACK(modif), win_modif); //Affiche win modif quand appui sur bouton
     g_signal_connect (win_main->button_auteur, "clicked", G_CALLBACK(auteur), win_auteur); 
+   // g_signal_connect (win_auteur->button_modify1, "clicked", G_CALLBACK(click_modify), NULL);
+
 
   gtk_main ();
 
