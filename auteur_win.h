@@ -2,6 +2,7 @@
 #define AUTEUR_WIN_H
 
 #include <gtk/gtk.h>
+#include "auteur.h"
 
 typedef struct { 
 
@@ -38,5 +39,7 @@ typedef struct {
 auteur_win_t* auteur_win_new() ; 
 void auteur_win_del ( auteur_win_t* ) ; 
 void auteur_win_show ( auteur_win_t* ) ;
+
+void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) ;
 
 #endif 
