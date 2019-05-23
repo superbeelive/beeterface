@@ -40,6 +40,7 @@ typedef struct {
     GtkWidget *box_info_sup;
     GtkWidget *txt_info;
     GtkWidget *sep_haut;
+    GtkWidget *button_auteur ; 
 
 } main_win_t ;
 

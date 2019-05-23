@@ -62,5 +62,6 @@ typedef struct {
 //pré déclaration des fonctions 
 modif_win_t* modif_win_new() ; 
 void modif_win_show( modif_win_t* ) ;
+void modif_win_del( modif_win_t* ) ;
 
 #endif

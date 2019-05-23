@@ -47,7 +47,10 @@ main_win_t* main_win_new() {
     tmp->button_info = gtk_button_new ();
     tmp->image_button_info = gtk_image_new_from_file ("images/inter.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_info), tmp->image_button_info);
-    
+   
+    tmp->button_auteur =  gtk_button_new_with_label ("Auteur");
+
+
     //IMAGES  
     tmp->image_exemple = gtk_image_new_from_file ("images/bee2.jpg");
     tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png");
@@ -93,7 +96,7 @@ main_win_t* main_win_new() {
             //Dans tmp->box_up
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_quit, TRUE, TRUE, 0); 
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->sep_haut, TRUE, TRUE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_info_video, TRUE, TRUE, 0); 
+            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_info_video, TRUE, TRUE, 0);
                  //Dans tmp->box_info_video   
                  gtk_box_pack_start(GTK_BOX(tmp->box_info_video), tmp->logo_type_video, FALSE, FALSE, 20);
                  gtk_box_pack_start(GTK_BOX(tmp->box_info_video), tmp->nom_video, FALSE, FALSE, 0);
@@ -101,7 +104,8 @@ main_win_t* main_win_new() {
                  //Dans tmp->box_quit
                  gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_quit, FALSE, FALSE, 0);
                  gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_info, FALSE, FALSE, 0);
-
+                gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_auteur, TRUE, TRUE, 0);
+            
             //Dans tmp->box_all
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_gauche, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_info_sup, FALSE, FALSE, 0);

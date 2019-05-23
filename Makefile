@@ -1,17 +1,15 @@
 CC = gcc
-CDFLAGS = -W -Wall
-LDFLAGS = 
+CFLAGS = `pkg-config --cflags gtk+-3.0`
+LDFLAGS = `pkg-config --libs gtk+-3.0`
 
-all: test
-
-test: auteur.o test.o an_cross.o
+beeterface: beeterface.o main_win.o modif_win.o auteur_win.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-%o: %.c
+%.o: %.c
 	$(CC) -c $^ $(CFLAGS)
 
-.PHONY: clean 
+.PHONY: clean
 clean:
-	rm -f *.o
-	rm -f test
+	rm -f *.o 
+	rm -f beeterface
 	rm -f *~

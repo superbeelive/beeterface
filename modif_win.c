@@ -145,3 +145,8 @@ void modif_win_show( modif_win_t* tmp ) {
 
 }
 
+
+void modif_win_del ( modif_win_t* w ) {
+    free ( w ) ;
+}
+
