@@ -2,7 +2,7 @@
 #define TAH_H
 
 typedef struct {
-    char* val ; //Wallah c'est un tableau  
+    char** val ; //Wallah c'est un tableau de tableaux !!!!  
     int pos ; 
 } tag_t ; 
 tag_t* tag_new () ;  //Création du tableau de la pile 
