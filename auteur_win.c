@@ -25,7 +25,18 @@ auteur_win_t* auteur_win_new() {
     tmp->entry_first_name = gtk_entry_new() ; 
     tmp->entry_email = gtk_entry_new() ; 
 
-    
+    tmp->img_modify1 = gtk_image_new_from_file ("images/modif.png") ; 
+    tmp->button_modify1 = gtk_button_new() ; 
+    gtk_button_set_image (GTK_BUTTON (tmp->button_modify1), tmp->img_modify1) ; 
+
+    tmp->img_modify2 = gtk_image_new_from_file ("images/modif.png") ; 
+    tmp->button_modify2 = gtk_button_new() ; 
+    gtk_button_set_image (GTK_BUTTON (tmp->button_modify2), tmp->img_modify2) ; 
+
+    tmp->img_modify3 = gtk_image_new_from_file ("images/modif.png") ; 
+    tmp->button_modify3 = gtk_button_new() ; 
+    gtk_button_set_image (GTK_BUTTON (tmp->button_modify3), tmp->img_modify3) ; 
+
 //RANGEMENT 
     //WINDOW 
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal) ; 
@@ -42,10 +53,15 @@ auteur_win_t* auteur_win_new() {
             gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_name, TRUE, TRUE, 0) ; 
             gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_first_name, TRUE, TRUE, 0) ; 
             gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_email, TRUE, TRUE, 0) ; 
-            //BOX RIGHT 
-            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->entry_name, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->entry_first_name, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->entry_email, TRUE, TRUE, 0) ; 
+            //BOX MIDDLE 
+            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_name, TRUE, TRUE, 0) ; 
+            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_first_name, TRUE, TRUE, 0) ; 
+            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_email, TRUE, TRUE, 0) ; 
+            //BOX RIGHT
+            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->button_modify1, TRUE, TRUE, 0) ; 
+            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->button_modify2, TRUE, TRUE, 0) ; 
+            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->button_modify3, TRUE, TRUE, 0) ; 
+            
 
         
 //AUTRE
