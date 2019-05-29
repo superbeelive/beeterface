@@ -1,11 +1,11 @@
 #ifndef PROJET_H
 #define PROJET_H
 
-#include "structures/annotations.h"
-#include "structures/camera.h"
-//#include "structures/tag.h"
-#include "structures/video.h"
-#include "structures/auteur.h"
+#include "annotations.h"
+#include "camera.h"
+//#include "tag.h"
+#include "video.h"
+#include "auteur.h"
 
 typedef struct {
     

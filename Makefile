@@ -1,8 +1,8 @@
 CC = gcc
-CFLAGS = `pkg-config --cflags gtk+-3.0`
+CFLAGS = -g `pkg-config --cflags gtk+-3.0`
 LDFLAGS = `pkg-config --libs gtk+-3.0`
 
-beeterface: beeterface.o main_win.o modif_win.o auteur_win.o
+beeterface: beeterface.o main_win.o modif_win.o auteur_win.o an_arrow.o an_cross.o an_measure.o an_moving_cross.o an_oblong.o an_text.o auteur.o camera.o color.o main_win.o projet.o tag.o video.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
@@ -13,3 +13,8 @@ clean:
 	rm -f *.o 
 	rm -f beeterface
 	rm -f *~
+
+
+
+
+

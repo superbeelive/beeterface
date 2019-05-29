@@ -1,3 +1,6 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+
 #include "video.h" 
 
 #define TAILLE 128
@@ -8,16 +11,14 @@ video_t* video_new() {
     vid = malloc ( sizeof( video_t ) ) ;
     vid->name_ruche = malloc ( TAILLE ) ;
     vid->description = malloc ( TAILLE ) ; 
-    vid->date = time ( NULL ) ; //Contient l'heure actuelle 
+    vid->date = time( NULL ) ; // Contient l'heure actuelle 
     vid->auteur = auteur_new(); 
     vid->camera = camera_new();
 
     sprintf ( vid->name_ruche, "Nom_de_la_ruche" ) ;
-    sprintf ( vid->nruche, "0" ) ;
-    sprintf ( vid->ncadre, "0" ) ;
+    vid->nruche = 0 ;
+    vid->ncadre = 0 ;
     sprintf ( vid->description, "Description_de_la_video" ) ;
-    
-    //Afficher time_t : voir comment l'afficher correctement, sinon ce serait un entier moche 
     
     return vid ;
 }
@@ -26,9 +27,8 @@ void video_del ( video_t* vid ) {
     
     free ( vid->name_ruche ) ;
     free ( vid->description ) ;
-    free ( vid->date ) ;
-    auteur_del(vid) ;
-    camera_del(vid) ;
+    auteur_del(vid->auteur) ;
+    camera_del(vid->camera) ;
 
     free( vid ) ;
 }
@@ -40,8 +40,8 @@ void video_show ( video_t* vid ) {
                         vid->ncadre,
                         vid->description);
 
-    auteur_show(vid);
-    camera_show(vid);
+    auteur_show(vid->auteur);
+    camera_show(vid->camera);
 }
 
 /////// Name ruche //////
@@ -57,18 +57,18 @@ char* video_get_name_ruche ( video_t* vid ) {
 /////// Numéro ruche //////
 
 void video_set_nruche ( video_t* vid, int num ) {
-    sprintf ( vid->nruche, "%d", num);
+    vid->nruche = num ;
 }
 
 int video_get_nruche ( video_t* vid ) {
-    return vid->nruchev ;
+    return vid->nruche ;
 }
 
 
 /////// Numéro cadre ///////
 
 void video_set_ncadre ( video_t* vid, int num ) {
-    sprintf ( vid->ncadre, "%d", num );
+    vid->ncadre = num ;
 }
 
 int video_get_ncadre ( video_t* vid ) { 
@@ -78,7 +78,7 @@ int video_get_ncadre ( video_t* vid ) {
 /////// Description //////
 
 void video_set_description ( video_t* vid, char* desc ) {
-    sprintf ( vid->description, "%s", num ) ;
+    sprintf ( vid->description, "%s", desc ) ;
 }
 
 char* video_get_description ( video_t* vid ) {

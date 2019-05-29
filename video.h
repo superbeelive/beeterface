@@ -18,7 +18,7 @@ typedef struct {
     auteur_t* auteur;
     camera_t* camera;
     //Annotation ? TODO
-    time_t* date;
+    time_t date;
 
 } video_t ;
 
