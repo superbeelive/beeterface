@@ -49,7 +49,6 @@ int main (int argc, char *argv[])
 //EMBALLAGE PAPIER KDO
     bidule->auteur = auteur ; 
 
-auteur_win_fill( win_auteur, auteur ) ;
 
 //Affichage de la fenêtre principale 
     main_win_show( win_main ) ;
