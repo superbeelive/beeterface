@@ -15,12 +15,12 @@ projet_t* projet_new() {
     ficus->arrow = malloc ( sizeof(arrow_t) ) ; 
     ficus->text = malloc ( sizeof(text_t) ) ; 
     ficus->measure = malloc ( sizeof(measure_t) ) ; 
-    ficus->moving_cross = malloc (sizeof(moving_cross_t)) ; 
+    ficus->moving_cross = malloc (sizeof(moving_cross)) ; 
     
     return ficus ; 
 }
 
-void project_del (projet_t* ficus ) {
+void project_del (project_t* ficus ) {
     free ( ficus->auteur ) ; 
     free ( ficus->camera ) ;
     free ( ficus->video ) ; 

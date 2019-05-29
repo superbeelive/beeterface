@@ -37,6 +37,9 @@ auteur_win_t* auteur_win_new() {
     tmp->button_modify3 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify3), tmp->img_modify3) ; 
 
+    char test ; 
+    test = bidule->auteur ;  
+    tmp->label_test = gtk_label_new (test);
 
 
 
@@ -71,12 +74,6 @@ auteur_win_t* auteur_win_new() {
         gtk_window_set_title ( GTK_WINDOW (tmp->window), "Auteur") ;
 
     return tmp ;
-}
-
-void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) {
-
-    gtk_label_set_text ((GtkLabel*) win->label_test, auteur->nom);
-
 }
 
 
