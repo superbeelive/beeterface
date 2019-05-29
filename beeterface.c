@@ -27,22 +27,13 @@ void callback__modify()
 int main(int argc, char *argv[])
 {
 
-
-//DECLARATION FENETRES 
-    main_win_t *win_main;
-    modif_win_t *win_modif;
-    auteur_win_t *win_auteur;
+    interface_t* interface ;
 
 //DECLARATION OBJETS 
     projet_t *bidule;
     auteur_t *auteur;
 
     gtk_init(&argc, &argv);
-
-//DEFINITION DES FENETRES  
-    win_main = main_win_new();
-    win_modif = modif_win_new();
-    win_auteur = auteur_win_new();
 
 //DEFINITION DES OBJETS
     bidule = projet_new();
@@ -52,35 +43,35 @@ int main(int argc, char *argv[])
     bidule->auteur = auteur;
 
 
+    interface = interface_new();
+
+
+
 //Affichage de la fenêtre principale 
-    main_win_show(win_main);
+    main_win_show(interface->win_main);
 
 //Fonctions 
     
-    g_signal_connect(win_main->button_quit, 
+    g_signal_connect(interface->win_main->button_quit, 
     			"clicked", 
 			G_CALLBACK(callback_destroy),
 		     	NULL);
     
-    g_signal_connect(win_main->button_enregistrer, 
+    g_signal_connect(interface->win_main->button_enregistrer, 
     			"clicked", 
 			G_CALLBACK(callback_modif), 
-			win_modif);			//Affiche win modif quand appui sur bouton
+			interface->win_modif);			//Affiche win modif quand appui sur bouton
 
-    g_signal_connect(win_main->button_auteur, 
+    g_signal_connect(interface->win_main->button_auteur, 
     		   	"clicked",
 			G_CALLBACK(callback_auteur), 
-			win_auteur);
+			interface->win_auteur);
 
 
 
     gtk_main();
 
-
-    main_win_del(win_main);
-    modif_win_del(win_modif);
-    auteur_win_del(win_auteur);
-
+    interface_del(interface) ;
 
     return 0;
 
