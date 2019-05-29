@@ -3,27 +3,30 @@
 
 #include "projet.h"
 
+#define TAB_TAILLE 128
+
+
 projet_t* projet_new() { 
     
     projet_t* ficus ;
     ficus = malloc ( sizeof(projet_t) ) ;
-    ficus->auteur = malloc ( sizeof(auteur_t) ) ; 
-    ficus->camera = malloc ( sizeof(camera_t) ) ; 
-    ficus->video = malloc ( sizeof(video_t) ) ; 
-    ficus->oblong = malloc ( sizeof(oblong_t) ) ; 
-    ficus->cross = malloc ( sizeof(cross_t) ) ; 
-    ficus->arrow = malloc ( sizeof(arrow_t) ) ; 
-    ficus->text = malloc ( sizeof(text_t) ) ; 
-    ficus->measure = malloc ( sizeof(measure_t) ) ; 
-    ficus->moving_cross = malloc (sizeof(moving_cross_t)) ; 
+    ficus->auteur = auteur_new() ; 
+    ficus->camera = camera_new() ; 
+    ficus->video = video_new() ; 
+    ficus->oblong = malloc ( TAB_TAILLE* sizeof(oblong_t) ) ; 
+    ficus->cross = malloc ( TAB_TAILLE * sizeof(cross_t) ) ; 
+    ficus->arrow = malloc ( TAB_TAILLE * sizeof(arrow_t) ) ; 
+    ficus->text = malloc ( TAB_TAILLE * sizeof(text_t) ) ; 
+    ficus->measure = malloc ( TAB_TAILLE * sizeof(measure_t) ) ; 
+    ficus->moving_cross = malloc ( TAB_TAILLE* sizeof(moving_cross_t)) ; 
     
     return ficus ; 
 }
 
 void projet_del (projet_t* ficus ) {
-    free ( ficus->auteur ) ; 
-    free ( ficus->camera ) ;
-    free ( ficus->video ) ; 
+    auteur_del ( ficus->auteur ) ; 
+    camera_del ( ficus->camera ) ;
+    video_del  ( ficus->video ) ; 
     free ( ficus->oblong ) ; 
     free ( ficus->cross ) ; 
     free ( ficus->arrow ) ; 

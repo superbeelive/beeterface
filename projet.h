@@ -12,8 +12,9 @@ typedef struct {
     auteur_t* auteur ; 
     camera_t* camera ; 
     video_t* video ;
-    oblong_t* oblong ; 
-    cross_t* cross ; 
+    
+    oblong_t* oblong ; 	// tableau
+    cross_t* cross ; 	// tableau
     arrow_t* arrow ; 
     text_t* text ; 
     measure_t* measure ; 

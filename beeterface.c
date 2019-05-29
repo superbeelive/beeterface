@@ -27,24 +27,18 @@ void callback__modify()
 int main(int argc, char *argv[])
 {
 
-    interface_t* interface ;
 
 //DECLARATION OBJETS 
     projet_t *bidule;
-    auteur_t *auteur;
+    interface_t* interface ;
 
+// INIT de GTK
     gtk_init(&argc, &argv);
+
 
 //DEFINITION DES OBJETS
     bidule = projet_new();
-    auteur = auteur_new();
-
-//EMBALLAGE PAPIER KDO
-    bidule->auteur = auteur;
-
-
     interface = interface_new();
-
 
 
 //Affichage de la fenêtre principale 
@@ -72,6 +66,7 @@ int main(int argc, char *argv[])
     gtk_main();
 
     interface_del(interface) ;
+    projet_del( bidule ) ;
 
     return 0;
 
