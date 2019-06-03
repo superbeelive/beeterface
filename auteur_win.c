@@ -36,13 +36,7 @@ auteur_win_t* auteur_win_new() {
     tmp->img_modify3 = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->button_modify3 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify3), tmp->img_modify3) ; 
-
-    /*
-    char test ; 
-    test = queen->projet->auteur->nom ;  
-    tmp->label_test = gtk_label_new (test);
-    */
-
+   
 
 //RANGEMENT 
     //WINDOW 
@@ -86,5 +80,13 @@ void auteur_win_show ( auteur_win_t* tmp ) {
 
 void auteur_win_del ( auteur_win_t* w ) {
     free ( w ) ;
+}
+
+void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) {
+
+    gtk_label_set_text((GtkLabel*) win->label_title, auteur->nom );
+
+   // g_object_set(win->entry_name,"editable", FALSE) ; 
+
 }
 

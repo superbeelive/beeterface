@@ -9,13 +9,23 @@ void callback_destroy(GtkWidget * widget, gpointer data)
 
 void callback_modif(GtkWidget * widget, gpointer data)
 {
-    modif_win_show(data);
+    queen_t* tmp ;
+    tmp = data ;
+    modif_win_show(tmp->interface->win_modif);
+
 }
 
 void callback_auteur(GtkWidget * widget, gpointer data)
 {
-    auteur_win_show(data);	// Etape 1 : Faire apparaitre la fenetre 
-    				// Etape 2 : Remplir la fenetre avec le contenu de auteur
+    queen_t* tmp ;
+    tmp = data ;
+    
+    // Etape 2 : Remplir la fenetre avec le contenu de auteur
+    auteur_win_fill(tmp->interface->win_auteur, tmp->projet->auteur ) ; 
+    
+    auteur_win_show(tmp->interface->win_auteur);	// Etape 1 : Faire apparaitre la fenetre 
+
+
 }
 
 
@@ -47,12 +57,12 @@ int main(int argc, char *argv[])
     g_signal_connect(queen->interface->win_main->button_enregistrer, 
     			"clicked", 
 			    G_CALLBACK(callback_modif), 
-			    queen->interface->win_modif);			//Affiche win modif quand appui sur bouton
+			    queen);			//Affiche win modif quand appui sur bouton
 
     g_signal_connect(queen->interface->win_main->button_auteur, 
     		   	"clicked",
 			    G_CALLBACK(callback_auteur), 
-			    queen->interface->win_auteur);
+			    queen);
 
 
 
