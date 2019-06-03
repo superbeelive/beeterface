@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "interface.h"
 #include "projet.h"
+#include "queen.h"
 
 void callback_destroy(GtkWidget *widget, gpointer data) ; 
 void callback_modif (GtkWidget *widget, gpointer data) ; 

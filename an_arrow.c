@@ -6,7 +6,28 @@
 #define TAILLE 128
 
 /////////////////////FONCTIONS DE BASE///////////////////////
+/* Struct: arrow_t
+Arrow annotation is an arrow whose direction is given by the value of an angle. 
 
+Fields:
+    tag[TAILLE] - tag list 
+    tag_size - tag number 
+
+    auteur - Author of the annotation. See the struct auteur_t.
+    color - Color used on the annotation. See the struct color_t.
+    time_start - Timecode where annotation begin.
+    time_end - Timecode where annotation finish.
+    description - Description about the annotation made by the user
+    
+    x - Value of x where the arrow is located. 
+    y - Value of y where the arrow is located.
+    angle - Value of the angle in degrees 
+*/
+
+
+/*Function : arrow_new 
+Create an arrow annotation and returns it with default values
+*/
 arrow_t* arrow_new(){
     arrow_t* ar;
 
@@ -29,6 +50,13 @@ arrow_t* arrow_new(){
     return ar;
 }
 
+/*Function : arrow_del 
+Delete properly an arrow annotation. 
+ 
+Parameters : 
+    ar - The arrow to be delete
+*/
+
 void arrow_del ( arrow_t* ar) {
     
     color_del ( ar->color ) ;
@@ -41,6 +69,8 @@ void arrow_del ( arrow_t* ar) {
 
 }
 
+/*Function : arrow_show
+*/
 void arrow_show ( arrow_t* ar) {
     printf("Début : %s \nFin : %s \nDescription : %s \nx départ : %d \ny départ : %d \n", 
                                   ar->time_start,
