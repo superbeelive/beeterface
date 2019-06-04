@@ -41,7 +41,8 @@ typedef struct {
     GtkWidget *txt_info;
     GtkWidget *sep_haut;
     GtkWidget *button_auteur ; 
-
+    GtkWidget *button_video ; 
+    
 } main_win_t ;
 
 main_win_t* main_win_new() ;

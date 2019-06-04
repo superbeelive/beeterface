@@ -49,6 +49,7 @@ main_win_t* main_win_new() {
     gtk_button_set_image (GTK_BUTTON (tmp->button_info), tmp->image_button_info);
    
     tmp->button_auteur =  gtk_button_new_with_label ("Auteur");
+    tmp->button_video =  gtk_button_new_with_label ("Video");
 
 
     //IMAGES  
