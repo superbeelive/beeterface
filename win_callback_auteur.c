@@ -19,11 +19,18 @@ void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) {
     g_object_set(win->entry_email,"editable", FALSE, NULL) ; 
 }
 
+/////////////////////////////////////////////BOUTON NOM/////////////////////////////////////////////
+
+
 /*Function : auteur_button_modify_name 
+Allows you to change the name :
+- makes the "name" field editable
+- changes the button logo to show that we are in edit mode
 
-
+Parameters : 
+    win - type : "auteur_win_t". Package containing the useful poiters to use the author window.
+    auteur - type "auteur_t*". Package containing informations about the author. 
 */
-///////////////////////////BOUTON NOM
 void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur ) {
      
      win->button_modif_1 = 1 ;
@@ -34,6 +41,16 @@ void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur ) {
 
 }
 
+/*Function : auteur_button_modify_ok_name 
+Allows you to change the  name :
+- makes the "name" field uneditable
+- changes the button logo to show that we are in view mode
+
+Parameters : 
+    win - type : "auteur_win_t". Package containing the useful poiters to use the author window.
+    auteur - type "auteur_t*". Package containing informations about the author. 
+*/
+
 void auteur_button_modify_ok_name ( auteur_win_t* win, auteur_t* auteur ) {
          
     win->button_modif_1 = 0 ;
@@ -42,7 +59,21 @@ void auteur_button_modify_ok_name ( auteur_win_t* win, auteur_t* auteur ) {
      gtk_button_set_image (GTK_BUTTON (win->button_modify1), win->img_modify1) ; 
 }
 
-////////////////////////BOUTON PRENOM
+
+
+/////////////////////////////////////////////////BOUTON PRENOM/////////////////////////////////////////
+
+/*Function : auteur_button_modify_first_name 
+Allows you to change the first name :
+- makes the "firstname" field editable
+- changes the button logo to show that we are in edit mode
+
+Parameters : 
+    win - type : "auteur_win_t". Package containing the useful poiters to use the author window.
+    auteur - type "auteur_t*". Package containing informations about the author. 
+
+ 
+*/
 void auteur_button_modify_first_name( auteur_win_t* win, auteur_t* auteur ) {
      
      win->button_modif_2 = 1 ;
@@ -51,6 +82,16 @@ void auteur_button_modify_first_name( auteur_win_t* win, auteur_t* auteur ) {
      g_object_set(win->entry_first_name,"editable", TRUE, NULL) ;    
      gtk_button_set_image (GTK_BUTTON (win->button_modify2), win->img_modify_ok2) ; 
 }
+
+/*Function : auteur_button_modify_ok_first_name 
+Allows you to change the  name :
+- makes the "name" field uneditable
+- changes the button logo to show that we are in view mode
+
+Parameters : 
+    win - type : "auteur_win_t". Package containing the useful poiters to use the author window.
+    auteur - type "auteur_t*". Package containing informations about the author. 
+*/
 
 void auteur_button_modify_ok_first_name ( auteur_win_t* win, auteur_t* auteur ) {
          
@@ -61,7 +102,19 @@ void auteur_button_modify_ok_first_name ( auteur_win_t* win, auteur_t* auteur ) 
 }
 
 
-////////////////////////////BOUTON EMAIL
+////////////////////////////////////////////BOUTON EMAIL//////////////////////////////////////////
+
+
+/*Function : auteur_button_modify_email
+Allows you to change the email :
+- makes the "email" field editable
+- changes the button logo to show that we are in edit mode
+
+Parameters : 
+    win - type : "auteur_win_t". Package containing the useful poiters to use the author window.
+    auteur - type "auteur_t*". Package containing informations about the author. 
+*/
+
 void auteur_button_modify_email( auteur_win_t* win, auteur_t* auteur ) {
      
      win->button_modif_3 = 1 ;
@@ -70,6 +123,17 @@ void auteur_button_modify_email( auteur_win_t* win, auteur_t* auteur ) {
      g_object_set(win->entry_email,"editable", TRUE, NULL) ;    
      gtk_button_set_image (GTK_BUTTON (win->button_modify3), win->img_modify_ok3) ; 
 }
+
+/*Function : auteur_button_modify_ok_email
+Allows you to change the email :
+- makes the "email" field uneditable
+- changes the button logo to show that we are in view mode
+
+Parameters : 
+    win - type : "auteur_win_t". Package containing the useful poiters to use the author window.
+    auteur - type "auteur_t*". Package containing informations about the author. 
+
+*/
 
 void auteur_button_modify_ok_email ( auteur_win_t* win, auteur_t* auteur ) {
          
