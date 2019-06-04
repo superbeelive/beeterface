@@ -19,31 +19,64 @@ void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) {
     g_object_set(win->entry_email,"editable", FALSE, NULL) ; 
 }
 
-/*Function : auteur_bitton_modify_name 
+/*Function : auteur_button_modify_name 
 
 
 */
+///////////////////////////BOUTON NOM
 void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur ) {
      
-     win->modif = 1 ;
-     g_object_set(win->entry_name,"editable", TRUE, NULL) ;    
+     win->button_modif_1 = 1 ;
      
-    // win->img_modify1 = gtk_image_new_from_file ("images/ok.png") ; 
-    // win->button_modify1 = gtk_button_new() ; 
-    
+     gtk_entry_set_text((GtkEntry*) win->entry_name, auteur->nom ) ; 
+     g_object_set(win->entry_name,"editable", TRUE, NULL) ;    
      gtk_button_set_image (GTK_BUTTON (win->button_modify1), win->img_modify_ok1) ; 
 
-  // auteur->prenom = gtk_entry_get_text((GtkEntry*) win->entry_first_name ) ; 
-  //  auteur->email = gtk_entry_get_text((GtkEntry*) win->entry_email ) ; 
 }
 
 void auteur_button_modify_ok_name ( auteur_win_t* win, auteur_t* auteur ) {
-    
-     win->modif = 0 ;
+         
+    win->button_modif_1 = 0 ;
      sprintf(auteur->nom,"%s", gtk_entry_get_text((GtkEntry*) win->entry_name ) ) ;
      g_object_set(win->entry_name,"editable", FALSE, NULL) ;     
      gtk_button_set_image (GTK_BUTTON (win->button_modify1), win->img_modify1) ; 
+}
+
+////////////////////////BOUTON PRENOM
+void auteur_button_modify_first_name( auteur_win_t* win, auteur_t* auteur ) {
+     
+     win->button_modif_2 = 1 ;
+     
+     gtk_entry_set_text((GtkEntry*) win->entry_first_name, auteur->prenom ) ; 
+     g_object_set(win->entry_first_name,"editable", TRUE, NULL) ;    
+     gtk_button_set_image (GTK_BUTTON (win->button_modify2), win->img_modify_ok2) ; 
+}
+
+void auteur_button_modify_ok_first_name ( auteur_win_t* win, auteur_t* auteur ) {
+         
+     win->button_modif_2 = 0 ;
+     sprintf(auteur->prenom,"%s", gtk_entry_get_text((GtkEntry*) win->entry_first_name ) ) ;
+     g_object_set(win->entry_first_name,"editable", FALSE, NULL) ;     
+     gtk_button_set_image (GTK_BUTTON (win->button_modify2), win->img_modify2) ; 
+}
 
 
+////////////////////////////BOUTON EMAIL
+void auteur_button_modify_email( auteur_win_t* win, auteur_t* auteur ) {
+     
+     win->button_modif_3 = 1 ;
+     
+     gtk_entry_set_text((GtkEntry*) win->entry_email, auteur->email ) ; 
+     g_object_set(win->entry_email,"editable", TRUE, NULL) ;    
+     gtk_button_set_image (GTK_BUTTON (win->button_modify3), win->img_modify_ok3) ; 
+}
+
+void auteur_button_modify_ok_email ( auteur_win_t* win, auteur_t* auteur ) {
+         
+     win->button_modif_3 = 0 ;
+     sprintf(auteur->email,"%s", gtk_entry_get_text((GtkEntry*) win->entry_email ) ) ;
+     //auteur->email = gtk_entry_get_text((GtkEntry*) win->entry_email ) ;
+     g_object_set(win->entry_email,"editable", FALSE, NULL) ;     
+     gtk_button_set_image (GTK_BUTTON (win->button_modify3), win->img_modify3) ; 
 }
 

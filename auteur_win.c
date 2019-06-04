@@ -9,7 +9,10 @@ auteur_win_t* auteur_win_new() {
 
     //variables 
     // Déclaration de modif... ?  
-    tmp->modif=0;
+    tmp->button_modif_1 = 0 ;
+    tmp->button_modif_2 = 0 ;
+    tmp->button_modif_3 = 0 ;
+
 //CREATION
     tmp->window = gtk_window_new (GTK_WINDOW_TOPLEVEL) ;
 
@@ -36,18 +39,24 @@ auteur_win_t* auteur_win_new() {
 
     g_object_ref (tmp->img_modify1);
     g_object_ref (tmp->img_modify_ok1);
+    
 
     tmp->img_modify2 = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_modify_ok2 = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->button_modify2 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify2), tmp->img_modify2) ; 
 
+    g_object_ref (tmp->img_modify2);
+    g_object_ref (tmp->img_modify_ok2);
+
+
     tmp->img_modify3 = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_modify_ok3 = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->button_modify3 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify3), tmp->img_modify3) ; 
-   
 
+    g_object_ref (tmp->img_modify3);
+    g_object_ref (tmp->img_modify_ok3);
 //RANGEMENT 
     //WINDOW 
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal) ; 
@@ -92,6 +101,12 @@ void auteur_win_del ( auteur_win_t* w ) {
     
     g_object_unref (w->img_modify1);
     g_object_unref (w->img_modify_ok1);
+
+    g_object_unref (w->img_modify2);
+    g_object_unref (w->img_modify_ok2);
+
+    g_object_unref (w->img_modify3);
+    g_object_unref (w->img_modify_ok3);
 
     free ( w ) ;
 }

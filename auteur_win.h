@@ -39,7 +39,10 @@ typedef struct {
 
     GtkWidget *label_test ;
 
-    int modif ; 
+    int button_modif_1 ;
+    int button_modif_2 ;
+    int button_modif_3 ;
+    
     
   } auteur_win_t ; 
 //win_auteur.c
@@ -51,5 +54,8 @@ void auteur_win_show ( auteur_win_t* ) ;
 void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) ;
 void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur );
 void auteur_button_modify_ok_name( auteur_win_t* win, auteur_t* auteur );
-
+void auteur_button_modify_first_name( auteur_win_t* win, auteur_t* auteur ) ;
+void auteur_button_modify_ok_first_name ( auteur_win_t* win, auteur_t* auteur ) ; 
+void auteur_button_modify_email( auteur_win_t* win, auteur_t* auteur ) ; 
+void auteur_button_modify_ok_email ( auteur_win_t* win, auteur_t* auteur ) ;      
 #endif 

@@ -25,16 +25,36 @@ void callback_auteur(GtkWidget * widget, gpointer data)
     auteur_win_show(tmp->interface->win_auteur); 
 }
 
-void callback_auteur_modify_name(GtkWidget* widget, gpointer data)
-{
-    queen_t* tmp ; 
-    tmp = data ;
-    if ( tmp->interface->win_auteur->modif == 0 )  
+void callback_auteur_modify_name(GtkWidget* widget, gpointer data) { 
+        queen_t* tmp ; 
+        tmp = data ;
+
+        if ( tmp->interface->win_auteur->button_modif_1 == 0 )  
         auteur_button_modify_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
-    else 
+        else 
         auteur_button_modify_ok_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;
 }
 
+void callback_auteur_modify_first_name(GtkWidget* widget, gpointer data) {
+        queen_t* tmp ; 
+        tmp = data ;
+
+        if ( tmp->interface->win_auteur->button_modif_2 == 0 )  
+        auteur_button_modify_first_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
+        else 
+        auteur_button_modify_ok_first_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;
+}
+   
+
+void callback_auteur_modify_email (GtkWidget* widget, gpointer data) {
+        queen_t* tmp ; 
+        tmp = data ;
+
+        if ( tmp->interface->win_auteur->button_modif_3 == 0 )  
+        auteur_button_modify_email(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
+        else 
+        auteur_button_modify_ok_email(tmp->interface->win_auteur, tmp->projet->auteur ) ;
+    }
 
 int main(int argc, char *argv[])
 {
@@ -68,12 +88,23 @@ int main(int argc, char *argv[])
     		   	"clicked",
 			    G_CALLBACK(callback_auteur), 
 			    queen);
+
 //Fenêtre AUTEUR 
     g_signal_connect(queen->interface->win_auteur->button_modify1,
             "clicked",
             G_CALLBACK(callback_auteur_modify_name),
             queen);
 
+
+    g_signal_connect(queen->interface->win_auteur->button_modify2,
+            "clicked",
+            G_CALLBACK(callback_auteur_modify_first_name),
+            queen);
+
+    g_signal_connect(queen->interface->win_auteur->button_modify3,
+            "clicked",
+            G_CALLBACK(callback_auteur_modify_email),
+            queen);
 
 //Fonction attend event.     
     gtk_main();
