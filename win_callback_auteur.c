@@ -14,9 +14,9 @@ void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) {
     gtk_entry_set_text((GtkEntry*) win->entry_first_name, auteur->prenom ) ; 
     gtk_entry_set_text((GtkEntry*) win->entry_name, auteur->nom );
 
-    g_object_set(win->entry_name,"editable", FALSE) ; 
-    g_object_set(win->entry_first_name,"editable", FALSE) ; 
-    g_object_set(win->entry_email,"editable", FALSE) ; 
+    g_object_set(win->entry_name,"editable", FALSE, NULL) ; 
+    g_object_set(win->entry_first_name,"editable", FALSE, NULL) ; 
+    g_object_set(win->entry_email,"editable", FALSE, NULL) ; 
 }
 
 /*Function : auteur_bitton_modify_name 
@@ -42,7 +42,7 @@ void auteur_button_modify_ok_name ( auteur_win_t* win, auteur_t* auteur ) {
     
      win->modif = 0 ;
      auteur->nom = gtk_entry_get_text((GtkEntry*) win->entry_name ) ;
-     g_object_set(win->entry_name,"editable", FALSE) ;     
+     g_object_set(win->entry_name,"editable", FALSE, NULL) ;     
 
      gtk_button_set_image (GTK_BUTTON (win->button_modify1), win->img_modify1) ; 
 
