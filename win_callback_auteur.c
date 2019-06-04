@@ -26,8 +26,7 @@ void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) {
 void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur ) {
      
      win->modif = 1 ;
-     auteur->nom = gtk_entry_get_text((GtkEntry*) win->entry_name ) ;
-     g_object_set(win->entry_name,"editable", TRUE) ;    
+     g_object_set(win->entry_name,"editable", TRUE, NULL) ;    
      
     // win->img_modify1 = gtk_image_new_from_file ("images/ok.png") ; 
     // win->button_modify1 = gtk_button_new() ; 
@@ -41,9 +40,8 @@ void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur ) {
 void auteur_button_modify_ok_name ( auteur_win_t* win, auteur_t* auteur ) {
     
      win->modif = 0 ;
-     auteur->nom = gtk_entry_get_text((GtkEntry*) win->entry_name ) ;
+     sprintf(auteur->nom,"%s", gtk_entry_get_text((GtkEntry*) win->entry_name ) ) ;
      g_object_set(win->entry_name,"editable", FALSE, NULL) ;     
-
      gtk_button_set_image (GTK_BUTTON (win->button_modify1), win->img_modify1) ; 
 
 
