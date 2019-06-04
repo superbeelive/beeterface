@@ -30,9 +30,9 @@ void callback_auteur_modify_name(GtkWidget* widget, gpointer data)
     queen_t* tmp ; 
     tmp = data ;
     if ( tmp->interface->win_auteur->modif == 0 )  
-    auteur_button_modify_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
+        auteur_button_modify_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
     else 
-    auteur_button_modify_ok_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;
+        auteur_button_modify_ok_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;
 }
 
 

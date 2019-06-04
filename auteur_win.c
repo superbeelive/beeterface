@@ -34,6 +34,9 @@ auteur_win_t* auteur_win_new() {
     tmp->button_modify1 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify1), tmp->img_modify1) ; 
 
+    g_object_ref (tmp->img_modify1);
+    g_object_ref (tmp->img_modify_ok1);
+
     tmp->img_modify2 = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_modify_ok2 = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->button_modify2 = gtk_button_new() ; 
@@ -86,6 +89,10 @@ void auteur_win_show ( auteur_win_t* tmp ) {
 }
 
 void auteur_win_del ( auteur_win_t* w ) {
+    
+    g_object_unref (w->img_modify1);
+    g_object_unref (w->img_modify_ok1);
+
     free ( w ) ;
 }
 
