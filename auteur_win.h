@@ -31,16 +31,25 @@ typedef struct {
     GtkWidget *img_modify2 ; 
     GtkWidget *img_modify3 ; 
 
+    GtkWidget *img_modify_ok1 ;
+    GtkWidget *img_modify_ok2 ;
+    GtkWidget *img_modify_ok3 ;
+
+
+
     GtkWidget *label_test ;
 
+    int modif ; 
     
   } auteur_win_t ; 
-
+//win_auteur.c
 auteur_win_t* auteur_win_new() ; 
 void auteur_win_del ( auteur_win_t* ) ; 
 void auteur_win_show ( auteur_win_t* ) ;
 
+//win_callback_auteur.c
 void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) ;
-
+void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur );
+void auteur_button_modify_ok_name( auteur_win_t* win, auteur_t* auteur );
 
 #endif 
