@@ -50,6 +50,7 @@ main_win_t* main_win_new() {
    
     tmp->button_auteur =  gtk_button_new_with_label ("Auteur");
     tmp->button_video =  gtk_button_new_with_label ("Video");
+    tmp->button_camera =  gtk_button_new_with_label ("Camera");
 
 
     //IMAGES  
@@ -105,7 +106,9 @@ main_win_t* main_win_new() {
                  //Dans tmp->box_quit
                  gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_quit, FALSE, FALSE, 0);
                  gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_info, FALSE, FALSE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_auteur, TRUE, TRUE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_auteur, TRUE, TRUE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_video, TRUE, TRUE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_camera, TRUE, TRUE, 0);
             
             //Dans tmp->box_all
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_gauche, FALSE, FALSE, 0);

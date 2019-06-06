@@ -13,7 +13,6 @@ void callback_modif(GtkWidget * widget, gpointer data)
     queen_t* tmp ;
     tmp = data ;
     modif_win_show(tmp->interface->win_modif);
-
 }
 ///////////////////////////////////////AUTEUR////////////////////////////////////////////
 void callback_auteur(GtkWidget * widget, gpointer data)
@@ -71,6 +70,18 @@ void callback_video(GtkWidget * widget, gpointer data)
 }
 
 
+//////CAMERA
+
+void callback_camera(GtkWidget * widget, gpointer data)
+{
+    queen_t* tmp ;
+    tmp = data ;
+    // Remplissage de la fenêtre avec le contenu de auteur 
+    //auteur_win_fill(tmp->interface->win_auteur, tmp->projet->auteur ) ; 
+    
+    //Apparition de la fenêtre
+    camera_win_show(tmp->interface->win_camera); 
+}
 
 
 int main(int argc, char *argv[])
@@ -110,6 +121,14 @@ int main(int argc, char *argv[])
     		   	"clicked",
 			    G_CALLBACK(callback_video), 
 			    queen);
+
+    
+    g_signal_connect(queen->interface->win_main->button_camera, 
+    		   	"clicked",
+			    G_CALLBACK(callback_camera), 
+			    queen);
+
+
 
 //Fenêtre AUTEUR 
     g_signal_connect(queen->interface->win_auteur->button_modify1,

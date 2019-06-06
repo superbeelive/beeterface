@@ -17,8 +17,9 @@ typedef struct {
     char* description;
     auteur_t* auteur;
     camera_t* camera;
+    char* name ;
     //Annotation ? TODO
-    time_t date;
+    char* date;
 
 } video_t ;
 
@@ -41,6 +42,8 @@ int video_get_ncadre ( video_t* ) ;
 void video_set_description ( video_t*, char* ) ;
 char* video_get_description ( video_t* ) ;
 
+void video_set_name ( video_t*, auteur_t*, camera_t* ) ;
+char* video_get_name ( video_t* ) ; 
 
 //comment implémenter auteur et video dans leur création ? 
 void video_set_auteur ( video_t*, auteur_t* ) ; //TODO 
@@ -49,8 +52,8 @@ auteur_t* video_get_auteur ( video_t* ) ;
 void video_set_camera ( video_t*, camera_t* ) ; //TODO 
 camera_t* video_get_camera ( video_t* ) ;
 
-void video_set_date ( video_t*, time_t* ) ; //TODO 
-time_t* vide_get_date ( video_t* ) ;
+void video_set_date ( video_t* ) ; 
+char* vide_get_date ( video_t* ) ;
 
 //proposition 
 void video_set_date_auto ( video_t*, time_t* ) ;
