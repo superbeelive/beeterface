@@ -56,15 +56,13 @@ void callback_auteur_modify_email (GtkWidget* widget, gpointer data) {
         else 
         auteur_button_modify_ok_email(tmp->interface->win_auteur, tmp->projet->auteur ) ;
     }
-//////VIDEO
+//////////////////////////////////VIDEO
 
 void callback_video(GtkWidget * widget, gpointer data)
 {
     queen_t* tmp ;
     tmp = data ;
     // Remplissage de la fenêtre avec le contenu de auteur 
-    //auteur_win_fill(tmp->interface->win_auteur, tmp->projet->auteur ) ; 
-    
     //Apparition de la fenêtre
     video_win_show(tmp->interface->win_video); 
 }
@@ -77,7 +75,7 @@ void callback_camera(GtkWidget * widget, gpointer data)
     queen_t* tmp ;
     tmp = data ;
     // Remplissage de la fenêtre avec le contenu de auteur 
-    //auteur_win_fill(tmp->interface->win_auteur, tmp->projet->auteur ) ; 
+    camera_win_fill(tmp->interface->win_camera, tmp->projet->camera ) ; 
     
     //Apparition de la fenêtre
     camera_win_show(tmp->interface->win_camera); 
