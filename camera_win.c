@@ -7,7 +7,11 @@ camera_win_t* camera_win_new() {
     tmp = malloc ( sizeof(camera_win_t) ) ; 
 
     //DECLARATION VARIABLES 
-
+    tmp->cnt_modif_name = 0 ; 
+    tmp->cnt_modif_model = 0 ; 
+    tmp->cnt_modif_nserie = 0 ; 
+    tmp->cnt_modif_type = 0 ; 
+    tmp->cnt_modif_description = 0 ; 
     //CREATION WIDGET  
     tmp->window = gtk_window_new (GTK_WINDOW_TOPLEVEL) ; 
     tmp->box_principal = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0 ) ; 
@@ -27,7 +31,7 @@ camera_win_t* camera_win_new() {
     tmp->label_description = gtk_label_new ("Description") ;
    
     tmp->entry_name = gtk_entry_new() ; 
-    tmp->entry_model = gtk_entry_new() ; 
+tmp->entry_model = gtk_entry_new() ; 
     tmp->entry_nserie = gtk_entry_new() ; 
     tmp->entry_type = gtk_entry_new() ; 
     tmp->entry_description = gtk_entry_new() ; 
@@ -36,29 +40,49 @@ camera_win_t* camera_win_new() {
     tmp->img_btn_modify_name_modif = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_btn_modify_name_ok = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->btn_modify_name = gtk_button_new() ; 
-    gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_name), tmp->img_btn_modify_name_modif) ; 
+    gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_name), tmp->img_btn_modify_name_modif) ;
+
+    g_object_ref (tmp->img_btn_modify_name_modif);
+    g_object_ref (tmp->img_btn_modify_name_ok);
+    
 
     tmp->img_btn_modify_model_modif = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_btn_modify_model_ok = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->btn_modify_model = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_model), tmp->img_btn_modify_model_modif) ; 
 
+
+    g_object_ref (tmp->img_btn_modify_model_modif);
+    g_object_ref (tmp->img_btn_modify_model_ok);
+    
     tmp->img_btn_modify_nserie_modif = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_btn_modify_nserie_ok = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->btn_modify_nserie = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_nserie), tmp->img_btn_modify_nserie_modif) ; 
 
+
+    g_object_ref (tmp->img_btn_modify_nserie_modif);
+    g_object_ref (tmp->img_btn_modify_nserie_ok);
+    
     tmp->img_btn_modify_type_modif = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_btn_modify_type_ok = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->btn_modify_type = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_type), tmp->img_btn_modify_type_modif) ; 
 
 
+    g_object_ref (tmp->img_btn_modify_type_modif);
+    g_object_ref (tmp->img_btn_modify_type_ok);
+    
+
     tmp->img_btn_modify_description_modif = gtk_image_new_from_file ("images/modif.png") ; 
     tmp->img_btn_modify_description_ok = gtk_image_new_from_file ("images/ok.png") ; 
     tmp->btn_modify_description = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_description), tmp->img_btn_modify_description_modif) ; 
 
+
+    g_object_ref (tmp->img_btn_modify_description_modif);
+    g_object_ref (tmp->img_btn_modify_description_ok);
+    
     //RANGEMENT 
     //Window
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal) ; 
@@ -107,5 +131,19 @@ void camera_win_show ( camera_win_t* nemo ) {
 }
 
 void camera_win_del ( camera_win_t* nemo ) {
-    free ( nemo ) ; 
+    free ( nemo ) ;
+    g_object_unref (nemo->img_btn_modify_name_modif);
+    g_object_unref (nemo->img_btn_modify_name_ok);
+
+    g_object_unref (nemo->img_btn_modify_model_modif);
+    g_object_unref (nemo->img_btn_modify_model_ok);
+
+    g_object_unref (nemo->img_btn_modify_nserie_modif);
+    g_object_unref (nemo->img_btn_modify_nserie_ok);
+
+    g_object_unref (nemo->img_btn_modify_type_modif);
+    g_object_unref (nemo->img_btn_modify_type_ok);
+
+    g_object_unref (nemo->img_btn_modify_description_modif);
+    g_object_unref (nemo->img_btn_modify_description_ok);
 }

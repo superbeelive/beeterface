@@ -49,7 +49,12 @@ typedef struct {
     GtkWidget *img_btn_modify_description_modif ;
     GtkWidget *img_btn_modify_description_ok ; 
     GtkWidget *btn_modify_description ;
-    
+   
+    int cnt_modif_name ; 
+    int cnt_modif_model ; 
+    int cnt_modif_nserie ; 
+    int cnt_modif_type ; 
+    int cnt_modif_description ; 
 
     
 } camera_win_t ;
@@ -61,5 +66,19 @@ void camera_win_show ( camera_win_t* ) ;
 
 //win_callback_camera.c
 void camera_win_fill( camera_win_t*, camera_t* ) ; 
+void camera_button_modify_name_modif( camera_win_t* win, camera_t* camera ) ; 
+void camera_button_modify_name_ok ( camera_win_t* win, camera_t* auteur ) ;
+
+void camera_button_modify_model_modif( camera_win_t* win, camera_t* camera ) ; 
+void camera_button_modify_model_ok ( camera_win_t* win, camera_t* auteur ) ;
+
+void camera_button_modify_nserie_modif( camera_win_t* win, camera_t* camera ) ; 
+void camera_button_modify_nserie_ok ( camera_win_t* win, camera_t* auteur ) ;
+
+void camera_button_modify_type_modif( camera_win_t* win, camera_t* camera ) ; 
+void camera_button_modify_type_ok ( camera_win_t* win, camera_t* auteur ) ;
+
+void camera_button_modify_description_modif( camera_win_t* win, camera_t* camera ) ; 
+void camera_button_modify_description_ok ( camera_win_t* win, camera_t* auteur ) ;
 
 #endif
