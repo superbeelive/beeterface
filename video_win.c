@@ -13,11 +13,13 @@ video_win_t* video_win_new() {
     tmp->window = gtk_window_new (GTK_WINDOW_TOPLEVEL) ; 
     tmp->box_principal = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0 ) ; 
     
-    tmp->box_up = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0) ;
+    tmp->box_up = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
     tmp->box_down = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0) ; 
-    tmp->box_left = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
+    tmp->grid = gtk_grid_new () ; 
+
+   /* tmp->box_left = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
     tmp->box_middle = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
-    tmp->box_right = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
+    tmp->box_right = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ; */
 
     tmp->label_name_video = gtk_label_new ("Nom_de_la_video") ; 
 
@@ -73,13 +75,41 @@ video_win_t* video_win_new() {
     
     //RANGEMENT 
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal) ; 
-
     //Box principale
     gtk_box_pack_start (GTK_BOX(tmp->box_principal), tmp->box_up, TRUE, TRUE, 0);
+
     gtk_box_pack_start (GTK_BOX(tmp->box_principal), tmp->box_down, TRUE, TRUE, 0);
+    
+    
         //Box Up
         gtk_box_pack_start (GTK_BOX(tmp->box_up), tmp->label_name_video, TRUE, TRUE, 0) ;
         //Box Down
+        gtk_box_pack_start (GTK_BOX(tmp->box_up), tmp->grid, TRUE, TRUE, 0) ;
+        
+            //Column 1 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_name_ruche,1,1,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_n_ruche,1,2,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_n_cadre,1,3,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_description,1,4,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_date,1,6,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_auteur,1,7,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_camera,1,8,1,1 ) ; 
+   
+
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->entry_name_ruche,2,1,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->entry_n_ruche,2,2,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->entry_n_cadre,2,3,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->entry_description,2,4,1,2 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->entry_date,2,6,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->entry_auteur,2,7,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->entry_camera,2,8,1,1 ) ; 
+
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->btn_modify_name_ruche,3,1,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->btn_modify_n_ruche,3,2,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->btn_modify_n_cadre,3,3,1,1 ) ; 
+            gtk_grid_attach (GTK_GRID(tmp->grid),tmp->btn_modify_description,3,4,1,1 ) ; 
+      
+           /*
         gtk_box_pack_start (GTK_BOX(tmp->box_down), tmp->box_left, TRUE, TRUE, 0) ;
         gtk_box_pack_start (GTK_BOX(tmp->box_down), tmp->box_middle, TRUE, TRUE, 0) ; 
         gtk_box_pack_start (GTK_BOX(tmp->box_down), tmp->box_right, TRUE, TRUE, 0) ; 
@@ -109,6 +139,7 @@ video_win_t* video_win_new() {
             gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->btn_modify_n_ruche, TRUE, TRUE, 0) ; 
             gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->btn_modify_n_cadre, TRUE, TRUE, 0) ; 
             gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->btn_modify_description, TRUE, TRUE, 0) ; 
+    */
     //AUTRE
     gtk_window_set_title ( GTK_WINDOW (tmp->window), "Vidéo") ;
 

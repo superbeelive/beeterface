@@ -51,6 +51,7 @@ void video_button_modify_name_ruche_ok ( video_win_t* win, video_t* video ) {
 }
 
 //n_ruche
+//FIXME : retour à la valeur de base de ncadre une fois qu'on rappui sur modifier ! 
 void video_button_modify_n_ruche_modif( video_win_t* win, video_t* video ) {
     
     char buffer[10] ; 
@@ -77,7 +78,8 @@ void video_button_modify_n_ruche_ok ( video_win_t* win, video_t* video ) {
      gtk_button_set_image (GTK_BUTTON (win->btn_modify_n_ruche), win->img_btn_modify_n_ruche_modif) ; 
 }
 
-//n_cadre
+//n_cadre 
+//FIXME : retour à la valeur de base de ncadre une fois qu'on rappui sur modifier ! 
 void video_button_modify_n_cadre_modif( video_win_t* win, video_t* video ) {
     
     char buffer[10] ; 

@@ -13,10 +13,11 @@ typedef struct {
     
     GtkWidget *box_up ; 
     GtkWidget *box_down ; 
-    GtkWidget *box_left ; 
+  /*GtkWidget *box_left ; 
     GtkWidget *box_middle ; 
     GtkWidget *box_right ;
-
+    */
+    GtkWidget *grid ; 
     GtkWidget *label_name_video ; 
 
     GtkWidget *label_name_ruche ; 

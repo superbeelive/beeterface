@@ -31,7 +31,7 @@ camera_win_t* camera_win_new() {
     tmp->label_description = gtk_label_new ("Description") ;
    
     tmp->entry_name = gtk_entry_new() ; 
-tmp->entry_model = gtk_entry_new() ; 
+    tmp->entry_model = gtk_entry_new() ; 
     tmp->entry_nserie = gtk_entry_new() ; 
     tmp->entry_type = gtk_entry_new() ; 
     tmp->entry_description = gtk_entry_new() ; 
