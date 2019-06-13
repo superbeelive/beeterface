@@ -19,18 +19,18 @@
     gtk_entry_set_text((GtkEntry*) win->entry_n_cadre, buffer2 ) ; 
     gtk_entry_set_text((GtkEntry*) win->entry_description, video->description ) ;
     //Intégrer nom complet / description cam 
-    gtk_entry_set_text((GtkEntry*) win->entry_date, video->date ) ; 
-    gtk_entry_set_text((GtkEntry*) win->entry_auteur, video->auteur->nom ) ; 
-    gtk_entry_set_text((GtkEntry*) win->entry_camera, video->camera->name ) ; 
+    gtk_label_set_text((GtkLabel*) win->entry_date, video->date ) ; 
+    gtk_label_set_text((GtkLabel*) win->entry_auteur, video->auteur->nom ) ; 
+    gtk_label_set_text((GtkLabel*) win->entry_camera, video->camera->name ) ; 
     
     
     g_object_set(win->entry_name_ruche,"editable", FALSE, NULL) ; 
     g_object_set(win->entry_n_ruche,"editable", FALSE, NULL) ; 
     g_object_set(win->entry_n_cadre,"editable", FALSE, NULL) ; 
     g_object_set(win->entry_description,"editable", FALSE, NULL) ; 
-    g_object_set(win->entry_date,"editable", FALSE, NULL) ; 
+   /* g_object_set(win->entry_date,"editable", FALSE, NULL) ; 
     g_object_set(win->entry_auteur,"editable", FALSE, NULL) ; 
-    g_object_set(win->entry_camera,"editable", FALSE, NULL) ; 
+    g_object_set(win->entry_camera,"editable", FALSE, NULL) ; */
 }
 //name ruche
 void video_button_modify_name_ruche_modif( video_win_t* win, video_t* video ) {

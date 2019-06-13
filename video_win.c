@@ -35,9 +35,9 @@ video_win_t* video_win_new() {
     tmp->entry_n_ruche = gtk_entry_new() ;  
     tmp->entry_n_cadre = gtk_entry_new() ;  
     tmp->entry_description = gtk_entry_new() ;  
-    tmp->entry_date = gtk_entry_new() ;  
-    tmp->entry_auteur = gtk_entry_new() ;  
-    tmp->entry_camera = gtk_entry_new() ;  
+    tmp->entry_date = gtk_label_new("") ;  
+    tmp->entry_auteur = gtk_label_new("") ;  
+    tmp->entry_camera = gtk_label_new("") ;  
     
     //Buttons
     tmp->img_btn_modify_name_ruche_modif = gtk_image_new_from_file ("images/modif.png") ; 
@@ -86,6 +86,7 @@ video_win_t* video_win_new() {
         //Box Down
         gtk_box_pack_start (GTK_BOX(tmp->box_up), tmp->grid, TRUE, TRUE, 0) ;
         
+
             //Column 1 
             gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_name_ruche,1,1,1,1 ) ; 
             gtk_grid_attach (GTK_GRID(tmp->grid),tmp->label_n_ruche,1,2,1,1 ) ; 
@@ -108,40 +109,42 @@ video_win_t* video_win_new() {
             gtk_grid_attach (GTK_GRID(tmp->grid),tmp->btn_modify_n_ruche,3,2,1,1 ) ; 
             gtk_grid_attach (GTK_GRID(tmp->grid),tmp->btn_modify_n_cadre,3,3,1,1 ) ; 
             gtk_grid_attach (GTK_GRID(tmp->grid),tmp->btn_modify_description,3,4,1,1 ) ; 
-      
-           /*
-        gtk_box_pack_start (GTK_BOX(tmp->box_down), tmp->box_left, TRUE, TRUE, 0) ;
-        gtk_box_pack_start (GTK_BOX(tmp->box_down), tmp->box_middle, TRUE, TRUE, 0) ; 
-        gtk_box_pack_start (GTK_BOX(tmp->box_down), tmp->box_right, TRUE, TRUE, 0) ; 
+    
 
-            //Box Left
-            gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_name_ruche, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_n_ruche, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_n_cadre, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_description, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_date, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_auteur, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_camera, TRUE, TRUE, 0) ; 
-
-            //Box Middle
-
-            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_name_ruche, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_n_ruche, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_n_cadre, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_description, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_date, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_auteur, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->entry_camera, TRUE, TRUE, 0) ; 
-
-            //Box Right
-
-            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->btn_modify_name_ruche, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->btn_modify_n_ruche, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->btn_modify_n_cadre, TRUE, TRUE, 0) ; 
-            gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->btn_modify_description, TRUE, TRUE, 0) ; 
-    */
-    //AUTRE
+    //PLACEMENT
+    //Window
     gtk_window_set_title ( GTK_WINDOW (tmp->window), "Vidéo") ;
+    gtk_window_set_default_size ( GTK_WINDOW (tmp->window), 30, 30 ) ; 
+    gtk_window_unmaximize (GTK_WINDOW (tmp->window));
+    gtk_container_set_border_width (GTK_CONTAINER (tmp->window), 10 );
+
+    //label_name_video
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->label_name_video), 20 ) ; 
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->label_name_video), 15 ) ;
+    
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_name_ruche), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_n_ruche), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_n_cadre), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_description), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_date), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_auteur), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_camera), 10 ) ;
+
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_name_ruche), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_n_ruche), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_n_cadre), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_description), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_date), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_auteur), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_camera), GTK_ALIGN_START ) ;
+
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->entry_date), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->entry_auteur), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->entry_camera), GTK_ALIGN_START ) ;
+
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->label_date), 5 ) ;
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->label_auteur), 5 ) ;
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->label_camera), 5 ) ;
 
     return tmp ; 
 }
