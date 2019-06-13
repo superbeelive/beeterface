@@ -54,8 +54,8 @@ main_win_t* main_win_new() {
 
 
     //IMAGES  
-    tmp->image_exemple = gtk_image_new_from_file ("images/bee2.jpg");
-    tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png");
+    tmp->image_exemple = gtk_image_new_from_file ("images/bee2.jpg") ;
+    tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png") ;
     //TEXTE 
     tmp->nom_video = gtk_label_new("");
     gtk_label_set_markup(GTK_LABEL(tmp->nom_video), "<span foreground=\"black\" font=\"16\">Nom de la vidéo</span>");
@@ -146,8 +146,30 @@ main_win_t* main_win_new() {
             //Dans box_info_sup 
                    gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->txt_info, FALSE, FALSE, 0);
 
-//AUTRE 
+//PLACEMENT
+    //Window
     gtk_window_set_title (GTK_WINDOW (tmp->window), "BEETERFACE"); //Nomme la fenêtre 
+    gtk_window_set_default_size ( GTK_WINDOW (tmp->window), 30, 30 ) ; 
+    gtk_window_unmaximize (GTK_WINDOW (tmp->window));
+    gtk_container_set_border_width (GTK_CONTAINER (tmp->window), 10 );
+    //
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->image_exemple), 5 ) ;
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->image_exemple), 5 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->image_exemple), 5 ) ;
+    
+    //
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->logo_type_video), 5 ) ;
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->logo_type_video), 5 ) ;
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->logo_type_video), 10 ) ;
+
+    
+    //
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->txt_info), 10 ) ;
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->txt_info), 5 ) ;
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->txt_info), 10 ) ;
+
+    //
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->fichiers), 10 ) ;
 
     return tmp ;
 }
