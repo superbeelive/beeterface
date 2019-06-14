@@ -8,18 +8,18 @@ video_win_t* video_win_new() {
 
     //DECLARATION VARIABLES 
     tmp->cnt_modif_name_ruche = 0 ; 
-    
+    tmp->cnt_modif_n_ruche = 0 ; 
+    tmp->cnt_modif_n_cadre = 0 ;
+    tmp->cnt_modif_description = 0 ; 
+
+
     //CREATION WIDGET  
     tmp->window = gtk_window_new (GTK_WINDOW_TOPLEVEL) ; 
     tmp->box_principal = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0 ) ; 
     
     tmp->box_up = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
-    tmp->box_down = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0) ; 
+    tmp->box_down = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, -1) ; 
     tmp->grid = gtk_grid_new () ; 
-
-   /* tmp->box_left = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
-    tmp->box_middle = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ;
-    tmp->box_right = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0) ; */
 
     tmp->label_name_video = gtk_label_new ("Nom_de_la_video") ; 
 
@@ -149,6 +149,9 @@ video_win_t* video_win_new() {
     return tmp ; 
 }
 
+
+
+
 void video_win_show ( video_win_t* nemo ) {
     gtk_widget_show ( nemo->window ) ; 
     gtk_widget_show_all ( nemo->box_principal ) ; 
@@ -162,8 +165,7 @@ void video_win_del ( video_win_t* nemo ) {
     g_object_unref (nemo->img_btn_modify_n_ruche_modif);
     g_object_unref (nemo->img_btn_modify_n_ruche_ok);
 
-    g_object_unref (nemo->img_btn_modify_n_cadre_modif);
-    g_object_unref (nemo->img_btn_modify_n_cadre_ok);
+    g_object_unref (nemo->img_btn_modify_n_cadre_modif);    g_object_unref (nemo->img_btn_modify_n_cadre_ok);
 
     g_object_unref (nemo->img_btn_modify_description_modif);
     g_object_unref (nemo->img_btn_modify_description_ok);

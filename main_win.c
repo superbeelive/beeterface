@@ -51,10 +51,11 @@ main_win_t* main_win_new() {
     tmp->button_auteur =  gtk_button_new_with_label ("Auteur");
     tmp->button_video =  gtk_button_new_with_label ("Video");
     tmp->button_camera =  gtk_button_new_with_label ("Camera");
+    tmp->button_tag =  gtk_button_new_with_label ("Tag");
 
 
     //IMAGES  
-    tmp->image_exemple = gtk_image_new_from_file ("images/bee2.jpg") ;
+    tmp->image_exemple = gtk_image_new_from_file ("images/video_1024_768") ;
     tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png") ;
     //TEXTE 
     tmp->nom_video = gtk_label_new("");
@@ -92,12 +93,12 @@ main_win_t* main_win_new() {
     //Boite PRINCIPALE 
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal);
         //Dans la boite principale :
-        gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_up, TRUE, TRUE, 0);
-        gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_all, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_up, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_all, FALSE, FALSE, 0);
 
             //Dans tmp->box_up
-            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_quit, TRUE, TRUE, 0); 
-            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->sep_haut, TRUE, TRUE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_quit, FALSE, FALSE, 5); 
+            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->sep_haut, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->box_info_video, TRUE, TRUE, 0);
                  //Dans tmp->box_info_video   
                  gtk_box_pack_start(GTK_BOX(tmp->box_info_video), tmp->logo_type_video, FALSE, FALSE, 20);
@@ -106,9 +107,10 @@ main_win_t* main_win_new() {
                  //Dans tmp->box_quit
                  gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_quit, FALSE, FALSE, 0);
                  gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_info, FALSE, FALSE, 0);
-                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_video, TRUE, TRUE, 0);
-                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_auteur, TRUE, TRUE, 0);
-                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_camera, TRUE, TRUE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_video, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_auteur, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_camera, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_quit), tmp->button_tag, FALSE, FALSE, 0);
             
             //Dans tmp->box_all
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_gauche, FALSE, FALSE, 0);
@@ -119,19 +121,19 @@ main_win_t* main_win_new() {
 
                 //Dans tmp->box_menu_droit
                  gtk_box_pack_start(GTK_BOX(tmp->box_menu_droit), tmp->box_search_1, FALSE, FALSE, 0);
-                 gtk_box_pack_start(GTK_BOX(tmp->box_menu_droit), tmp->box_search_2, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_menu_droit), tmp->box_search_2, TRUE, TRUE, 0);
                     //Dans tmp->box_search_1
-                    gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->search, FALSE, FALSE, 5);
-                    gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->txt_trier_par, FALSE, FALSE, 0);
+                    gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->search, TRUE, TRUE, 5);
+                    gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->txt_trier_par, TRUE, TRUE, 0);
 
-                    gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->choix_tri, FALSE, FALSE, 5);
+                    gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->choix_tri, TRUE, TRUE, 5);
 
                     //Dans tmp->box_search_2
-                    gtk_box_pack_start(GTK_BOX(tmp->box_search_2), tmp->fichiers, FALSE, FALSE, 0);
+                    gtk_box_pack_start(GTK_BOX(tmp->box_search_2), tmp->fichiers, TRUE, TRUE, 0);
 
                 //Dans tmp->box_gauche
                      gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_video, FALSE, FALSE, 0);
-                     gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_menu_video, FALSE, FALSE, 0);
+                     gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_menu_video, FALSE, FALSE,0);
 
                         //Dans tmp->box_video
                              gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->image_exemple, FALSE, FALSE, 0);
@@ -170,6 +172,16 @@ main_win_t* main_win_new() {
 
     //
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->fichiers), 10 ) ;
+    
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->sep), 10 ) ;
+
+    //
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->txt_visualiser), 2 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->choix_camera), 5 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_enregistrer), 5 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_stop), 5 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_photo), 5 ) ;
+
 
     return tmp ;
 }

@@ -12,7 +12,7 @@ interface_t* interface_new() {
     	tmp->win_auteur = auteur_win_new();
         tmp->win_video = video_win_new() ;
         tmp->win_camera = camera_win_new() ; 
-
+        tmp->win_tag = tag_win_new() ; 
 	return tmp ;
 }
 
@@ -22,6 +22,8 @@ void interface_del ( interface_t* tmp ) {
 	modif_win_del( tmp->win_modif ) ;
 	auteur_win_del ( tmp->win_auteur ) ;
     video_win_del ( tmp->win_video ) ; 
-	camera_win_del (tmp->win_camera ) ; 
+	camera_win_del (tmp->win_camera ) ;
+	tag_win_del (tmp->win_tag ) ;
+
     free ( tmp ) ;
 }

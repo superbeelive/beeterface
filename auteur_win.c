@@ -84,9 +84,23 @@ auteur_win_t* auteur_win_new() {
             
 
         
-//AUTRE
+//PLACEMENT
+        //Window
         gtk_window_set_title ( GTK_WINDOW (tmp->window), "Auteur") ;
+        gtk_window_set_default_size ( GTK_WINDOW (tmp->window), 30, 30 ) ; 
+        gtk_window_unmaximize (GTK_WINDOW (tmp->window));
+        gtk_container_set_border_width (GTK_CONTAINER (tmp->window), 10 );
 
+        //Text
+        gtk_widget_set_halign ( GTK_WIDGET (tmp->label_name), GTK_ALIGN_START ) ;
+        gtk_widget_set_halign ( GTK_WIDGET (tmp->label_first_name), GTK_ALIGN_START ) ;
+        gtk_widget_set_halign ( GTK_WIDGET (tmp->label_email), GTK_ALIGN_START ) ;
+
+        gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_name), 10 ) ;
+        gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_first_name), 10 ) ;
+        gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_email), 10 ) ;
+
+        gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->label_title), 10) ; 
     return tmp ;
 }
 

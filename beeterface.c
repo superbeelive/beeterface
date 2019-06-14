@@ -173,6 +173,30 @@ void callback_camera_modify_description (GtkWidget* widget, gpointer data) {
     }
 
 
+///////////////////////////////////////////////// TAG CALLBACK ////////////////////////////////////////////////////
+void callback_tag(GtkWidget * widget, gpointer data)
+{
+    queen_t* tmp ;
+    tmp = data ;
+    // Remplissage de la fenêtre avec le contenu de caméra 
+    //tag_win_fill(tmp->interface->win_tag, tmp->projet->tag ) ; 
+    
+    //Apparition de la fenêtre
+    tag_win_show(tmp->interface->win_tag); 
+}
+
+void callback_tag_modify_edit (GtkWidget* widget, gpointer data) {
+        queen_t* tmp ; 
+        tmp = data ;
+
+        if ( tmp->interface->win_tag->cnt_edit == 0 )  
+        tag_btn_edit_modif(tmp->interface->win_tag) ;     
+        else 
+        tag_btn_edit_ok(tmp->interface->win_tag ) ;
+    }
+
+
+///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
 
@@ -189,7 +213,7 @@ int main(int argc, char *argv[])
 //Affichage de la fenêtre principale 
     main_win_show(queen->interface->win_main);
 
-//////FONCTIONS///////
+/////////////////////////////////GSNIGAL//////////////////////////////
 //Fenêtre MAIN     
     g_signal_connect(queen->interface->win_main->button_quit, 
     			"clicked", 
@@ -218,6 +242,10 @@ int main(int argc, char *argv[])
 			    queen);
 
 
+    g_signal_connect(queen->interface->win_main->button_tag, 
+    		   	"clicked",
+			    G_CALLBACK(callback_tag), 
+			    queen);
 
 //Fenêtre AUTEUR 
     g_signal_connect(queen->interface->win_auteur->button_modify1,
@@ -262,7 +290,7 @@ int main(int argc, char *argv[])
             G_CALLBACK(callback_camera_modify_description),
             queen);
 
-//Fenêtre Video
+//Fenêtre VIDEO
      g_signal_connect(queen->interface->win_video->btn_modify_name_ruche,
             "clicked",
             G_CALLBACK(callback_video_modify_name_ruche),
@@ -282,6 +310,15 @@ int main(int argc, char *argv[])
             "clicked",
             G_CALLBACK(callback_video_modify_description),
             queen);
+
+//Fenêtre TAG 
+
+
+     g_signal_connect(queen->interface->win_tag->btn_edit,
+            "clicked",
+            G_CALLBACK(callback_tag_modify_edit),
+            queen);
+
 
 //Fonction attend event.     
     gtk_main();

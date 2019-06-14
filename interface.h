@@ -6,6 +6,7 @@
 #include "auteur_win.h"
 #include "video_win.h"
 #include "camera_win.h"
+#include "tag_win.h"
 
 typedef struct {
 
@@ -13,7 +14,8 @@ typedef struct {
 	modif_win_t* win_modif ;
 	auteur_win_t* win_auteur ;
     video_win_t* win_video ; 
-    camera_win_t* win_camera ; 
+    camera_win_t* win_camera ;
+    tag_win_t* win_tag ; 
 
 } interface_t ;
 

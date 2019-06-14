@@ -121,7 +121,25 @@ camera_win_t* camera_win_new() {
 
     //AUTRE
     gtk_window_set_title ( GTK_WINDOW (tmp->window), "Camera") ;
+    gtk_window_set_default_size ( GTK_WINDOW (tmp->window), 30, 30 ) ; 
+    gtk_window_unmaximize (GTK_WINDOW (tmp->window));
+    gtk_container_set_border_width (GTK_CONTAINER (tmp->window), 10 );
 
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_name), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_model), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_nserie), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_type), 10 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_description), 10 ) ;
+ 
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->label_title), 10) ; 
+
+    gtk_widget_set_halign (GTK_WIDGET (tmp->label_name), GTK_ALIGN_START) ;
+    gtk_widget_set_halign (GTK_WIDGET (tmp->label_model), GTK_ALIGN_START) ;
+    gtk_widget_set_halign (GTK_WIDGET (tmp->label_nserie), GTK_ALIGN_START) ;
+    gtk_widget_set_halign (GTK_WIDGET (tmp->label_type), GTK_ALIGN_START) ;
+    gtk_widget_set_halign (GTK_WIDGET (tmp->label_description), GTK_ALIGN_START) ;
+
+    
     return tmp ; 
 }
 
