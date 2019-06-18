@@ -26,8 +26,7 @@ main_win_t* main_win_new() {
 
 
     //BOUTONS
-    tmp->button_quit = gtk_button_new (); //Definition sur deux lignes  
-    //gtk_button_set_label ((GtkButton*)tmp->button_quit,"Quitter");
+    tmp->button_quit = gtk_button_new ();  
     tmp->image_button_quit = gtk_image_new_from_file ("images/quit3.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_quit), tmp->image_button_quit);
 
@@ -38,8 +37,6 @@ main_win_t* main_win_new() {
 
     tmp->button_stop = gtk_button_new ();
     tmp->image_button_stop =  gtk_image_new_from_file ("images/carre_noir.png");
-    gtk_button_set_image (GTK_BUTTON (tmp->button_stop), tmp->image_button_stop);
-
     tmp->button_photo = gtk_button_new ();
     tmp->image_button_photo = gtk_image_new_from_file ("images/icone_photo3.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_photo), tmp->image_button_photo);
@@ -57,6 +54,7 @@ main_win_t* main_win_new() {
     //IMAGES  
     tmp->image_exemple = gtk_image_new_from_file ("images/video_1024_768") ;
     tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png") ;
+
     //TEXTE 
     tmp->nom_video = gtk_label_new("");
     gtk_label_set_markup(GTK_LABEL(tmp->nom_video), "<span foreground=\"black\" font=\"16\">Nom de la vidéo</span>");
@@ -69,6 +67,7 @@ main_win_t* main_win_new() {
 
     tmp->txt_info = gtk_label_new("");
     gtk_label_set_markup(GTK_LABEL(tmp->txt_info), "<span foreground=\"black\" font=\"10\">Degré</span>");
+
 
     //AUTRES 
     tmp->fichiers = gtk_places_sidebar_new ();
@@ -88,7 +87,7 @@ main_win_t* main_win_new() {
     gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->choix_tri, 3,"Caméra");
 
 
-//Rangement des boxs & Widgets 
+//RANGEMENT
     
     //Boite PRINCIPALE 
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal);
@@ -115,13 +114,15 @@ main_win_t* main_win_new() {
             //Dans tmp->box_all
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_gauche, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_info_sup, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->sep, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_menu_droit, TRUE, TRUE, 0);
+            
+            gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->sep, FALSE, FALSE, 0);
 
 
                 //Dans tmp->box_menu_droit
                  gtk_box_pack_start(GTK_BOX(tmp->box_menu_droit), tmp->box_search_1, FALSE, FALSE, 0);
                  gtk_box_pack_start(GTK_BOX(tmp->box_menu_droit), tmp->box_search_2, TRUE, TRUE, 0);
+            
                     //Dans tmp->box_search_1
                     gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->search, TRUE, TRUE, 5);
                     gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->txt_trier_par, TRUE, TRUE, 0);
@@ -131,22 +132,22 @@ main_win_t* main_win_new() {
                     //Dans tmp->box_search_2
                     gtk_box_pack_start(GTK_BOX(tmp->box_search_2), tmp->fichiers, TRUE, TRUE, 0);
 
-                //Dans tmp->box_gauche
-                     gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_video, FALSE, FALSE, 0);
-                     gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_menu_video, FALSE, FALSE,0);
+                 //Dans tmp->box_gauche
+                 gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_video, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_menu_video, FALSE, FALSE,0);
 
-                        //Dans tmp->box_video
+                            //Dans tmp->box_video
                              gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->image_exemple, FALSE, FALSE, 0);
 
-                        //Dans tmp->box_menu_video
+                             //Dans tmp->box_menu_video
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->txt_visualiser, FALSE, FALSE, 10);
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->choix_camera, FALSE, FALSE, 0);
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->button_enregistrer, FALSE, FALSE, 0);
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->button_stop, FALSE, FALSE, 0);
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->button_photo, FALSE, FALSE, 0);
 
-            //Dans box_info_sup 
-                   gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->txt_info, FALSE, FALSE, 0);
+                  //Dans box_info_sup 
+                  gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->txt_info, FALSE, FALSE, 0);
 
 //PLACEMENT
     //Window
@@ -154,28 +155,30 @@ main_win_t* main_win_new() {
     gtk_window_set_default_size ( GTK_WINDOW (tmp->window), 30, 30 ) ; 
     gtk_window_unmaximize (GTK_WINDOW (tmp->window));
     gtk_container_set_border_width (GTK_CONTAINER (tmp->window), 10 );
-    //
+    
+    //image_exemple
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->image_exemple), 5 ) ;
     gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->image_exemple), 5 ) ;
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->image_exemple), 5 ) ;
     
-    //
+    //logo_type_video
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->logo_type_video), 5 ) ;
     gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->logo_type_video), 5 ) ;
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->logo_type_video), 10 ) ;
 
     
-    //
+    //txt_info
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->txt_info), 10 ) ;
     gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->txt_info), 5 ) ;
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->txt_info), 10 ) ;
 
-    //
+    //fichier
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->fichiers), 10 ) ;
     
+    //sep
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->sep), 10 ) ;
 
-    //
+    //menu_video
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->txt_visualiser), 2 ) ;
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->choix_camera), 5 ) ;
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_enregistrer), 5 ) ;
@@ -187,17 +190,10 @@ main_win_t* main_win_new() {
 }
 
 
-
-
-
-
-void main_win_show ( main_win_t* tmp ) {
-
-  
-    //BOX
-
+void main_win_show ( main_win_t* tmp ) {  
+ 
     gtk_widget_show (tmp->window);
-    gtk_widget_show_all ( tmp->box_principal);
+    gtk_widget_show_all (tmp->box_principal);
     gtk_widget_show_all (tmp->box_up);
 
 }

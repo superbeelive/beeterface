@@ -8,39 +8,22 @@
 
 typedef struct {
 
-    GtkWidget *window2; //Fenetre changements
+    GtkWidget *window; //Fenetre changements
     GtkWidget *box_principal2;    
     GtkWidget *box_gauche;    
     GtkWidget *box_milieu;
     GtkWidget *box_droit;
     GtkWidget *box_video;
     GtkWidget *box_outil_video;
+    GtkWidget *grid ;
+
     GtkWidget *image_video;
     GtkWidget *titre_video;
     GtkWidget *text_boite_outils;
     
     GtkWidget* btn_list_outils_dessin[5];
     GtkWidget* img_btn_list_outils_dessin[5];
-
-    /*
-    GtkWidget *button_croix;
-    GtkWidget *image_button_croix;
-
-    GtkWidget *button_cercle;
-    GtkWidget *image_button_cercle;
-
-    GtkWidget *button_rectangle;
-    GtkWidget *image_button_rectangle;
-
-    GtkWidget *button_fleche;
-    GtkWidget *image_button_fleche;
-
-    GtkWidget *button_gomme;
-    GtkWidget *image_button_gomme;
-    */
-
     GtkWidget *barre_temps;
-
     
     GtkWidget *tags;
     GtkWidget *outils;
