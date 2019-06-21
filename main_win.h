@@ -20,15 +20,16 @@ typedef struct {
     GtkWidget *box_search_1;
     GtkWidget *box_search_2;
     GtkWidget *box_info_sup;
-    
-    GtkWidget *grid_info ; 
 
+    GtkWidget *scroll_tag ;
+
+    GtkWidget *grid_info ; 
+    GtkWidget *frame_info ; 
     //Label
     GtkWidget *txt_trier_par;
     GtkWidget *txt_visualiser;
     GtkWidget *nom_video;
    
-    GtkWidget *label_title_info ;
     GtkWidget *label_info_temp_ruche ;
     GtkWidget *label_info_temp_ext ;
     GtkWidget *label_info_date ; 
@@ -39,7 +40,7 @@ typedef struct {
     GtkWidget *label_date ;
     GtkWidget *label_heure ; 
 
-
+    GtkWidget *label_test ; 
     //Boutons
     GtkWidget *button_quit; //Bouton quitter 
     GtkWidget *image_button_quit;
@@ -60,7 +61,7 @@ typedef struct {
     GtkWidget *button_auteur ; 
     GtkWidget *button_video ;
     GtkWidget *button_camera ; 
-    GtkWidget *button_tag ;  
+    GtkWidget *button_tag ; 
     
     //Images
     GtkWidget *image_exemple; //Image pour repérer où sera la vidéo
@@ -72,7 +73,6 @@ typedef struct {
 
     //Autre
     GtkWidget *sep; //Separateur vertical  entre image et selecteur fichier
-    GtkWidget *fichiers; //Gestionnaire de fichiers pour simuler le futur TAG
     GtkWidget *search; //Barre de recherche tag
     GtkWidget *sep_haut; //Ligne de séparation
     

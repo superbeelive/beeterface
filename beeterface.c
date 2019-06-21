@@ -194,7 +194,13 @@ void callback_tag_modify_edit (GtkWidget* widget, gpointer data) {
         else 
         tag_btn_edit_ok(tmp->interface->win_tag ) ;
     }
-
+//////////////////////////////////////////////////// INFO CALLBACK ////////////////////////////////////////////
+void callback_info(GtkWidget *widget, gpointer data) 
+{  
+    queen_t* tmp ; 
+    tmp = data ;
+    info_win_show(tmp->interface->win_info) ;
+}
 
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
@@ -247,6 +253,11 @@ int main(int argc, char *argv[])
 			    G_CALLBACK(callback_tag), 
 			    queen);
 
+
+    g_signal_connect(queen->interface->win_main->button_info, 
+    		   	"clicked",
+			    G_CALLBACK(callback_info), 
+			    queen);
 //Fenêtre AUTEUR 
     g_signal_connect(queen->interface->win_auteur->button_modify1,
             "clicked",
@@ -318,6 +329,7 @@ int main(int argc, char *argv[])
             "clicked",
             G_CALLBACK(callback_tag_modify_edit),
             queen);
+
 
 
 //Fonction attend event.     

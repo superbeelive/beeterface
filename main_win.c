@@ -24,9 +24,14 @@ main_win_t* main_win_new() {
     tmp->box_search_2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_info_sup = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
 
+    tmp->scroll_tag = gtk_scrolled_window_new (NULL, NULL) ; 
     //GRID
     tmp->grid_info = gtk_grid_new() ; 
+    
+    //Paned
+    tmp->frame_info = gtk_frame_new ("Informations") ;
 
+    
     //BOUTONS
     tmp->button_quit = gtk_button_new ();  
     tmp->image_button_quit = gtk_image_new_from_file ("images/quit3.png");
@@ -67,8 +72,6 @@ main_win_t* main_win_new() {
     tmp->txt_visualiser = gtk_label_new("") ;
     gtk_label_set_markup(GTK_LABEL(tmp->txt_visualiser), "<span foreground=\"black\" font=\"10\">Visualiser :</span>");
 
-    tmp->label_title_info = gtk_label_new("") ;
-    gtk_label_set_markup(GTK_LABEL(tmp->label_title_info), "<span foreground=\"black\" font=\"12\">Informations</span>");
 
     tmp->label_info_date = gtk_label_new("Date  ") ; 
     tmp->label_info_heure = gtk_label_new("Heure  ") ; 
@@ -79,11 +82,13 @@ main_win_t* main_win_new() {
     tmp->label_heure = gtk_label_new("ex_heure") ; 
     tmp->label_temp_ruche = gtk_label_new("42°") ; 
     tmp->label_temp_ext = gtk_label_new("51°") ; 
-    
+   
+    tmp->label_test = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
+
+
     
 
     //AUTRES 
-    tmp->fichiers = gtk_places_sidebar_new ();
     tmp->sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
     tmp->sep_haut = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     tmp->search = gtk_search_entry_new ();
@@ -143,7 +148,9 @@ main_win_t* main_win_new() {
                     gtk_box_pack_start(GTK_BOX(tmp->box_search_1), tmp->choix_tri, TRUE, TRUE, 5);
 
                     //Dans tmp->box_search_2
-                    gtk_box_pack_start(GTK_BOX(tmp->box_search_2), tmp->fichiers, TRUE, TRUE, 0);
+                    gtk_box_pack_start(GTK_BOX(tmp->box_search_2), tmp->scroll_tag, TRUE, TRUE, 0);
+                        //Scroll_tag                       
+                        gtk_container_add (GTK_CONTAINER (tmp->scroll_tag), tmp->label_test);
 
                  //Dans tmp->box_gauche
                  gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_video, FALSE, FALSE, 0);
@@ -160,9 +167,9 @@ main_win_t* main_win_new() {
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->button_photo, FALSE, FALSE, 0);
 
                   //Dans box_info_sup 
-                  gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->label_title_info, FALSE, FALSE, 0);
-                  gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->grid_info, FALSE, FALSE, 0);
-                  
+                  gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->frame_info, FALSE, FALSE, 0);
+                  gtk_container_add (GTK_CONTAINER (tmp->frame_info), tmp->grid_info);
+
                   gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_info_date, 1, 1, 1, 1) ;  
                   gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_info_heure, 1, 2, 1, 1) ;  
                   gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_info_temp_ext, 1, 3, 1, 1) ;  
@@ -195,7 +202,6 @@ main_win_t* main_win_new() {
 
     
     //fichier
-    gtk_widget_set_margin_top (GTK_WIDGET (tmp->fichiers), 10 ) ;
     
     //sep
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->sep), 10 ) ;
@@ -208,8 +214,9 @@ main_win_t* main_win_new() {
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_photo), 5 ) ;
 
     //Information sup
-    gtk_widget_set_margin_end (GTK_WIDGET (tmp->box_info_sup), 5 ) ; 
-    gtk_widget_set_margin_start (GTK_WIDGET (tmp->box_info_sup), 5 ) ; 
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->box_info_sup), 10 ) ; 
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->box_info_sup), 5 ) ;
+
 
     gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_temp_ruche), GTK_ALIGN_START ) ;
     gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_temp_ext), GTK_ALIGN_START ) ;
@@ -221,7 +228,12 @@ main_win_t* main_win_new() {
     gtk_widget_set_halign ( GTK_WIDGET (tmp->label_date), GTK_ALIGN_START ) ;
     gtk_widget_set_halign ( GTK_WIDGET (tmp->label_heure), GTK_ALIGN_START ) ;
 
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->grid_info), 5 ) ;
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->grid_info), 5 ) ;
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->grid_info), 5 ) ;
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->grid_info), 5 ) ;
 
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->scroll_tag), 45 ) ;
 
     return tmp ;
 }
