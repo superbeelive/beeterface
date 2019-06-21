@@ -15,7 +15,8 @@ typedef struct {
     GtkWidget *box_droit;
     GtkWidget *box_video;
     GtkWidget *box_outil_video;
-    GtkWidget *grid ;
+    GtkWidget *grid_outil_video ;
+    GtkWidget *grid_outil_tag ; 
 
     GtkWidget *image_video;
     GtkWidget *titre_video;
@@ -38,7 +39,7 @@ typedef struct {
     //Voir images_boutons pour les images dans le .c
     GtkWidget* button_list[4];
     GtkWidget* image_button_list[4];
-
+    GtkWidget* separateur ; 
     
 } modif_win_t ; //typedef + struct sur la même ligne
 

@@ -24,6 +24,8 @@ main_win_t* main_win_new() {
     tmp->box_search_2 = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_info_sup = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
 
+    //GRID
+    tmp->grid_info = gtk_grid_new() ; 
 
     //BOUTONS
     tmp->button_quit = gtk_button_new ();  
@@ -52,22 +54,33 @@ main_win_t* main_win_new() {
 
 
     //IMAGES  
-    tmp->image_exemple = gtk_image_new_from_file ("images/video_1024_768") ;
+    tmp->image_exemple = gtk_image_new_from_file ("images/video_bee.jpg") ;
     tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png") ;
 
     //TEXTE 
-    tmp->nom_video = gtk_label_new("");
+    tmp->nom_video = gtk_label_new("") ;
     gtk_label_set_markup(GTK_LABEL(tmp->nom_video), "<span foreground=\"black\" font=\"16\">Nom de la vidéo</span>");
     
-    tmp->txt_trier_par = gtk_label_new("");
+    tmp->txt_trier_par = gtk_label_new("") ;
     gtk_label_set_markup(GTK_LABEL(tmp->txt_trier_par), "<span foreground=\"black\" font=\"10\">Trier par :</span>");
 
-    tmp->txt_visualiser = gtk_label_new("");
+    tmp->txt_visualiser = gtk_label_new("") ;
     gtk_label_set_markup(GTK_LABEL(tmp->txt_visualiser), "<span foreground=\"black\" font=\"10\">Visualiser :</span>");
 
-    tmp->txt_info = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(tmp->txt_info), "<span foreground=\"black\" font=\"10\">Degré</span>");
+    tmp->label_title_info = gtk_label_new("") ;
+    gtk_label_set_markup(GTK_LABEL(tmp->label_title_info), "<span foreground=\"black\" font=\"12\">Informations</span>");
 
+    tmp->label_info_date = gtk_label_new("Date  ") ; 
+    tmp->label_info_heure = gtk_label_new("Heure  ") ; 
+    tmp->label_info_temp_ruche = gtk_label_new("Temp. Ruche  ") ; 
+    tmp->label_info_temp_ext = gtk_label_new("Temp. Ext.  ") ; 
+    
+    tmp->label_date = gtk_label_new("ex_date") ; 
+    tmp->label_heure = gtk_label_new("ex_heure") ; 
+    tmp->label_temp_ruche = gtk_label_new("42°") ; 
+    tmp->label_temp_ext = gtk_label_new("51°") ; 
+    
+    
 
     //AUTRES 
     tmp->fichiers = gtk_places_sidebar_new ();
@@ -147,7 +160,21 @@ main_win_t* main_win_new() {
                              gtk_box_pack_start(GTK_BOX(tmp->box_menu_video), tmp->button_photo, FALSE, FALSE, 0);
 
                   //Dans box_info_sup 
-                  gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->txt_info, FALSE, FALSE, 0);
+                  gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->label_title_info, FALSE, FALSE, 0);
+                  gtk_box_pack_start(GTK_BOX(tmp->box_info_sup), tmp->grid_info, FALSE, FALSE, 0);
+                  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_info_date, 1, 1, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_info_heure, 1, 2, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_info_temp_ext, 1, 3, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_info_temp_ruche, 1, 4, 1, 1) ;  
+                   
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_date, 2, 1, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_heure, 2, 2, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_temp_ext, 2, 3, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_info),tmp->label_temp_ruche, 2, 4, 1, 1) ;  
+                   
+                  
+
 
 //PLACEMENT
     //Window
@@ -167,11 +194,6 @@ main_win_t* main_win_new() {
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->logo_type_video), 10 ) ;
 
     
-    //txt_info
-    gtk_widget_set_margin_end (GTK_WIDGET (tmp->txt_info), 10 ) ;
-    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->txt_info), 5 ) ;
-    gtk_widget_set_margin_top (GTK_WIDGET (tmp->txt_info), 10 ) ;
-
     //fichier
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->fichiers), 10 ) ;
     
@@ -184,6 +206,21 @@ main_win_t* main_win_new() {
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_enregistrer), 5 ) ;
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_stop), 5 ) ;
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->button_photo), 5 ) ;
+
+    //Information sup
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->box_info_sup), 5 ) ; 
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->box_info_sup), 5 ) ; 
+
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_temp_ruche), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_temp_ext), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_date), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_heure), GTK_ALIGN_START ) ;
+
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_temp_ruche), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_temp_ext), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_date), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_heure), GTK_ALIGN_START ) ;
+
 
 
     return tmp ;

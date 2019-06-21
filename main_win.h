@@ -20,12 +20,25 @@ typedef struct {
     GtkWidget *box_search_1;
     GtkWidget *box_search_2;
     GtkWidget *box_info_sup;
-   
+    
+    GtkWidget *grid_info ; 
+
     //Label
     GtkWidget *txt_trier_par;
     GtkWidget *txt_visualiser;
-    GtkWidget *txt_info;
     GtkWidget *nom_video;
+   
+    GtkWidget *label_title_info ;
+    GtkWidget *label_info_temp_ruche ;
+    GtkWidget *label_info_temp_ext ;
+    GtkWidget *label_info_date ; 
+    GtkWidget *label_info_heure ; 
+   
+    GtkWidget *label_temp_ruche ;
+    GtkWidget *label_temp_ext ; 
+    GtkWidget *label_date ;
+    GtkWidget *label_heure ; 
+
 
     //Boutons
     GtkWidget *button_quit; //Bouton quitter 
