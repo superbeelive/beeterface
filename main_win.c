@@ -44,6 +44,8 @@ main_win_t* main_win_new() {
 
     tmp->button_stop = gtk_button_new ();
     tmp->image_button_stop =  gtk_image_new_from_file ("images/carre_noir.png");
+    gtk_button_set_image (GTK_BUTTON (tmp->button_stop), tmp->image_button_stop);
+
     tmp->button_photo = gtk_button_new ();
     tmp->image_button_photo = gtk_image_new_from_file ("images/icone_photo3.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_photo), tmp->image_button_photo);

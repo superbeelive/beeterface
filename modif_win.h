@@ -15,31 +15,35 @@ typedef struct {
     GtkWidget *box_droit;
     GtkWidget *box_video;
     GtkWidget *box_outil_video;
+    GtkWidget *box_menus;
+    GtkWidget *box_up;
+    GtkWidget *box_time; 
+    //GtkWidget *grid_tag ; 
     GtkWidget *grid_outil_video ;
     GtkWidget *grid_outil_tag ; 
 
     GtkWidget *image_video;
+    
     GtkWidget *titre_video;
     GtkWidget *text_boite_outils;
-    
-    GtkWidget* btn_list_outils_dessin[5];
-    GtkWidget* img_btn_list_outils_dessin[5];
-    GtkWidget *barre_temps;
-    
-    GtkWidget *tags;
-    GtkWidget *outils;
-    GtkAdjustment *adjustement_barre_temps;
     GtkWidget *time_deb;
     GtkWidget *time_fin;
-    GtkWidget *box_menus;
-    GtkWidget *box_up;
-    GtkWidget *box_time; 
+    GtkWidget *txt_titre_tag ; 
+    GtkWidget *label_test ; 
 
-    //Boutons sous la vidéo
-    //Voir images_boutons pour les images dans le .c
+    GtkWidget* btn_list_outils_dessin[5];
+    GtkWidget* img_btn_list_outils_dessin[5];
+    
     GtkWidget* button_list[4];
     GtkWidget* image_button_list[4];
-    GtkWidget* separateur ; 
+    
+    GtkWidget *barre_temps;
+    GtkAdjustment *adjustement_barre_temps;
+    
+    GtkWidget* separateur ;
+    GtkWidget* separateur2 ; 
+    GtkWidget* scroll ;  
+
     
 } modif_win_t ; //typedef + struct sur la même ligne
 

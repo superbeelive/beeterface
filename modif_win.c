@@ -2,7 +2,7 @@
 
 #include "modif_win.h"
  const gchar* images_boutons[] = {"./images/ciseaux.png", "./images/next.png", "./images/next.png", "./images/save.png" };
- const gchar* img_btn_outils_dessin[] = {"./images/croix.png","./images/cercle.png","./images/rectangles.png","./image/fleche.png", "./images/gomme.png"};
+ const gchar* img_btn_outils_dessin[] = {"./images/croix.png","./images/cercle.png","./images/rectangle.png","./images/fleche.png", "./images/gomme.png"};
 
 
 modif_win_t* modif_win_new() {
@@ -30,7 +30,8 @@ modif_win_t* modif_win_new() {
     
     tmp->grid_outil_video = gtk_grid_new() ;
     tmp->grid_outil_tag = gtk_grid_new() ; 
-
+    //tmp->grid_tag = gtk_grid_new() ; 
+    
     //Image
     tmp->image_video = gtk_image_new_from_file ("images/bee2.jpg");
     
@@ -44,6 +45,10 @@ modif_win_t* modif_win_new() {
     tmp->time_deb = gtk_label_new("0:00");
     tmp->time_fin = gtk_label_new("2:30");
 
+    tmp->txt_titre_tag = gtk_label_new("") ; 
+    gtk_label_set_markup(GTK_LABEL(tmp->txt_titre_tag), "<span foreground=\"black\" font=\"10\"> <b> Ajout de Tags </b> </span>");
+
+    tmp->label_test = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
 
     //Buttons choix des tags 
 
@@ -73,41 +78,40 @@ modif_win_t* modif_win_new() {
     //Autre
     tmp->adjustement_barre_temps = gtk_adjustment_new (10,0,500,1,1,2);
     tmp->barre_temps = gtk_scale_new(GTK_ORIENTATION_HORIZONTAL,tmp->adjustement_barre_temps);
-    tmp->tags = gtk_places_sidebar_new ();
-    tmp->outils = gtk_tool_palette_new ();
     tmp->separateur = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL) ; 
-   // gtk_tool_palette_set_style ((GtkToolPalette) outils, GTK_TOOLBAR_ICONS);
-
+    tmp->separateur2 = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL) ; 
+    tmp->scroll = gtk_scrolled_window_new (NULL, NULL) ; 
 
 //RANGEMENT
 //Fenetre
        gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_menus);
 
         //Dans box_menus
-        gtk_box_pack_start(GTK_BOX(tmp->box_menus), tmp->box_up, TRUE, TRUE, 0);
-        gtk_box_pack_start(GTK_BOX(tmp->box_menus), tmp->box_principal2, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_menus), tmp->box_up, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_menus), tmp->box_principal2,  TRUE, TRUE, 0);
         //Dans box_up        
-        gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->titre_video, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->titre_video, FALSE, FALSE, 0);
 
         //Dans box_principal2
-        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_gauche, TRUE, TRUE, 0);
-        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->separateur, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_gauche, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->separateur, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_milieu, FALSE, FALSE, 0);
-        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_droit, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->separateur2, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_droit, TRUE, FALSE, 0);
 
             //Dans box_milieu
             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->text_boite_outils, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->grid_outil_tag, FALSE, FALSE, 0);
             //Dans box_gauche
-            gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_video, TRUE, TRUE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_video, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_outil_video, FALSE, FALSE, 0);
                 //Dans box_video
-                gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->image_video, TRUE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->barre_temps, TRUE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->box_time, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->image_video, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->barre_temps, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->box_time, FALSE, FALSE, 0);
                     //Dans box_time
-                   gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_deb, TRUE, TRUE, 0);
-                   gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_fin, TRUE, TRUE, 0);
+                   gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_deb, FALSE, FALSE, 0);
+                   gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_fin, FALSE, FALSE, 0);
 
                     //Dans box_outils_video
                    gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->grid_outil_video, TRUE, TRUE, 0);
@@ -116,10 +120,10 @@ modif_win_t* modif_win_new() {
 
              //Dans box_milieu (boite à outils)
              //"for" plus haut 
-
              //Dans box_droit
-             gtk_box_pack_start(GTK_BOX(tmp->box_droit), tmp->tags, FALSE, FALSE, 0);
-
+             gtk_box_pack_start(GTK_BOX(tmp->box_droit), tmp->txt_titre_tag, TRUE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(tmp->box_droit), tmp->scroll, TRUE, FALSE, 0);
+                gtk_container_add (GTK_CONTAINER (tmp->scroll), tmp->label_test);
 //PLACEMENT 
 
     gtk_window_set_title (GTK_WINDOW (tmp->window), "Modifier la vidéo"); //Nomme la fenêtre 
@@ -142,6 +146,7 @@ modif_win_t* modif_win_new() {
 
     
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->separateur), 5 ) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->separateur2), 5 ) ;
 
     return tmp ;
 
