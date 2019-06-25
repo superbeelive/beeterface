@@ -41,9 +41,9 @@ void moving_cross_del ( moving_cross_t* cr) {
 
 
 void moving_cross_show ( moving_cross_t* cr) {
-    printf("%s %s\n",cr->time_end,
-                     cr->time_start,
-                     cr->description ) ;
+    printf("%s %s %s\n",cr->time_end,
+                        cr->time_start,
+                        cr->description ) ;
     
     color_show ( cr->color ) ; 
     auteur_show ( cr->auteur ) ;

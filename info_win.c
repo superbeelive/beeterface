@@ -26,7 +26,7 @@ info_win_t* info_win_new() {
             //Box_text
             //gtk_box_pack_start(GTK_BOX(tmp->box_text), tmp->label_title, FALSE, FALSE, 0);
             
-      
+    return tmp ;      
 }
 
 void info_win_show ( info_win_t* w ) {
