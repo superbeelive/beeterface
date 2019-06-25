@@ -22,6 +22,8 @@ modif_win_t* modif_win_new() {
     tmp->box_gauche = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_milieu = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_droit = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
+    tmp->box_droit_bas = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+
     tmp->box_video = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_outil_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_menus = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
@@ -30,8 +32,8 @@ modif_win_t* modif_win_new() {
     
     tmp->grid_outil_video = gtk_grid_new() ;
     tmp->grid_outil_tag = gtk_grid_new() ; 
-    //tmp->grid_tag = gtk_grid_new() ; 
-    
+    tmp->frame_tag_add = gtk_frame_new("Tags ajoutés") ;
+
     //Image
     tmp->image_video = gtk_image_new_from_file ("images/bee2.jpg");
     
@@ -49,6 +51,7 @@ modif_win_t* modif_win_new() {
     gtk_label_set_markup(GTK_LABEL(tmp->txt_titre_tag), "<span foreground=\"black\" font=\"10\"> <b> Ajout de Tags </b> </span>");
 
     tmp->label_test = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
+    tmp->label_test2 = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
 
     //Buttons choix des tags 
 
@@ -97,11 +100,15 @@ modif_win_t* modif_win_new() {
         gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->separateur, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_milieu, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->separateur2, FALSE, FALSE, 0);
-        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_droit, TRUE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principal2), tmp->box_droit, TRUE, TRUE, 0);
 
             //Dans box_milieu
             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->text_boite_outils, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->grid_outil_tag, FALSE, FALSE, 0);
+           
+                   gtk_box_pack_start(GTK_BOX(tmp->box_milieu), tmp->frame_tag_add, FALSE, FALSE, 0) ;  
+                        gtk_container_add (GTK_CONTAINER (tmp->frame_tag_add), tmp->label_test2) ;
+            
             //Dans box_gauche
             gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_video, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_gauche), tmp->box_outil_video, FALSE, FALSE, 0);
@@ -114,16 +121,16 @@ modif_win_t* modif_win_new() {
                    gtk_box_pack_start(GTK_BOX(tmp->box_time), tmp->time_fin, FALSE, FALSE, 0);
 
                     //Dans box_outils_video
-                   gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->grid_outil_video, TRUE, TRUE, 0);
+                   gtk_box_pack_start(GTK_BOX(tmp->box_outil_video), tmp->grid_outil_video, FALSE, FALSE, 0) ;
                     //Déclaration des boutons sous forme de for
-                
-
              //Dans box_milieu (boite à outils)
              //"for" plus haut 
              //Dans box_droit
-             gtk_box_pack_start(GTK_BOX(tmp->box_droit), tmp->txt_titre_tag, TRUE, FALSE, 0);
-             gtk_box_pack_start(GTK_BOX(tmp->box_droit), tmp->scroll, TRUE, FALSE, 0);
-                gtk_container_add (GTK_CONTAINER (tmp->scroll), tmp->label_test);
+             gtk_box_pack_start(GTK_BOX(tmp->box_droit), tmp->txt_titre_tag, FALSE, FALSE, 0);
+                
+             gtk_box_pack_start(GTK_BOX(tmp->box_droit), tmp->box_droit_bas, TRUE, TRUE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_droit_bas), tmp->scroll, TRUE, TRUE, 0);
+                    gtk_container_add (GTK_CONTAINER (tmp->scroll), tmp->label_test);
 //PLACEMENT 
 
     gtk_window_set_title (GTK_WINDOW (tmp->window), "Modifier la vidéo"); //Nomme la fenêtre 
@@ -147,6 +154,8 @@ modif_win_t* modif_win_new() {
     
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->separateur), 5 ) ;
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->separateur2), 5 ) ;
+    
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->frame_tag_add), 10 ) ;
 
     return tmp ;
 

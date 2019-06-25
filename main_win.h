@@ -75,7 +75,7 @@ typedef struct {
     GtkWidget *sep; //Separateur vertical  entre image et selecteur fichier
     GtkWidget *search; //Barre de recherche tag
     GtkWidget *sep_haut; //Ligne de séparation
-    
+    GtkWidget *sep_tag ;  
     
 } main_win_t ;
 

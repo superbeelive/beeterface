@@ -13,12 +13,14 @@ typedef struct {
     GtkWidget *box_gauche;    
     GtkWidget *box_milieu;
     GtkWidget *box_droit;
+    GtkWidget *box_droit_bas ; 
     GtkWidget *box_video;
     GtkWidget *box_outil_video;
     GtkWidget *box_menus;
     GtkWidget *box_up;
-    GtkWidget *box_time; 
-    //GtkWidget *grid_tag ; 
+    GtkWidget *box_time;
+    GtkWidget *frame_tag_add ; 
+
     GtkWidget *grid_outil_video ;
     GtkWidget *grid_outil_tag ; 
 
@@ -30,6 +32,7 @@ typedef struct {
     GtkWidget *time_fin;
     GtkWidget *txt_titre_tag ; 
     GtkWidget *label_test ; 
+    GtkWidget *label_test2 ; 
 
     GtkWidget* btn_list_outils_dessin[5];
     GtkWidget* img_btn_list_outils_dessin[5];
