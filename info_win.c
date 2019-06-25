@@ -13,15 +13,15 @@ info_win_t* info_win_new() {
     
     //box
     tmp->box_principal = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0) ; 
-    tmp->box_text = gtk_box_new ( GTK_ORIENTATION_VERTICAL, 0 ) ; 
+    //tmp->box_text = gtk_box_new ( GTK_ORIENTATION_VERTICAL, 0 ) ; 
     
     //label
-    tmp->label_title = gtk_label_new("Informations") ; 
+    //tmp->label_title = gtk_label_new("Informations") ; 
     
     //RANGEMENT 
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal);
         //Box_principale
-        gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_text, FALSE, FALSE, 0);
+       // gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_text, FALSE, FALSE, 0);
         //gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->label_title, FALSE, FALSE, 0);
             //Box_text
             //gtk_box_pack_start(GTK_BOX(tmp->box_text), tmp->label_title, FALSE, FALSE, 0);

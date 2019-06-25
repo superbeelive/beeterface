@@ -92,6 +92,7 @@ main_win_t* main_win_new() {
 
     //AUTRES 
     tmp->sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+    tmp->sep_tag = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
     tmp->sep_haut = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
     tmp->search = gtk_search_entry_new ();
     
@@ -134,9 +135,9 @@ main_win_t* main_win_new() {
             //Dans tmp->box_all
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_gauche, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_info_sup, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->sep, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->box_menu_droit, TRUE, TRUE, 0);
             
-            gtk_box_pack_start(GTK_BOX(tmp->box_all), tmp->sep, FALSE, FALSE, 0);
 
 
                 //Dans tmp->box_menu_droit
