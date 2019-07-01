@@ -8,6 +8,7 @@
 #include "camera_win.h"
 #include "tag_win.h"
 #include "info_win.h"
+#include "color_win.h"
 
 typedef struct {
 
@@ -18,6 +19,7 @@ typedef struct {
     camera_win_t* win_camera ;
     tag_win_t* win_tag ; 
     info_win_t* win_info ; 
+    color_win_t* win_color ; 
 
 } interface_t ;
 
