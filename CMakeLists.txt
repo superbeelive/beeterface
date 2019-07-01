@@ -21,8 +21,6 @@ set ( INSTALL_LIB_PATH lib )
 set ( INSTALL_AR_PATH  lib )
 set ( INSTALL_HEADERS_PATH include )
 
-set (beeterface_IMAGE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/images") 
-
 # Make relative paths absolute (needed later on)
 
 foreach(p LIB BIN HEADERS AR)
@@ -64,6 +62,7 @@ ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
 file( GLOB hdr "src/*.h*" )
 file( GLOB src "src/*.c" )
+file( GLOB images "images/*.png" "images/*.jpg" )
 
 
 ### Main Target and linking
@@ -78,4 +77,8 @@ install( TARGETS "beeterface"
         RUNTIME DESTINATION ${INSTALL_BIN_PATH}  COMPONENT main
         LIBRARY DESTINATION ${INSTALL_LIB_PATH}  COMPONENT main
         ARCHIVE DESTINATION ${INSTALL_AR_PATH}   COMPONENT main )
+   
+install ( FILES ${images} DESTINATION /usr/share/beeterface/images COMPONENT dev )  
+
+
 

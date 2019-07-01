@@ -5,7 +5,5 @@
 #define VERSION_MAJOR @beeterface_VERSION_MAJOR@
 #define VERSION_MINOR @beeterface_VERSION_MINOR@
 
-#define IMAGE_PATH @beeterface_IMAGE_PATH@
-
 
 #endif

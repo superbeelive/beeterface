@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 #include "modif_win.h"
- const gchar* images_boutons[] = {"./images/ciseaux.png", "./images/next.png", "./images/next.png", "./images/save.png" };
+ const gchar* images_boutons[] = {"/usr/share/beeterface/images/ciseaux.png", "/usr/share/beeterface/images/next.png", "/usr/share/beeterface/images/next.png", "/usr/share/beeterface/images/save.png" };
 
 
 modif_win_t* modif_win_new() {
@@ -46,7 +46,7 @@ modif_win_t* modif_win_new() {
     tmp->frame_tool_an = gtk_frame_new ("Boîte à Outils") ;  
 
     //IMAGE 
-    tmp->img_video = gtk_image_new_from_file ("images/video_bee.jpg");
+    tmp->img_video = gtk_image_new_from_file ("/usr/share/beeterface/images/video_bee.jpg");
     
     //LABEL
     tmp->label_title_video = gtk_label_new("");
@@ -69,27 +69,27 @@ modif_win_t* modif_win_new() {
     tmp->button_remove_tag = gtk_button_new_with_label ("Retirer") ;
 
     tmp->btn_erase = gtk_button_new ();
-        tmp->img_btn_erase =  gtk_image_new_from_file ("./images/gomme.png");
+        tmp->img_btn_erase =  gtk_image_new_from_file ("/usr/share/beeterface/images/gomme.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_erase), tmp->img_btn_erase);
     
     tmp->btn_an_cross = gtk_button_new ();
-        tmp->img_btn_an_cross =  gtk_image_new_from_file ("./images/croix.png");
+        tmp->img_btn_an_cross =  gtk_image_new_from_file ("/usr/share/beeterface/images/croix.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_an_cross), tmp->img_btn_an_cross);
 
     tmp->btn_an_circle = gtk_button_new ();
-        tmp->img_btn_an_circle =  gtk_image_new_from_file ("./images/cercle.png");
+        tmp->img_btn_an_circle =  gtk_image_new_from_file ("/usr/share/beeterface/images/cercle.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_an_circle), tmp->img_btn_an_circle);
 
     tmp->btn_an_oblong = gtk_button_new ();
-        tmp->img_btn_an_oblong =  gtk_image_new_from_file ("./images/rectangle.png");
+        tmp->img_btn_an_oblong =  gtk_image_new_from_file ("/usr/share/beeterface/images/rectangle.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_an_oblong), tmp->img_btn_an_oblong);
 
     tmp->btn_an_arrow = gtk_button_new ();
-        tmp->img_btn_an_arrow =  gtk_image_new_from_file ("./images/fleche.png");
+        tmp->img_btn_an_arrow =  gtk_image_new_from_file ("/usr/share/beeterface/images/fleche.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_an_arrow), tmp->img_btn_an_arrow);
 
     tmp->btn_an_moving_cross = gtk_button_new ();
-        tmp->img_btn_an_moving_cross =  gtk_image_new_from_file ("./images/croix.png");
+        tmp->img_btn_an_moving_cross =  gtk_image_new_from_file ("/usr/share/beeterface/images/croix.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_an_moving_cross), tmp->img_btn_an_moving_cross);
 
     tmp->btn_an_measure = gtk_button_new_with_label ("Mesure");

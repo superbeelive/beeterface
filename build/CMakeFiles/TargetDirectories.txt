@@ -1,7 +1,0 @@
-/home/seb/devel/beeterface.git/build/CMakeFiles/install/strip.dir
-/home/seb/devel/beeterface.git/build/CMakeFiles/edit_cache.dir
-/home/seb/devel/beeterface.git/build/CMakeFiles/beeterface.dir
-/home/seb/devel/beeterface.git/build/CMakeFiles/install.dir
-/home/seb/devel/beeterface.git/build/CMakeFiles/rebuild_cache.dir
-/home/seb/devel/beeterface.git/build/CMakeFiles/list_install_components.dir
-/home/seb/devel/beeterface.git/build/CMakeFiles/install/local.dir

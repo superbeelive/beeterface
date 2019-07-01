@@ -37,8 +37,8 @@ camera_win_t* camera_win_new() {
     tmp->entry_description = gtk_entry_new() ; 
 
     //Buttons 
-    tmp->img_btn_modify_name_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_name_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_name_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_name_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_name = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_name), tmp->img_btn_modify_name_modif) ;
 
@@ -46,8 +46,8 @@ camera_win_t* camera_win_new() {
     g_object_ref (tmp->img_btn_modify_name_ok);
     
 
-    tmp->img_btn_modify_model_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_model_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_model_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_model_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_model = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_model), tmp->img_btn_modify_model_modif) ; 
 
@@ -55,8 +55,8 @@ camera_win_t* camera_win_new() {
     g_object_ref (tmp->img_btn_modify_model_modif);
     g_object_ref (tmp->img_btn_modify_model_ok);
     
-    tmp->img_btn_modify_nserie_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_nserie_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_nserie_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_nserie_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_nserie = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_nserie), tmp->img_btn_modify_nserie_modif) ; 
 
@@ -64,8 +64,8 @@ camera_win_t* camera_win_new() {
     g_object_ref (tmp->img_btn_modify_nserie_modif);
     g_object_ref (tmp->img_btn_modify_nserie_ok);
     
-    tmp->img_btn_modify_type_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_type_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_type_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_type_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_type = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_type), tmp->img_btn_modify_type_modif) ; 
 
@@ -74,8 +74,8 @@ camera_win_t* camera_win_new() {
     g_object_ref (tmp->img_btn_modify_type_ok);
     
 
-    tmp->img_btn_modify_description_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_description_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_description_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_description_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_description = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_description), tmp->img_btn_modify_description_modif) ; 
 

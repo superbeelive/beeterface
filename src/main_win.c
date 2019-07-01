@@ -34,24 +34,24 @@ main_win_t* main_win_new() {
     
     //BOUTONS
     tmp->button_quit = gtk_button_new ();  
-    tmp->image_button_quit = gtk_image_new_from_file ("images/quit3.png");
+    tmp->image_button_quit = gtk_image_new_from_file ("/usr/share/beeterface/images/quit3.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_quit), tmp->image_button_quit);
 
     tmp->button_enregistrer = gtk_button_new ();
-    tmp->image_button_enregistrer = gtk_image_new_from_file ("images/enregistrer.png");
+    tmp->image_button_enregistrer = gtk_image_new_from_file ("/usr/share/beeterface/images/enregistrer.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_enregistrer), tmp->image_button_enregistrer);
 
 
     tmp->button_stop = gtk_button_new ();
-    tmp->image_button_stop =  gtk_image_new_from_file ("images/carre_noir.png");
+    tmp->image_button_stop =  gtk_image_new_from_file ("/usr/share/beeterface/images/carre_noir.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_stop), tmp->image_button_stop);
 
     tmp->button_photo = gtk_button_new ();
-    tmp->image_button_photo = gtk_image_new_from_file ("images/icone_photo3.png");
+    tmp->image_button_photo = gtk_image_new_from_file ("/usr/share/beeterface/images/icone_photo3.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_photo), tmp->image_button_photo);
 
     tmp->button_info = gtk_button_new ();
-    tmp->image_button_info = gtk_image_new_from_file ("images/inter.png");
+    tmp->image_button_info = gtk_image_new_from_file ("/usr/share/beeterface/images/inter.png");
     gtk_button_set_image (GTK_BUTTON (tmp->button_info), tmp->image_button_info);
    
     tmp->button_auteur =  gtk_button_new_with_label ("Auteur");
@@ -61,8 +61,8 @@ main_win_t* main_win_new() {
 
 
     //IMAGES  
-    tmp->image_exemple = gtk_image_new_from_file ("images/video_bee.jpg") ;
-    tmp->logo_type_video = gtk_image_new_from_file ("images/cassette2.png") ;
+    tmp->image_exemple = gtk_image_new_from_file ("/usr/share/beeterface/images/video_bee.jpg") ;
+    tmp->logo_type_video = gtk_image_new_from_file ("/usr/share/beeterface/images/cassette2.png") ;
 
     //TEXTE 
     tmp->nom_video = gtk_label_new("") ;
