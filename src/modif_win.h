@@ -8,44 +8,81 @@
 
 typedef struct {
 
-    GtkWidget *window; //Fenetre changements
-    GtkWidget *box_principal2;    
-    GtkWidget *box_gauche;    
-    GtkWidget *box_milieu;
-    GtkWidget *box_droit;
-    GtkWidget *box_droit_bas ; 
-    GtkWidget *box_video;
-    GtkWidget *box_outil_video;
-    GtkWidget *box_menus;
-    GtkWidget *box_up;
-    GtkWidget *box_time;
-    GtkWidget *frame_tag_add ; 
-
-    GtkWidget *grid_outil_video ;
-    GtkWidget *grid_outil_tag ; 
-
-    GtkWidget *image_video;
+    GtkWidget *window ; //Fenetre changements
     
-    GtkWidget *titre_video;
-    GtkWidget *text_boite_outils;
-    GtkWidget *time_deb;
-    GtkWidget *time_fin;
-    GtkWidget *txt_titre_tag ; 
+    //BOX
+    GtkWidget *box_principale ;    
+    GtkWidget *box_left ;    
+    GtkWidget *box_right ;
+    
+    GtkWidget *box_video ;
+    GtkWidget *box_time ;
+    GtkWidget *box_label_time ;
+    GtkWidget *box_tool_video ; 
+    
+    GtkWidget *box_tool_an ; 
+    GtkWidget *box_an ; 
+    GtkWidget *box_tag ; 
+    
+    GtkWidget *box_btn_tag ; 
+
+
+    //GRID 
+    GtkWidget *grid_tool_video ;
+    GtkWidget *grid_tool_an ; 
+    
+    //OTHER BOX
+    GtkWidget* scroll_an ;  
+    GtkWidget* scroll_tag ;  
+    GtkWidget* frame_tool_an ; 
+    //IMAGE
+    GtkWidget *img_video ;
+    
+    //LABEL
+    GtkWidget *label_title_video ;
+    GtkWidget *label_title_tag ; 
+    GtkWidget *label_title_an ; 
+    
+    GtkWidget *label_time_deb;
+    GtkWidget *label_time_fin;
+    
     GtkWidget *label_test ; 
     GtkWidget *label_test2 ; 
 
-    GtkWidget* btn_list_outils_dessin[5];
-    GtkWidget* img_btn_list_outils_dessin[5];
-    
+    //BUTTON
     GtkWidget* button_list[4];
     GtkWidget* image_button_list[4];
     
+    GtkWidget* btn_an_cross ;
+    GtkWidget* btn_an_circle ; 
+    GtkWidget* btn_an_oblong ;
+    GtkWidget* btn_an_arrow ;
+    GtkWidget* btn_an_measure ;
+    GtkWidget* btn_an_moving_cross ;
+    GtkWidget* btn_an_text ;
+    GtkWidget* btn_color ;
+    GtkWidget* btn_erase ;
+
+    GtkWidget* img_btn_an_cross ;
+    GtkWidget* img_btn_an_circle ; 
+    GtkWidget* img_btn_an_oblong ;
+    GtkWidget* img_btn_an_arrow ;
+    GtkWidget* img_btn_an_measure ;
+    GtkWidget* img_btn_an_moving_cross ;
+    GtkWidget* img_btn_an_text ;
+    GtkWidget* img_btn_color ; 
+    GtkWidget* img_btn_erase ; 
+
+    GtkWidget* button_add_tag ;
+    GtkWidget* button_remove_tag ; 
+    //SEPARATOR
+    GtkWidget* sep ;
+    GtkWidget* sep2 ; 
+    
+    //OTHER WIDGET  
     GtkWidget *barre_temps;
     GtkAdjustment *adjustement_barre_temps;
     
-    GtkWidget* separateur ;
-    GtkWidget* separateur2 ; 
-    GtkWidget* scroll ;  
 
     
 } modif_win_t ; //typedef + struct sur la même ligne

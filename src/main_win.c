@@ -87,9 +87,6 @@ main_win_t* main_win_new() {
    
     tmp->label_test = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
 
-
-    
-
     //AUTRES 
     tmp->sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
     tmp->sep_tag = gtk_separator_new(GTK_ORIENTATION_VERTICAL);

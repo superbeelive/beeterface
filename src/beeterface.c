@@ -202,6 +202,18 @@ void callback_info(GtkWidget *widget, gpointer data)
     info_win_show(tmp->interface->win_info) ;
 }
 
+/////////////////////////////////////////////////// COLOR CALLBACK //////////////////////
+void callback_color(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ;
+    tmp = data ; 
+    color_win_show ( tmp->interface->win_color ) ; 
+} 
+
+void callback_test(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    tmp->interface->win_color->label_test = gtk_label_new("COUCOU") ;
+}
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
@@ -330,6 +342,19 @@ int main(int argc, char *argv[])
             G_CALLBACK(callback_tag_modify_edit),
             queen);
 
+//Fenêtre MODIF_WIN 
+    
+     g_signal_connect(queen->interface->win_modif->btn_color,
+            "clicked",
+            G_CALLBACK(callback_color),
+            queen);
+
+//Fenêtre COLOR_WIN 
+    
+     g_signal_connect(queen->interface->win_color->btn_red,
+             "clicked",
+             G_CALLBACK(callback_test),
+             queen);
 
 
 //Fonction attend event.     
