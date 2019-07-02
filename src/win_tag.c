@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "tag_win.h"
+#include "win_tag.h"
 
 
 tag_win_t* tag_win_new() {
@@ -28,8 +28,8 @@ tag_win_t* tag_win_new() {
 
     tmp->entry_edit = gtk_entry_new() ; 
     tmp->btn_edit = gtk_button_new() ; 
-    tmp->img_btn_edit_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_edit_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_edit_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_edit_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_edit), tmp->img_btn_edit_modif ) ; 
 
 

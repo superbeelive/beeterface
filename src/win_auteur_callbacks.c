@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "auteur_win.h"
+#include "win_auteur.h"
 
 /* Function : auteur_win_fill
 Fill in the fields with author's informations. 

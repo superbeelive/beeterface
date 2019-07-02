@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "info_win.h"
+#include "win_info.h"
 
 info_win_t* info_win_new() {
     info_win_t* tmp ; 

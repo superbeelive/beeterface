@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "video_win.h"
+#include "win_video.h"
 
     void video_win_fill( video_win_t* win, video_t* video ) {
 

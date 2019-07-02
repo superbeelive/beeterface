@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "camera_win.h"
+#include "win_camera.h"
 
 /* Function : camera_win_fill
 Fill in the fields with camera's informations. 

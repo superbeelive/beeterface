@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "auteur_win.h"
+#include "win_auteur.h"
 
 auteur_win_t* auteur_win_new() {
     
@@ -32,8 +32,8 @@ auteur_win_t* auteur_win_new() {
     tmp->entry_first_name = gtk_entry_new() ; 
     tmp->entry_email = gtk_entry_new() ; 
 
-    tmp->img_modify1 = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_modify_ok1 = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_modify1 = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_modify_ok1 = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->button_modify1 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify1), tmp->img_modify1) ; 
 
@@ -41,8 +41,8 @@ auteur_win_t* auteur_win_new() {
     g_object_ref (tmp->img_modify_ok1);
     
 
-    tmp->img_modify2 = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_modify_ok2 = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_modify2 = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_modify_ok2 = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->button_modify2 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify2), tmp->img_modify2) ; 
 
@@ -50,8 +50,8 @@ auteur_win_t* auteur_win_new() {
     g_object_ref (tmp->img_modify_ok2);
 
 
-    tmp->img_modify3 = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_modify_ok3 = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_modify3 = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_modify_ok3 = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->button_modify3 = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->button_modify3), tmp->img_modify3) ; 
 

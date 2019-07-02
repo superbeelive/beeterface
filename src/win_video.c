@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "video_win.h" 
+#include "win_video.h" 
 
 video_win_t* video_win_new() {
     
@@ -40,32 +40,32 @@ video_win_t* video_win_new() {
     tmp->entry_camera = gtk_label_new("") ;  
     
     //Buttons
-    tmp->img_btn_modify_name_ruche_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_name_ruche_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_name_ruche_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_name_ruche_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_name_ruche = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_name_ruche), tmp->img_btn_modify_name_ruche_modif) ;
    
     g_object_ref (tmp->img_btn_modify_name_ruche_modif);
     g_object_ref (tmp->img_btn_modify_name_ruche_ok);
     
-    tmp->img_btn_modify_n_ruche_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_n_ruche_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_n_ruche_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_n_ruche_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_n_ruche = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_n_ruche), tmp->img_btn_modify_n_ruche_modif) ;
 
     g_object_ref (tmp->img_btn_modify_n_ruche_modif);
     g_object_ref (tmp->img_btn_modify_n_ruche_ok);
     
-    tmp->img_btn_modify_n_cadre_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_n_cadre_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_n_cadre_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_n_cadre_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_n_cadre = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_n_cadre), tmp->img_btn_modify_n_cadre_modif) ;
 
     g_object_ref (tmp->img_btn_modify_n_cadre_modif);
     g_object_ref (tmp->img_btn_modify_n_cadre_ok);
     
-    tmp->img_btn_modify_description_modif = gtk_image_new_from_file ("images/modif.png") ; 
-    tmp->img_btn_modify_description_ok = gtk_image_new_from_file ("images/ok.png") ; 
+    tmp->img_btn_modify_description_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
+    tmp->img_btn_modify_description_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
     tmp->btn_modify_description = gtk_button_new() ; 
     gtk_button_set_image (GTK_BUTTON (tmp->btn_modify_description), tmp->img_btn_modify_description_modif) ;
 
