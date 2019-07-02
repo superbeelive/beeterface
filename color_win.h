@@ -14,14 +14,12 @@ typedef struct {
     GtkWidget* btn_green ; 
     GtkWidget* btn_yellow ;
     GtkWidget* btn_pink ;
-    
-    GdkRGBA* red ; 
-    GdkRGBA* blue ; 
-    GdkRGBA* green ; 
-    GdkRGBA* yellow ; 
-    GdkRGBA* pink ; 
 
-    GtkWidget* label_test ; 
+    GtkWidget* img_btn_red ; 
+    GtkWidget* img_btn_blue ;
+    GtkWidget* img_btn_green ; 
+    GtkWidget* img_btn_yellow ;
+    GtkWidget* img_btn_pink ;
 
 } color_win_t ;
 
