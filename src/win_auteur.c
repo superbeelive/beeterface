@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "auteur_win.h"
+#include "win_auteur.h"
 
 auteur_win_t* auteur_win_new() {
     

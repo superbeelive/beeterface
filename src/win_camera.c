@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "camera_win.h" 
+#include "win_camera.h" 
 
 camera_win_t* camera_win_new() {
     

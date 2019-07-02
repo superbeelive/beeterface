@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "main_win.h"
+#include "win_main.h"
 
 main_win_t* main_win_new() {
 

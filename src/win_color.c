@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "color_win.h"
+#include "win_color.h"
 
 
 color_win_t* color_win_new() {

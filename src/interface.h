@@ -1,14 +1,14 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
-#include "main_win.h"
-#include "modif_win.h"
-#include "auteur_win.h"
-#include "video_win.h"
-#include "camera_win.h"
-#include "tag_win.h"
-#include "info_win.h"
-#include "color_win.h"
+#include "win_main.h"
+#include "win_modif.h"
+#include "win_auteur.h"
+#include "win_video.h"
+#include "win_camera.h"
+#include "win_tag.h"
+#include "win_info.h"
+#include "win_color.h"
 
 typedef struct {
 

@@ -1,7 +1,11 @@
 #include <stdlib.h>
 
-#include "modif_win.h"
- const gchar* images_boutons[] = {"/usr/share/beeterface/images/ciseaux.png", "/usr/share/beeterface/images/next.png", "/usr/share/beeterface/images/next.png", "/usr/share/beeterface/images/save.png" };
+#include "win_modif.h"
+
+const gchar* images_boutons[] = {"/usr/share/beeterface/images/ciseaux.png", 
+                                    "/usr/share/beeterface/images/next.png", 
+                                    "/usr/share/beeterface/images/next.png", 
+                                    "/usr/share/beeterface/images/save.png" };
 
 
 modif_win_t* modif_win_new() {
