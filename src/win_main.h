@@ -16,22 +16,31 @@ typedef struct {
     GtkWidget* box_right ;
 
     GtkWidget* box_video ; 
-    GtkWidget* box_time ;
-    GtkWidget* box_btn ;
+    GtkWidget* box_btn_l ;
 
     GtkWidget* box_info ;
     GtkWidget* box_meta ;
-    
+    GtkWidget* box_btn_cam ;
+    GtkWidget* box_btn_video ; 
+    GtkWidget* box_time ;
+    GtkWidget* box_info_time ;
+    GtkWidget* box_folder ; 
+
     //GRID
     GtkWidget* grid_info ; 
     GtkWidget* grid_meta ;  
 
     GtkWidget *frame_info ; 
+    GtkWidget *frame_meta ;
     //Label
     GtkWidget *txt_trier_par;
     GtkWidget *txt_visualiser;
     GtkWidget *label_title ;
-   
+ 
+    GtkWidget* label_time_beg ;
+    GtkWidget* label_time_end ;
+    GtkWidget* label_info ; 
+    
     GtkWidget *label_info_temp_ruche ;
     GtkWidget *label_info_temp_ext ;
     GtkWidget *label_info_date ; 
@@ -41,7 +50,8 @@ typedef struct {
     GtkWidget *label_temp_ext ; 
     GtkWidget *label_date ;
     GtkWidget *label_heure ; 
-
+    
+    //meta
     GtkWidget* label_name_ruche ;
     GtkWidget* label_description ;
     GtkWidget* label_auteur ;
@@ -58,12 +68,14 @@ typedef struct {
 
     //Boutons
     GtkWidget *btn_enregistrer;
-    GtkWidget *img_btn_enregistrer;
     
     GtkWidget *btn_info;
-    GtkWidget *img_btn_info;
+   
+    GtkWidget* btn_camera_more ;
+    GtkWidget* img_btn_camera_more ;
     
-
+    GtkWidget* btn_folder ;
+    GtkWidget* img_btn_folder ;
     
     //Images
     GtkWidget *img_exemple; //Image pour repérer où sera la vidéo
@@ -74,13 +86,13 @@ typedef struct {
     GtkWidget *choix_tri;
 
     //Autre
-    GtkWidget *sep; //Separateur vertical  entre image et selecteur fichier
-    GtkWidget *search; //Barre de recherche tag
     GtkWidget *sep_haut; //Ligne de séparation
     GtkWidget *sep_part ;
-        
-    GtkWidget* scale_time ;   
-    GtkAdjustment* adjust_scale_time ; 
+    GtkWidget* sep_vid ;  
+    GtkWidget* sep_fold ; 
+    
+    GtkWidget* level_bar_time ; 
+
 } main_win_t ;
 
 main_win_t* main_win_new() ;
