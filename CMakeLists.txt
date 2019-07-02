@@ -34,7 +34,8 @@ endforeach()
 ### Search for Lib/Headers
 
 FIND_PACKAGE(PkgConfig REQUIRED)
-PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)
+PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)           ### Librairie gtk+-3.0
+PKG_CHECK_MODULES(LIBTIRPC REQUIRED libtirpc)       ### Librairie libtirpc
 
 ### Configure a header file to pass some of the CMake settings
 ### to the source code
@@ -51,9 +52,11 @@ include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/include"
 	                 "${CMAKE_CURRENT_SOURCE_DIR}/src"
         	         "${CMAKE_CURRENT_BINARY_DIR}"
                      "${CMAKE_INSTALL_PREFIX}/include"
-                     "${GTK3_INCLUDE_DIRS}" )
+                     "${GTK3_INCLUDE_DIRS}" 
+                     "${LIBTIRPC_INCLUDE_DIRS}" )
 
-LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
+LINK_DIRECTORIES( ${GTK3_LIBRARY_DIRS}
+                    ${LIBTIRPC_LIBRARY_DIRS} )
 
 # Add other flags to the compiler
 ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
@@ -68,7 +71,8 @@ file( GLOB images "images/*.png" "images/*.jpg" )
 ### Main Target and linking
 
 add_executable( "beeterface" ${src} ${hdr} )
-target_link_libraries ( "beeterface" ${GTK3_LIBRARIES} )
+target_link_libraries ( "beeterface" ${GTK3_LIBRARIES}
+                                     ${LIBTIRPC_LIBRARIES} )
 
 
 ### Install targets
