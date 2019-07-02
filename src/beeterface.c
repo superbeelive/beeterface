@@ -228,40 +228,14 @@ int main(int argc, char *argv[])
 
 /////////////////////////////////GSNIGAL//////////////////////////////
 //Fenêtre MAIN     
-    g_signal_connect(queen->interface->win_main->button_quit, 
-    			"clicked", 
-		    	G_CALLBACK(callback_destroy),
-		     	NULL);
     
-    g_signal_connect(queen->interface->win_main->button_enregistrer, 
+    g_signal_connect(queen->interface->win_main->btn_enregistrer, 
     			"clicked", 
 			    G_CALLBACK(callback_modif), 
 			    queen);			//Affiche win modif quand appui sur bouton
 
-    g_signal_connect(queen->interface->win_main->button_auteur, 
-    		   	"clicked",
-			    G_CALLBACK(callback_auteur), 
-			    queen);
 
-    g_signal_connect(queen->interface->win_main->button_video, 
-    		   	"clicked",
-			    G_CALLBACK(callback_video), 
-			    queen);
-
-    
-    g_signal_connect(queen->interface->win_main->button_camera, 
-    		   	"clicked",
-			    G_CALLBACK(callback_camera), 
-			    queen);
-
-
-    g_signal_connect(queen->interface->win_main->button_tag, 
-    		   	"clicked",
-			    G_CALLBACK(callback_tag), 
-			    queen);
-
-
-    g_signal_connect(queen->interface->win_main->button_info, 
+    g_signal_connect(queen->interface->win_main->btn_info, 
     		   	"clicked",
 			    G_CALLBACK(callback_info), 
 			    queen);

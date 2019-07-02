@@ -5,31 +5,42 @@
 
 typedef struct {
 
-    GtkWidget *window; //Fenêtre d'acceuil 
+    GtkWidget *window ; 
    
-    //Container
-    GtkWidget *box_principal; //Boite principale contenant les autres boites 
-    GtkWidget *box_up; //Boite la plus haute pour le bouton quitter (provisoire ?) 
-    GtkWidget *box_all; //Reste de la zone 
-    GtkWidget *box_info_video;
-    GtkWidget *box_menu_droit; //Boite pour la droite de la vidéo
-    GtkWidget *box_gauche; //Boite contenant vidéo & menus
-    GtkWidget *box_video; //boite avec la vidéo + nom de la vidéo
-    GtkWidget *box_menu_video; //Menu sous la vidéo
-    GtkWidget *box_quit;
-    GtkWidget *box_search_1;
-    GtkWidget *box_search_2;
-    GtkWidget *box_info_sup;
+    //BOX
+    GtkWidget* box_principal ;  
+    GtkWidget* box_up ;
+    GtkWidget* box_down ; 
 
-    GtkWidget *scroll_tag ;
+    GtkWidget* box_left ;
+    GtkWidget* box_right ;
 
-    GtkWidget *grid_info ; 
+    GtkWidget* box_video ; 
+    GtkWidget* box_btn_l ;
+
+    GtkWidget* box_info ;
+    GtkWidget* box_meta ;
+    GtkWidget* box_btn_cam ;
+    GtkWidget* box_btn_video ; 
+    GtkWidget* box_time ;
+    GtkWidget* box_info_time ;
+    GtkWidget* box_folder ; 
+
+    //GRID
+    GtkWidget* grid_info ; 
+    GtkWidget* grid_meta ;  
+
     GtkWidget *frame_info ; 
+    GtkWidget *frame_meta ;
     //Label
     GtkWidget *txt_trier_par;
     GtkWidget *txt_visualiser;
-    GtkWidget *nom_video;
-   
+    GtkWidget *label_title ;
+ 
+    GtkWidget* label_time_beg ;
+    GtkWidget* label_time_end ;
+    GtkWidget* label_info ; 
+    
     GtkWidget *label_info_temp_ruche ;
     GtkWidget *label_info_temp_ext ;
     GtkWidget *label_info_date ; 
@@ -39,44 +50,49 @@ typedef struct {
     GtkWidget *label_temp_ext ; 
     GtkWidget *label_date ;
     GtkWidget *label_heure ; 
+    
+    //meta
+    GtkWidget* label_name_ruche ;
+    GtkWidget* label_description ;
+    GtkWidget* label_auteur ;
+    GtkWidget* label_camera ;
+    GtkWidget* label_nruche ;
+    GtkWidget* label_ncadre ;
 
-    GtkWidget *label_test ; 
+    GtkWidget* label_info_name_ruche ;
+    GtkWidget* label_info_description ;
+    GtkWidget* label_info_auteur ;
+    GtkWidget* label_info_camera ;
+    GtkWidget* label_info_nruche ;
+    GtkWidget* label_info_ncadre ;
+
     //Boutons
-    GtkWidget *button_quit; //Bouton quitter 
-    GtkWidget *image_button_quit;
-        
-    GtkWidget *button_enregistrer;
-    GtkWidget *image_button_enregistrer;
+    GtkWidget *btn_enregistrer;
     
-    GtkWidget *button_info;
-    GtkWidget *image_button_info;
+    GtkWidget *btn_info;
+   
+    GtkWidget* btn_camera_more ;
+    GtkWidget* img_btn_camera_more ;
     
-    GtkWidget *button_stop;
-    GtkWidget *image_button_stop;
-    
-    GtkWidget *button_photo;
-    GtkWidget *image_button_photo;
-    
-    
-    GtkWidget *button_auteur ; 
-    GtkWidget *button_video ;
-    GtkWidget *button_camera ; 
-    GtkWidget *button_tag ; 
+    GtkWidget* btn_folder ;
+    GtkWidget* img_btn_folder ;
     
     //Images
-    GtkWidget *image_exemple; //Image pour repérer où sera la vidéo
-    GtkWidget *logo_type_video;
+    GtkWidget *img_exemple; //Image pour repérer où sera la vidéo
+    GtkWidget *img_live;
    
     //Combo Box
     GtkWidget *choix_camera;
     GtkWidget *choix_tri;
 
     //Autre
-    GtkWidget *sep; //Separateur vertical  entre image et selecteur fichier
-    GtkWidget *search; //Barre de recherche tag
     GtkWidget *sep_haut; //Ligne de séparation
-    GtkWidget *sep_tag ;  
+    GtkWidget *sep_part ;
+    GtkWidget* sep_vid ;  
+    GtkWidget* sep_fold ; 
     
+    GtkWidget* level_bar_time ; 
+
 } main_win_t ;
 
 main_win_t* main_win_new() ;
