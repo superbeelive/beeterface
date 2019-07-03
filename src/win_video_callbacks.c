@@ -20,7 +20,7 @@
     gtk_entry_set_text((GtkEntry*) win->entry_description, video->description ) ;
     //Intégrer nom complet / description cam 
     gtk_label_set_text((GtkLabel*) win->entry_date, video->date ) ; 
-    gtk_label_set_text((GtkLabel*) win->entry_auteur, video->auteur->nom ) ; 
+    gtk_label_set_text((GtkLabel*) win->entry_auteur, video->auteur->lastname ) ; 
     gtk_label_set_text((GtkLabel*) win->entry_camera, video->camera->name ) ; 
     
     

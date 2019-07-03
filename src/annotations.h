@@ -3,7 +3,7 @@
 
 #define TAILLE 128
 #include <time.h>
-#include "auteur.h"
+#include "author.h"
 #include "color.h"
 
 /* Tag = pile de tag, une fonction unique(passe partout) TODO*/
@@ -14,7 +14,7 @@ typedef struct {
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char* time_start;
     char* time_end;
@@ -25,41 +25,41 @@ typedef struct {
     int x_end;
     int y_end;
 
-} oblong_t;
+} box_t;
 
-oblong_t* oblong_new();
-void oblong_del ( oblong_t* ) ;
-void oblong_show ( oblong_t* ) ;
-
-
-void oblong_add_tag ( oblong_t*, int tag ) ; 
-void oblong_remove_tag ( oblong_t*, int tag ) ;
-void oblong_show_tag ( oblong_t* ) ; 
-
-void oblong_set_color ( oblong_t*, color_t* color) ;
-color_t oblong_get_color ( oblong_t* ) ;
-
-void oblong_set_time_start ( oblong_t* ) ;
-char* oblong_get_time_start ( oblong_t* );
-
-void oblong_set_time_end ( oblong_t* ) ;
-char * oblong_get_time_end ( oblong_t* );
-
-void oblong_set_description ( oblong_t*, char* descr ) ;
-char* oblong_get_description ( oblong_t* ) ;
+box_t* box_new();
+void box_del ( box_t* ) ;
+void box_show ( box_t* ) ;
 
 
-void oblong_set_x_start ( oblong_t*, int x_s ) ; 
-int oblong_get_x_start ( oblong_t * ) ; 
+void box_add_tag ( box_t*, int tag ) ; 
+void box_remove_tag ( box_t*, int tag ) ;
+void box_show_tag ( box_t* ) ; 
 
-void oblong_set_y_start ( oblong_t*, int y_s ) ; 
-int oblong_get_y_start ( oblong_t * ) ; 
+void box_set_color ( box_t*, color_t* color) ;
+color_t box_get_color ( box_t* ) ;
 
-void oblong_set_x_end ( oblong_t*, int x_e ) ; 
-int oblong_get_x_end ( oblong_t * ) ; 
+void box_set_time_start ( box_t* ) ;
+char* box_get_time_start ( box_t* );
 
-void oblong_set_y_end ( oblong_t*, int y_e ) ; 
-int oblong_get_y_end ( oblong_t * ) ; 
+void box_set_time_end ( box_t* ) ;
+char * box_get_time_end ( box_t* );
+
+void box_set_description ( box_t*, char* descr ) ;
+char* box_get_description ( box_t* ) ;
+
+
+void box_set_x_start ( box_t*, int x_s ) ; 
+int box_get_x_start ( box_t * ) ; 
+
+void box_set_y_start ( box_t*, int y_s ) ; 
+int box_get_y_start ( box_t * ) ; 
+
+void box_set_x_end ( box_t*, int x_e ) ; 
+int box_get_x_end ( box_t * ) ; 
+
+void box_set_y_end ( box_t*, int y_e ) ; 
+int box_get_y_end ( box_t * ) ; 
 
 
 
@@ -68,7 +68,7 @@ typedef struct {
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char * time_start;
     char * time_end;
@@ -112,7 +112,7 @@ typedef struct {
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char * time_start;
     char * time_end;
@@ -160,7 +160,7 @@ typedef struct {
    
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char* time_start;
     char* time_end;
@@ -199,7 +199,7 @@ typedef struct {
     
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char * time_start;
     char * time_end;
@@ -239,7 +239,7 @@ typedef struct { //TODO
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char* time_start;
     char* time_end;

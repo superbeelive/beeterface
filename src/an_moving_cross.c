@@ -22,7 +22,7 @@ moving_cross_t* moving_cross_new(){
     sprintf(cr->description, "Ceci est une description");
 
     cr->color = color_new() ; 
-    cr->auteur = auteur_new() ; 
+    cr->author = author_new() ; 
 
     return cr;
 }
@@ -30,10 +30,10 @@ moving_cross_t* moving_cross_new(){
 void moving_cross_del ( moving_cross_t* cr) {
     
     color_del ( cr->color ) ;
-    auteur_del ( cr->auteur ) ; 
+    author_del ( cr->author ) ; 
     free ( cr->time_start ) ;
     free ( cr->time_end ) ; 
-    free ( cr->auteur ) ;
+    free ( cr->author ) ;
     free ( cr->description ) ;
     free ( cr ) ;
 
@@ -46,7 +46,7 @@ void moving_cross_show ( moving_cross_t* cr) {
                         cr->description ) ;
     
     color_show ( cr->color ) ; 
-    auteur_show ( cr->auteur ) ;
+    author_show ( cr->author ) ;
 }
 /*
 /////////////////////////TAGS/////////////////////////////

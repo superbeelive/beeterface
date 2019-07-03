@@ -20,10 +20,11 @@ void callback_auteur(GtkWidget * widget, gpointer data)
     queen_t* tmp ;
     tmp = data ;
     // Remplissage de la fenêtre avec le contenu de auteur 
-    auteur_win_fill(tmp->interface->win_auteur, tmp->projet->auteur ) ; 
+    auteur_win_fill(tmp->interface->win_auteur, tmp->projet->video->auteur ) ; 
     
     //Apparition de la fenêtre
     auteur_win_show(tmp->interface->win_auteur); 
+
 }
 
 void callback_auteur_modify_name(GtkWidget* widget, gpointer data) { 
@@ -31,19 +32,21 @@ void callback_auteur_modify_name(GtkWidget* widget, gpointer data) {
         tmp = data ;
 
         if ( tmp->interface->win_auteur->button_modif_1 == 0 )  
-        auteur_button_modify_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
+        auteur_button_modify_name(tmp->interface->win_auteur, tmp->projet->video->auteur ) ;     
         else 
-        auteur_button_modify_ok_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;
+        auteur_button_modify_ok_name(tmp->interface->win_auteur, tmp->projet->video->auteur ) ;
+
 }
 
 void callback_auteur_modify_first_name(GtkWidget* widget, gpointer data) {
+
         queen_t* tmp ; 
         tmp = data ;
 
         if ( tmp->interface->win_auteur->button_modif_2 == 0 )  
-        auteur_button_modify_first_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
+        auteur_button_modify_first_name(tmp->interface->win_auteur, tmp->projet->video->auteur ) ;     
         else 
-        auteur_button_modify_ok_first_name(tmp->interface->win_auteur, tmp->projet->auteur ) ;
+        auteur_button_modify_ok_first_name(tmp->interface->win_auteur, tmp->projet->video->auteur ) ;
 }
    
 
@@ -52,9 +55,9 @@ void callback_auteur_modify_email (GtkWidget* widget, gpointer data) {
         tmp = data ;
 
         if ( tmp->interface->win_auteur->button_modif_3 == 0 )  
-        auteur_button_modify_email(tmp->interface->win_auteur, tmp->projet->auteur ) ;     
+        auteur_button_modify_email(tmp->interface->win_auteur, tmp->projet->video->auteur ) ;     
         else 
-        auteur_button_modify_ok_email(tmp->interface->win_auteur, tmp->projet->auteur ) ;
+        auteur_button_modify_ok_email(tmp->interface->win_auteur, tmp->projet->video->auteur ) ;
     }
 //////////////////////////////////VIDEO CALLBACK /////////////////////////////////////////
 

@@ -7,10 +7,10 @@
 
 /////////////////////FONCTIONS DE BASE////////////////////////
 
-oblong_t* oblong_new(){
-    oblong_t* ob;
+box_t* box_new(){
+    box_t* ob;
 
-    ob = malloc ( sizeof (oblong_t) ) ; 
+    ob = malloc ( sizeof (box_t) ) ; 
     ob->description = malloc ( TAILLE ) ;
     ob->time_start = malloc ( TAILLE ) ;
     ob->time_end = malloc ( TAILLE ) ;
@@ -24,25 +24,25 @@ oblong_t* oblong_new(){
     ob->y_end =15 ;   
     
     ob->color = color_new() ;
-    ob->auteur = auteur_new() ;
+    ob->author = author_new() ;
 
     return ob;
 }
 
-void oblong_del ( oblong_t* ob) {
+void box_del ( box_t* ob) {
 
     color_del ( ob->color ) ;
-    auteur_del ( ob->auteur ) ;
+    author_del ( ob->author ) ;
     free ( ob->time_start ) ;  
     free ( ob->time_end ) ;  
-    free ( ob->auteur ) ;
+    free ( ob->author ) ;
     free ( ob->description ) ;
     free ( ob ) ;
     
 }
 
 
-void oblong_show ( oblong_t* ob) {
+void box_show ( box_t* ob) {
     printf("Début : %s \nFin : %s \nDescription : %s \nx départ : %d \ny départ : %d \nx fin %d \ny fin %d \n", 
                                   ob->time_start,
                                   ob->time_end, 
@@ -53,19 +53,19 @@ void oblong_show ( oblong_t* ob) {
                                   ob->y_end);
 
     color_show ( ob->color ) ;
-    auteur_show ( ob->auteur ) ;
+    author_show ( ob->author ) ;
 }
 
 /*
 /////////////////////////TAGS/////////////////////////////
 
-void oblong_add_tag (oblong_t* ob, int tag ) { //TODO
+void box_add_tag (box_t* ob, int tag ) { //TODO
 } 
 
-void oblong_remove_tag ( oblong_t* ob, int tag ) { //TODO
+void box_remove_tag ( box_t* ob, int tag ) { //TODO
 } 
 
-void oblong_show_tag ( oblong_t* ob, int taf ) { //TODO
+void box_show_tag ( box_t* ob, int taf ) { //TODO
 }
 
 IL NAGE MON BEBOU
@@ -74,7 +74,7 @@ IL NAGE MON BEBOU
 ////////////////////////TIME//////////////////////////////
 
 // TIME START 
-void oblong_set_time_start ( oblong_t* ob ) { 
+void box_set_time_start ( box_t* ob ) { 
 
     time_t temps;
     time(&temps);
@@ -85,65 +85,65 @@ void oblong_set_time_start ( oblong_t* ob ) {
     sprintf ( ob->time_start, "%s", time_s ) ;
 }
 
-char* oblong_get_time_start ( oblong_t* ob ) {
+char* box_get_time_start ( box_t* ob ) {
     return ob->time_start ;
 }
 
 //TIME END 
 
-void oblong_set_time_end ( oblong_t* ob ) { 
+void box_set_time_end ( box_t* ob ) { 
     sprintf ( ob->time_end, "%s", ob->time_start ) ;
 }
 
-char* oblong_get_time_end ( oblong_t* ob ) {
+char* box_get_time_end ( box_t* ob ) {
     return ob->time_end ; 
 }
 
 
 ////////////////////////DESCRIPTION///////////////////////
 
-void oblong_set_description ( oblong_t* ob, char* descr ) {
+void box_set_description ( box_t* ob, char* descr ) {
     sprintf ( ob->description, "%s", descr ) ; 
 }
 
-char* oblong_get_description ( oblong_t* ob ) {
+char* box_get_description ( box_t* ob ) {
     return ob->description ; 
 }
 
 //////////////////////// POINTS //////////////////////////
 
-void oblong_set_x_start ( oblong_t* ob, int x_s ) {
+void box_set_x_start ( box_t* ob, int x_s ) {
      ob->x_start = x_s ;
 }
 
-int oblong_get_x_start ( oblong_t* ob ) {
+int box_get_x_start ( box_t* ob ) {
     return ob->x_start ;
 }
 
 
-void oblong_set_y_start ( oblong_t* ob, int y_s ) {
+void box_set_y_start ( box_t* ob, int y_s ) {
      ob->y_start = y_s ;
 }
 
-int oblong_get_y_start ( oblong_t* ob ) {
+int box_get_y_start ( box_t* ob ) {
     return ob->y_start ;
 }
 
 
-void oblong_set_x_end ( oblong_t* ob, int x_e ) {
+void box_set_x_end ( box_t* ob, int x_e ) {
      ob->x_end = x_e ;
 }
 
-int oblong_get_x_end ( oblong_t* ob ) {
+int box_get_x_end ( box_t* ob ) {
     return ob->x_end ;
 }
 
 
-void oblong_set_y_end ( oblong_t* ob, int y_e ) {
+void box_set_y_end ( box_t* ob, int y_e ) {
      ob->y_end = y_e ;
 }
 
-int oblong_get_y_end ( oblong_t* ob ) {
+int box_get_y_end ( box_t* ob ) {
     return ob->y_end ;
 }
 

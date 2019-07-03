@@ -22,7 +22,7 @@ measure_t* measure_new(){
     mea->value = 1 ;
     
     mea->color = color_new() ;
-    mea->auteur = auteur_new() ;
+    mea->author = author_new() ;
 
     return mea;
 }
@@ -30,7 +30,7 @@ measure_t* measure_new(){
 void measure_del ( measure_t* mea) {
 
     color_del ( mea->color ) ;
-    auteur_del ( mea->auteur ) ;
+    author_del ( mea->author ) ;
     free ( mea->time_start ) ;
     free ( mea->description ) ;
     free ( mea ) ;
@@ -42,7 +42,7 @@ void measure_show ( measure_t* mea) {
                          mea->time_start,
                          mea->value ) ; 
     color_show ( mea->color ) ; 
-    auteur_show ( mea->auteur ) ; 
+    author_show ( mea->author ) ; 
 }
 
 /////////////////////////TAGS/////////////////////////////
