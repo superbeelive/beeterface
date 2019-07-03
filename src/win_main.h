@@ -55,14 +55,12 @@ typedef struct {
     //meta
     GtkWidget* label_name_ruche ;
     GtkWidget* label_description ;
-    GtkWidget* label_auteur ;
     GtkWidget* label_camera ;
     GtkWidget* label_nruche ;
     GtkWidget* label_ncadre ;
 
     GtkWidget* label_info_name_ruche ;
     GtkWidget* label_info_description ;
-    GtkWidget* label_info_auteur ;
     GtkWidget* label_info_camera ;
     GtkWidget* label_info_nruche ;
     GtkWidget* label_info_ncadre ;

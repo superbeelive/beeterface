@@ -92,8 +92,6 @@ main_win_t* main_win_new() {
     gtk_label_set_markup(GTK_LABEL(tmp->label_info_description), "<span foreground=\"black\" font=\"10\"><b>Description   </b></span>");
     tmp->label_info_date = gtk_label_new("") ; 
     gtk_label_set_markup(GTK_LABEL(tmp->label_info_date), "<span foreground=\"black\" font=\"10\"><b>Date   </b></span>");
-    tmp->label_info_auteur = gtk_label_new("") ; 
-    gtk_label_set_markup(GTK_LABEL(tmp->label_info_auteur), "<span foreground=\"black\" font=\"10\"><b>Auteur   </b></span>");
     tmp->label_info_camera = gtk_label_new("") ; 
     gtk_label_set_markup(GTK_LABEL(tmp->label_info_camera), "<span foreground=\"black\" font=\"10\"><b>Camera   </b></span>");
     tmp->label_info_nruche = gtk_label_new("") ; 
@@ -103,7 +101,6 @@ main_win_t* main_win_new() {
 
     tmp->label_name_ruche = gtk_label_new("Zbeub  ") ; 
     tmp->label_description = gtk_label_new("Ficus des neiges  ") ; 
-    tmp->label_auteur = gtk_label_new("Moi  ") ; 
     tmp->label_camera = gtk_label_new("Big Brother  ") ; 
     tmp->label_nruche = gtk_label_new("Maya  ") ; 
     tmp->label_ncadre = gtk_label_new("L'abeille  ") ; 
@@ -146,12 +143,12 @@ main_win_t* main_win_new() {
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->btn_info, FALSE, FALSE, 0);
             
             //box_down
-            gtk_box_pack_start(GTK_BOX(tmp->box_down), tmp->box_left, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_down), tmp->box_left, TRUE, TRUE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_down), tmp->sep_part, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_down), tmp->box_right, FALSE, FALSE, 0);
         
                 //box_left
-                gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_video, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_video, TRUE, TRUE, 0);
                     //box_video
                     gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->img_exemple, FALSE, FALSE, 0);
   
@@ -187,17 +184,15 @@ main_win_t* main_win_new() {
                   
                   gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_name_ruche, 1, 1, 1, 1) ;  
                   gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_description, 1, 2, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_auteur, 1, 3, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_camera, 1, 4, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_nruche, 1, 5, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_ncadre, 1, 6, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_camera, 1, 3, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_nruche, 1, 4, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_ncadre, 1, 5, 1, 1) ;  
                  
                   gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_name_ruche, 2, 1, 1, 1) ;  
                   gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_description, 2, 2, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_auteur, 2, 3, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_camera, 2, 4, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_nruche, 2, 5, 1, 1) ;  
-                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_ncadre, 2, 6, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_camera, 2, 3, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_nruche, 2, 4, 1, 1) ;  
+                  gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_ncadre, 2, 5, 1, 1) ;  
 
                   //box_btn_cam
                   gtk_box_pack_start(GTK_BOX(tmp->box_btn_cam), tmp->txt_visualiser, FALSE, FALSE, 0);
@@ -282,24 +277,22 @@ main_win_t* main_win_new() {
     gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->grid_info), 5 ) ;
 
     //Grid meta
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_name_ruche), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_description), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_auteur), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_camera), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_nruche), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_ncadre), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_name_ruche), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_description), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_camera), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_nruche), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_info_ncadre), GTK_ALIGN_START ) ;
 
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_name_ruche), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_description), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_auteur), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_camera), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_nruche), GTK_ALIGN_START ) ;
-    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_ncadre), GTK_ALIGN_START ) ;
-    
-    gtk_widget_set_margin_end (GTK_WIDGET (tmp->grid_meta), 5 ) ;
-    gtk_widget_set_margin_start (GTK_WIDGET (tmp->grid_meta), 5 ) ;
-    gtk_widget_set_margin_top (GTK_WIDGET (tmp->grid_meta), 5 ) ;
-    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->grid_meta), 5 ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_name_ruche), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_description), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_camera), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_nruche), GTK_ALIGN_START ) ;
+gtk_widget_set_halign ( GTK_WIDGET (tmp->label_ncadre), GTK_ALIGN_START ) ;
+
+gtk_widget_set_margin_end (GTK_WIDGET (tmp->grid_meta), 5 ) ;
+gtk_widget_set_margin_start (GTK_WIDGET (tmp->grid_meta), 5 ) ;
+gtk_widget_set_margin_top (GTK_WIDGET (tmp->grid_meta), 5 ) ;
+gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->grid_meta), 5 ) ;
 
     //time
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_time_beg), 175 ) ;
