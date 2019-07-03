@@ -20,13 +20,13 @@ typedef struct {
     GtkWidget *label_title ; 
     GtkWidget *label_name ;
     GtkWidget *label_model ; 
-    GtkWidget *label_nserie ; 
+    GtkWidget *label_serial ; 
     GtkWidget *label_type ;
     GtkWidget *label_description ;
     
     GtkWidget *entry_name ;
     GtkWidget *entry_model ; 
-    GtkWidget *entry_nserie ; 
+    GtkWidget *entry_serial ; 
     GtkWidget *entry_type ;
     GtkWidget *entry_description ;
 
@@ -38,9 +38,9 @@ typedef struct {
     GtkWidget *img_btn_modify_model_ok ; 
     GtkWidget *btn_modify_model ;
     
-    GtkWidget *img_btn_modify_nserie_modif ;
-    GtkWidget *img_btn_modify_nserie_ok ; 
-    GtkWidget *btn_modify_nserie ;
+    GtkWidget *img_btn_modify_serial_modif ;
+    GtkWidget *img_btn_modify_serial_ok ; 
+    GtkWidget *btn_modify_serial ;
     
     GtkWidget *img_btn_modify_type_modif ;
     GtkWidget *img_btn_modify_type_ok ; 
@@ -52,7 +52,7 @@ typedef struct {
    
     int cnt_modif_name ; 
     int cnt_modif_model ; 
-    int cnt_modif_nserie ; 
+    int cnt_modif_serial ; 
     int cnt_modif_type ; 
     int cnt_modif_description ; 
 
@@ -72,8 +72,8 @@ void camera_button_modify_name_ok ( camera_win_t* win, camera_t* auteur ) ;
 void camera_button_modify_model_modif( camera_win_t* win, camera_t* camera ) ; 
 void camera_button_modify_model_ok ( camera_win_t* win, camera_t* auteur ) ;
 
-void camera_button_modify_nserie_modif( camera_win_t* win, camera_t* camera ) ; 
-void camera_button_modify_nserie_ok ( camera_win_t* win, camera_t* auteur ) ;
+void camera_button_modify_serial_modif( camera_win_t* win, camera_t* camera ) ; 
+void camera_button_modify_serial_ok ( camera_win_t* win, camera_t* auteur ) ;
 
 void camera_button_modify_type_modif( camera_win_t* win, camera_t* camera ) ; 
 void camera_button_modify_type_ok ( camera_win_t* win, camera_t* auteur ) ;

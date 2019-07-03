@@ -145,14 +145,14 @@ void callback_camera_modify_model (GtkWidget* widget, gpointer data) {
         camera_button_modify_model_ok(tmp->interface->win_camera, tmp->projet->camera ) ;
     }
 
-void callback_camera_modify_nserie (GtkWidget* widget, gpointer data) {
+void callback_camera_modify_serial (GtkWidget* widget, gpointer data) {
         queen_t* tmp ; 
         tmp = data ;
 
-        if ( tmp->interface->win_camera->cnt_modif_nserie == 0 )  
-        camera_button_modify_nserie_modif(tmp->interface->win_camera, tmp->projet->camera ) ;     
+        if ( tmp->interface->win_camera->cnt_modif_serial == 0 )  
+        camera_button_modify_serial_modif(tmp->interface->win_camera, tmp->projet->camera ) ;     
         else 
-        camera_button_modify_nserie_ok(tmp->interface->win_camera, tmp->projet->camera ) ;
+        camera_button_modify_serial_ok(tmp->interface->win_camera, tmp->projet->camera ) ;
     }
 
 void callback_camera_modify_type (GtkWidget* widget, gpointer data) {
@@ -278,9 +278,9 @@ int main(int argc, char *argv[])
             G_CALLBACK(callback_camera_modify_model),
             queen);
 
-     g_signal_connect(queen->interface->win_camera->btn_modify_nserie,
+     g_signal_connect(queen->interface->win_camera->btn_modify_serial,
             "clicked",
-            G_CALLBACK(callback_camera_modify_nserie),
+            G_CALLBACK(callback_camera_modify_serial),
             queen);
 
      g_signal_connect(queen->interface->win_camera->btn_modify_type,
