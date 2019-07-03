@@ -58,6 +58,8 @@ main_win_t* main_win_new() {
     tmp->label_title = gtk_label_new("") ;
     gtk_label_set_markup(GTK_LABEL(tmp->label_title), "<span foreground=\"black\" font=\"16\">En live</span>");
     
+    tmp->label_combo_auteur = gtk_label_new("Auteur : ") ;
+    
     tmp->txt_trier_par = gtk_label_new("") ;
     gtk_label_set_markup(GTK_LABEL(tmp->txt_trier_par), "<span foreground=\"black\" font=\"10\">Trier par :</span>");
 
@@ -117,12 +119,13 @@ main_win_t* main_win_new() {
     gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->choix_camera, 2,"Caméra n°2");
     gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->choix_camera, 3,"Caméra n°3");
 
-    tmp->choix_tri =  gtk_combo_box_text_new();
-    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->choix_tri, 3,"Date");
-    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->choix_tri, 3,"Nom");
-    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->choix_tri, 3,"Tag");
-    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->choix_tri, 3,"Caméra");
-     
+    
+    tmp->combo_auteur = gtk_combo_box_text_new() ; 
+    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->combo_auteur, 1,"Sebastien");
+    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->combo_auteur, 2,"Olivia");
+    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->combo_auteur, 3,"Capucine");
+    gtk_combo_box_text_insert_text ((GtkComboBoxText*) tmp->combo_auteur, 4,"Matthieu");
+
     
     tmp->level_bar_time = gtk_level_bar_new_for_interval ( 0, 100 ) ;    
     gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(tmp->level_bar_time), "Milieu", 50 ) ; 
@@ -138,6 +141,8 @@ main_win_t* main_win_new() {
             //box_up
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->img_live, FALSE, FALSE, 20);
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->label_title, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->label_combo_auteur, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->combo_auteur, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_up), tmp->btn_info, FALSE, FALSE, 0);
             
             //box_down
@@ -233,7 +238,8 @@ main_win_t* main_win_new() {
     gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_meta), 5 ) ;
     
     //btn
-    gtk_widget_set_margin_start (GTK_WIDGET (tmp->btn_info), 800 ) ;
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->btn_info), 5 ) ;
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->label_combo_auteur), 650 ) ;
 
 
     //img_exemple
