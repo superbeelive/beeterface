@@ -14,13 +14,13 @@ projet_t* projet_new() {
     ficus->camera = NULL ; 
     ficus->video = NULL ; 
     
-    ficus->oblong = malloc ( TAB_SIZE* sizeof(oblong_t*) ) ;
-    if ( ficus->oblong == NULL ) {
+    ficus->box = malloc ( TAB_SIZE* sizeof(box_t*) ) ;
+    if ( ficus->box == NULL ) {
        throw_error("malloc failed", 1 ) ;
        return NULL ;
     }
-    ficus->oblong_size = TAB_SIZE ;
-    ficus->oblong_n = 0 ;
+    ficus->box_size = TAB_SIZE ;
+    ficus->box_n = 0 ;
 
     ficus->cross = malloc ( TAB_SIZE* sizeof(cross_t*) ) ;
     if ( ficus->cross == NULL ) {
@@ -67,7 +67,7 @@ projet_t* projet_new() {
 
 void projet_del (projet_t* ficus ) {
     projet_flush(ficus) ;
-    free ( ficus->oblong ) ; 
+    free ( ficus->box ) ; 
     free ( ficus->cross ) ; 
     free ( ficus->arrow ) ; 
     free ( ficus->text ) ;
@@ -85,8 +85,8 @@ void projet_flush( projet_t* ficus) {
     if (ficus->video != NULL ) 
         video_del  ( ficus->video ) ; 
 
-    for (i=0; i<ficus->oblong_n; i++)
-        free(ficus->oblong[i]) ;
+    for (i=0; i<ficus->box_n; i++)
+        free(ficus->box[i]) ;
 
     for (i=0; i<ficus->cross_n; i++)
         free(ficus->cross[i]) ;
@@ -103,7 +103,7 @@ void projet_flush( projet_t* ficus) {
     for (i=0; i<ficus->moving_cross_n; i++)
         free(ficus->moving_cross[i]) ;
 
-    ficus->oblong_n = 0 ;
+    ficus->box_n = 0 ;
     ficus->cross_n = 0 ;
     ficus->arrow_n = 0 ;
     ficus->text_n = 0 ;
@@ -115,13 +115,13 @@ void projet_flush( projet_t* ficus) {
 
 }
 
-void projet_add_oblong( projet_t* projet, oblong_t* oblong ) {
-    if (projet->oblong_n == projet->oblong_size ) {
-        projet->oblong = reallocarray( projet->oblong, projet->oblong_size+TAB_SIZE, sizeof(oblong_t*) ) ;
-        projet->oblong_size += TAB_SIZE ;
+void projet_add_box( projet_t* projet, box_t* box ) {
+    if (projet->box_n == projet->box_size ) {
+        projet->box = reallocarray( projet->box, projet->box_size+TAB_SIZE, sizeof(box_t*) ) ;
+        projet->box_size += TAB_SIZE ;
     }
-    projet->oblong[projet->oblong_n] = oblong ;
-    projet->oblong_n +=1 ;
+    projet->box[projet->box_n] = box ;
+    projet->box_n +=1 ;
 }
 
 void projet_add_cross( projet_t* projet, cross_t* cross ) {
@@ -169,14 +169,14 @@ void projet_add_moving_cross( projet_t* projet, moving_cross_t* moving_cross ) {
     projet->moving_cross_n +=1 ;
 }
 
-void project_del_oblong( projet_t* projet, int n ) {
+void project_del_box( projet_t* projet, int n ) {
     int i ;
-    if ((n<0) || (n >= projet->oblong_n)) {
+    if ((n<0) || (n >= projet->box_n)) {
         throw_error("invalid index",0);
     }
-   oblong_del(projet->oblong[n]) ;
-   for(i=n+1;i<projet->oblong_n;i++) {
-    projet->oblong[i-1]=projet->oblong[i] ;
+   box_del(projet->box[n]) ;
+   for(i=n+1;i<projet->box_n;i++) {
+    projet->box[i-1]=projet->box[i] ;
    }
 }
 
