@@ -115,6 +115,15 @@ void projet_flush( projet_t* ficus) {
 
 }
 
+void projet_add_oblong( projet_t* projet, oblong_t* oblong ) {
+    if (projet->oblong_n == projet->oblong_size ) {
+        projet->oblong = reallocarray( projet->oblong, projet->oblong_size+TAB_SIZE, sizeof(oblong_t*) ) ;
+        projet->oblong_size += TAB_SIZE ;
+    }
+    projet->oblong[projet->oblong_n] = oblong ;
+    projet->oblong_n +=1 ;
+}
+
 void projet_add_cross( projet_t* projet, cross_t* cross ) {
     if (projet->cross_n == projet->cross_size ) {
         projet->cross = reallocarray( projet->cross, projet->cross_size+TAB_SIZE, sizeof(cross_t*) ) ;
@@ -122,4 +131,106 @@ void projet_add_cross( projet_t* projet, cross_t* cross ) {
     }
     projet->cross[projet->cross_n] = cross ;
     projet->cross_n +=1 ;
+}
+
+void projet_add_arrow( projet_t* projet, arrow_t* arrow ) {
+    if (projet->arrow_n == projet->arrow_size ) {
+        projet->arrow = reallocarray( projet->arrow, projet->arrow_size+TAB_SIZE, sizeof(arrow_t*) ) ;
+        projet->arrow_size += TAB_SIZE ;
+    }
+    projet->arrow[projet->arrow_n] = arrow ;
+    projet->arrow_n +=1 ;
+}
+
+void projet_add_text( projet_t* projet, text_t* text ) {
+    if (projet->text_n == projet->text_size ) {
+        projet->text = reallocarray( projet->text, projet->text_size+TAB_SIZE, sizeof(text_t*) ) ;
+        projet->text_size += TAB_SIZE ;
+    }
+    projet->text[projet->text_n] = text ;
+    projet->text_n +=1 ;
+}
+
+void projet_add_measure( projet_t* projet, measure_t* measure ) {
+    if (projet->measure_n == projet->measure_size ) {
+        projet->measure = reallocarray( projet->measure, projet->measure_size+TAB_SIZE, sizeof(measure_t*) ) ;
+        projet->measure_size += TAB_SIZE ;
+    }
+    projet->measure[projet->measure_n] = measure ;
+    projet->measure_n +=1 ;
+}
+
+void projet_add_moving_cross( projet_t* projet, moving_cross_t* moving_cross ) {
+    if (projet->moving_cross_n == projet->moving_cross_size ) {
+        projet->moving_cross = reallocarray( projet->moving_cross, projet->moving_cross_size+TAB_SIZE, sizeof(moving_cross_t*) ) ;
+        projet->moving_cross_size += TAB_SIZE ;
+    }
+    projet->moving_cross[projet->moving_cross_n] = moving_cross ;
+    projet->moving_cross_n +=1 ;
+}
+
+void project_del_oblong( projet_t* projet, int n ) {
+    int i ;
+    if ((n<0) || (n >= projet->oblong_n)) {
+        throw_error("invalid index",0);
+    }
+   oblong_del(projet->oblong[n]) ;
+   for(i=n+1;i<projet->oblong_n;i++) {
+    projet->oblong[i-1]=projet->oblong[i] ;
+   }
+}
+
+void project_del_cross( projet_t* projet, int n ) {
+    int i ;
+    if ((n<0) || (n >= projet->cross_n)) {
+        throw_error("invalid index",0);
+    }
+   cross_del(projet->cross[n]) ;
+   for(i=n+1;i<projet->cross_n;i++) {
+    projet->cross[i-1]=projet->cross[i] ;
+   }
+}
+
+void project_del_arrow( projet_t* projet, int n ) {
+    int i ;
+    if ((n<0) || (n >= projet->arrow_n)) {
+        throw_error("invalid index",0);
+    }
+   arrow_del(projet->arrow[n]) ;
+   for(i=n+1;i<projet->arrow_n;i++) {
+    projet->arrow[i-1]=projet->arrow[i] ;
+   }
+}
+
+void project_del_text( projet_t* projet, int n ) {
+    int i ;
+    if ((n<0) || (n >= projet->text_n)) {
+        throw_error("invalid index",0);
+    }
+   text_del(projet->text[n]) ;
+   for(i=n+1;i<projet->text_n;i++) {
+    projet->text[i-1]=projet->text[i] ;
+   }
+}
+
+void project_del_measure( projet_t* projet, int n ) {
+    int i ;
+    if ((n<0) || (n >= projet->measure_n)) {
+        throw_error("invalid index",0);
+    }
+   measure_del(projet->measure[n]) ;
+   for(i=n+1;i<projet->measure_n;i++) {
+    projet->measure[i-1]=projet->measure[i] ;
+   }
+}
+
+void project_del_moving_cross( projet_t* projet, int n ) {
+    int i ;
+    if ((n<0) || (n >= projet->moving_cross_n)) {
+        throw_error("invalid index",0);
+    }
+   moving_cross_del(projet->moving_cross[n]) ;
+   for(i=n+1;i<projet->moving_cross_n;i++) {
+    projet->moving_cross[i-1]=projet->moving_cross[i] ;
+   }
 }
