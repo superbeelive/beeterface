@@ -9,6 +9,7 @@
 #include "win_tag.h"
 #include "win_info.h"
 #include "win_color.h"
+#include "win_cross.h"
 
 typedef struct {
 
@@ -20,6 +21,7 @@ typedef struct {
     tag_win_t* win_tag ; 
     info_win_t* win_info ; 
     color_win_t* win_color ; 
+    cross_win_t* win_cross ; 
 
 } interface_t ;
 

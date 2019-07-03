@@ -209,6 +209,14 @@ void callback_color(GtkWidget* widget, gpointer data) {
     color_win_show ( tmp->interface->win_color ) ; 
 } 
 
+//////////////////////////////////////////////////// WIN MODIF CALLBACK /////////////////////
+void callback_win_cross(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    cross_win_show ( tmp->interface->win_cross ) ; 
+}
+
+
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
@@ -305,14 +313,18 @@ int main(int argc, char *argv[])
 
 //Fenêtre TAG 
 
-
      g_signal_connect(queen->interface->win_tag->btn_edit,
             "clicked",
             G_CALLBACK(callback_tag_modify_edit),
             queen);
 
 //Fenêtre MODIF_WIN 
-    
+     g_signal_connect(queen->interface->win_modif->btn_an_cross,
+            "clicked",
+            G_CALLBACK(callback_win_cross),
+            queen);
+
+
 
 //Fenêtre COLOR_WIN 
 
