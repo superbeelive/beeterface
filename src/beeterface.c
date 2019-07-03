@@ -316,10 +316,6 @@ int main(int argc, char *argv[])
 
 //Fenêtre MODIF_WIN 
     
-     g_signal_connect(queen->interface->win_modif->btn_color,
-            "clicked",
-            G_CALLBACK(callback_color),
-            queen);
 
 //Fenêtre COLOR_WIN 
 
