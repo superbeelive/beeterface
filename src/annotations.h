@@ -3,7 +3,7 @@
 
 #define TAILLE 128
 #include <time.h>
-#include "auteur.h"
+#include "author.h"
 #include "color.h"
 
 /* Tag = pile de tag, une fonction unique(passe partout) TODO*/
@@ -14,7 +14,7 @@ typedef struct {
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char* time_start;
     char* time_end;
@@ -68,7 +68,7 @@ typedef struct {
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char * time_start;
     char * time_end;
@@ -112,7 +112,7 @@ typedef struct {
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char * time_start;
     char * time_end;
@@ -160,7 +160,7 @@ typedef struct {
    
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char* time_start;
     char* time_end;
@@ -199,7 +199,7 @@ typedef struct {
     
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char * time_start;
     char * time_end;
@@ -239,7 +239,7 @@ typedef struct { //TODO
 
     int tag[TAILLE];
     int tag_size;
-    auteur_t* auteur;
+    author_t* author;
     color_t* color;
     char* time_start;
     char* time_end;

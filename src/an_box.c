@@ -24,7 +24,7 @@ box_t* box_new(){
     ob->y_end =15 ;   
     
     ob->color = color_new() ;
-    ob->auteur = auteur_new() ;
+    ob->author = author_new() ;
 
     return ob;
 }
@@ -32,10 +32,10 @@ box_t* box_new(){
 void box_del ( box_t* ob) {
 
     color_del ( ob->color ) ;
-    auteur_del ( ob->auteur ) ;
+    author_del ( ob->author ) ;
     free ( ob->time_start ) ;  
     free ( ob->time_end ) ;  
-    free ( ob->auteur ) ;
+    free ( ob->author ) ;
     free ( ob->description ) ;
     free ( ob ) ;
     
@@ -53,7 +53,7 @@ void box_show ( box_t* ob) {
                                   ob->y_end);
 
     color_show ( ob->color ) ;
-    auteur_show ( ob->auteur ) ;
+    author_show ( ob->author ) ;
 }
 
 /*

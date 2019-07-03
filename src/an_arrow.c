@@ -13,7 +13,7 @@ Fields:
     tag[TAILLE] - tag list 
     tag_size - tag number 
 
-    auteur - Author of the annotation. See the struct auteur_t.
+    author - Author of the annotation. See the struct author_t.
     color - Color used on the annotation. See the struct color_t.
     time_start - Timecode where annotation begin.
     time_end - Timecode where annotation finish.
@@ -32,7 +32,7 @@ arrow_t* arrow_new(){
     arrow_t* ar;
 
     ar = malloc ( sizeof (arrow_t) ) ; 
-    ar->auteur = malloc ( TAILLE ) ; 
+    ar->author = malloc ( TAILLE ) ; 
     ar->description = malloc ( TAILLE ) ;
     ar->time_start = malloc ( TAILLE ) ; 
     ar->time_end = malloc ( TAILLE ) ; 
@@ -45,7 +45,7 @@ arrow_t* arrow_new(){
     ar->angle = 45 ; 
 
     ar->color = color_new() ; 
-    ar->auteur = auteur_new() ;
+    ar->author = author_new() ;
 
     return ar;
 }
@@ -60,10 +60,10 @@ Parameters :
 void arrow_del ( arrow_t* ar) {
     
     color_del ( ar->color ) ;
-    auteur_del (ar->auteur ) ;
+    author_del (ar->author ) ;
     free ( ar->time_start ) ;
     free ( ar->time_end ) ;
-    free ( ar->auteur ) ;
+    free ( ar->author ) ;
     free ( ar->description ) ;
     free ( ar ) ;
 
@@ -80,7 +80,7 @@ void arrow_show ( arrow_t* ar) {
                                   ar->y ) ; 
 
     color_show ( ar->color ) ;
-    auteur_show ( ar->auteur ) ;
+    author_show ( ar->author ) ;
 }
 
 /////////////////////////TAGS/////////////////////////////

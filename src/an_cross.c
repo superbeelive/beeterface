@@ -12,7 +12,7 @@ cross_t* cross_new(){
     cross_t* cr;
 
     cr = malloc ( sizeof (cross_t) ) ; 
-    cr->auteur = malloc ( TAILLE ) ; 
+    cr->author = malloc ( TAILLE ) ; 
     cr->description = malloc ( TAILLE ) ;
     cr->time_start = malloc ( TAILLE ) ;
     cr->time_end = malloc ( TAILLE ) ;
@@ -24,7 +24,7 @@ cross_t* cross_new(){
     cr->y = 5 ;
 
     cr->color = color_new() ; 
-    cr->auteur = auteur_new() ; 
+    cr->author = author_new() ; 
 
     return cr;
 }
@@ -32,10 +32,10 @@ cross_t* cross_new(){
 void cross_del ( cross_t* cr) {
 
     color_del ( cr->color ) ; 
-    auteur_del ( cr->auteur ) ; 
+    author_del ( cr->author ) ; 
     free ( cr->time_start ) ;
     free ( cr->time_end ) ;
-    free ( cr->auteur ) ;
+    free ( cr->author ) ;
     free ( cr->description ) ;
     free ( cr ) ;
 
@@ -52,7 +52,7 @@ void cross_show ( cross_t* cr) {
                                     
                                   
     color_show ( cr->color ) ;
-    auteur_show ( cr->auteur ) ; 
+    author_show ( cr->author ) ; 
 
 }
 /*

@@ -12,7 +12,7 @@ text_t* text_new(){
     text_t* txt;
 
     txt = malloc ( sizeof (text_t) ) ; 
-    txt->auteur = malloc ( TAILLE ) ; 
+    txt->author = malloc ( TAILLE ) ; 
     txt->description = malloc ( TAILLE ) ;
     txt->comment = malloc ( TAILLE ) ; 
     txt->time_start = malloc ( TAILLE ) ; 
@@ -24,16 +24,16 @@ text_t* text_new(){
     sprintf ( txt->comment, "Ceci est un commentaire" ) ;
 
     txt->color = color_new() ; 
-    txt->auteur = auteur_new() ; 
+    txt->author = author_new() ; 
 
     return txt;
 }
 void text_del ( text_t* txt) {
     
     color_del ( txt->color ) ;
-    auteur_del ( txt->auteur ) ;
+    author_del ( txt->author ) ;
     free ( txt->time_start ) ;
-    free ( txt->auteur ) ;
+    free ( txt->author ) ;
     free ( txt->description ) ;
     free ( txt->comment ) ;
     free ( txt ) ;
@@ -47,7 +47,7 @@ void text_show ( text_t* txt) {
                                   txt->comment ) ; 
 
     color_show ( txt->color ) ;
-    auteur_show ( txt->auteur ) ;
+    author_show ( txt->author ) ;
 
 }
 

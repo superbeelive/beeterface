@@ -2,7 +2,7 @@
 #define AUTEUR_WIN_H
 
 #include <gtk/gtk.h>
-#include "auteur.h"
+#include "author.h"
 
 typedef struct { 
 
@@ -51,11 +51,11 @@ void auteur_win_del ( auteur_win_t* ) ;
 void auteur_win_show ( auteur_win_t* ) ;
 
 //win_callback_auteur.c
-void auteur_win_fill( auteur_win_t* win, auteur_t* auteur ) ;
-void auteur_button_modify_name( auteur_win_t* win, auteur_t* auteur );
-void auteur_button_modify_ok_name( auteur_win_t* win, auteur_t* auteur );
-void auteur_button_modify_first_name( auteur_win_t* win, auteur_t* auteur ) ;
-void auteur_button_modify_ok_first_name ( auteur_win_t* win, auteur_t* auteur ) ; 
-void auteur_button_modify_email( auteur_win_t* win, auteur_t* auteur ) ; 
-void auteur_button_modify_ok_email ( auteur_win_t* win, auteur_t* auteur ) ;      
+void auteur_win_fill( auteur_win_t* win, author_t* auteur ) ;
+void auteur_button_modify_name( auteur_win_t* win, author_t* auteur );
+void auteur_button_modify_ok_name( auteur_win_t* win, author_t* auteur );
+void auteur_button_modify_first_name( auteur_win_t* win, author_t* auteur ) ;
+void auteur_button_modify_ok_first_name ( auteur_win_t* win, author_t* auteur ) ; 
+void auteur_button_modify_email( auteur_win_t* win, author_t* auteur ) ; 
+void auteur_button_modify_ok_email ( auteur_win_t* win, author_t* auteur ) ;      
 #endif 

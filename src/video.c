@@ -12,7 +12,7 @@ video_t* video_new() {
     vid->name_ruche = malloc ( TAILLE ) ;
     vid->description = malloc ( TAILLE ) ;
     vid->date = malloc ( TAILLE ) ; 
-    vid->auteur = auteur_new(); 
+    vid->auteur = author_new(); 
     vid->camera = camera_new();
 
 
@@ -29,7 +29,7 @@ void video_del ( video_t* vid ) {
     
     free ( vid->name_ruche ) ;
     free ( vid->description ) ;
-    auteur_del(vid->auteur) ;
+    author_del(vid->auteur) ;
     camera_del(vid->camera) ;
 
     free( vid ) ;
@@ -41,7 +41,7 @@ void video_show ( video_t* vid ) {
                         vid->ncadre,
                         vid->description);
 
-    auteur_show(vid->auteur);
+    author_show(vid->auteur);
     camera_show(vid->camera);
 }
 
@@ -100,11 +100,11 @@ void video_set_date ( video_t* vid ) {
 
 ////// Nom de la video /////
 
-void video_set_name ( video_t* vid, auteur_t* aut, camera_t* cam ) {
+void video_set_name ( video_t* vid, author_t* aut, camera_t* cam ) {
     
     char* tmp_aut ;
     char* tmp_cam ; 
-    tmp_aut = auteur_get_nom ( aut ) ; 
+    tmp_aut = author_get_lastname ( aut ) ; 
     tmp_cam = camera_get_name ( cam ) ;
 
     sprintf ( vid->name, "%s_%d_%d_%s_%s_%s", vid->name_ruche, vid->nruche, vid->ncadre, tmp_aut, tmp_cam, vid->date ) ; 
