@@ -36,6 +36,7 @@ typedef struct {
     GtkWidget *txt_trier_par;
     GtkWidget *txt_visualiser;
     GtkWidget *label_title ;
+    GtkWidget* label_combo_auteur ;
  
     GtkWidget* label_time_beg ;
     GtkWidget* label_time_end ;
@@ -84,6 +85,7 @@ typedef struct {
     //Combo Box
     GtkWidget *choix_camera;
     GtkWidget *choix_tri;
+    GtkWidget* combo_auteur ; 
 
     //Autre
     GtkWidget *sep_haut; //Ligne de séparation
