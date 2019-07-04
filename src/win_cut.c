@@ -24,8 +24,8 @@ cut_win_t* cut_win_new() {
    tmp->label_time_start = gtk_label_new("0:00") ; 
    tmp->label_time_end = gtk_label_new("4:30") ; 
 
-   tmp->label_def_timed = gtk_label_new("Début") ; 
-   tmp->label_def_timef = gtk_label_new("Fin") ;
+   tmp->label_def_timed = gtk_label_new("Début :") ; 
+   tmp->label_def_timef = gtk_label_new("Fin :") ;
    tmp->label_timed = gtk_label_new("0:05") ;
    tmp->label_timef = gtk_label_new("3:00") ;
 
@@ -40,10 +40,12 @@ cut_win_t* cut_win_new() {
     
    tmp->img_ex_video = gtk_image_new_from_file ("/usr/share/beeterface/images/video_bee.jpg");
 
+   tmp->sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL) ; 
 
    //RANGEMENT
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal);
     gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_left,  FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->sep,  FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_right,  FALSE, FALSE, 0);
     
         gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_video,  TRUE, TRUE, 0);
@@ -72,7 +74,21 @@ cut_win_t* cut_win_new() {
     gtk_container_set_border_width (GTK_CONTAINER (tmp->window), 10 );
     gtk_window_set_title (GTK_WINDOW (tmp->window), "Couper"); 
 
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->label_time_end), 800) ;
 
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->btn_timed), 5) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->btn_timef), 5) ;
+
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_def_timed), 5) ;
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_def_timef), 5) ;
+    
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_def_timed), 5) ;
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_def_timef), 5) ;
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->box_quit), 480) ;
+
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->sep), 10) ;
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->sep), 5) ;
+    
     return tmp ; 
 }
 

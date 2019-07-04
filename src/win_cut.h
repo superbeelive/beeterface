@@ -34,9 +34,11 @@ typedef struct {
 
     GtkWidget* img_ex_video ; 
 
-    GtkWidget *scale_tmp;
+    GtkWidget *scale_tmp ;
     GtkAdjustment *adjustement_tmp ;
-
+    
+    GtkWidget* sep ;
+    
 } cut_win_t ; 
 
 cut_win_t* cut_win_new() ; 
