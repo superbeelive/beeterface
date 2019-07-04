@@ -98,7 +98,7 @@ modif_win_t* modif_win_new() {
 
     tmp->btn_an_cross = gtk_button_new_with_label ("Croix");
     tmp->btn_an_circle = gtk_button_new_with_label ("Cercle");
-    tmp->btn_an_oblong = gtk_button_new_with_label ("Rectangle");
+    tmp->btn_an_box = gtk_button_new_with_label ("Rectangle");
     tmp->btn_an_arrow = gtk_button_new_with_label ("Flèche");
     tmp->btn_an_moving_cross = gtk_button_new_with_label ("Croix Mouv.");
     
@@ -113,9 +113,9 @@ modif_win_t* modif_win_new() {
         tmp->img_btn_an_circle =  gtk_image_new_from_file ("/usr/share/beeterface/images/cercle.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_an_circle), tmp->img_btn_an_circle);
 
-    tmp->btn_an_oblong = gtk_button_new ();
-        tmp->img_btn_an_oblong =  gtk_image_new_from_file ("/usr/share/beeterface/images/rectangle.png");
-        gtk_button_set_image (GTK_BUTTON (tmp->btn_an_oblong), tmp->img_btn_an_oblong);
+    tmp->btn_an_box = gtk_button_new ();
+        tmp->img_btn_an_box =  gtk_image_new_from_file ("/usr/share/beeterface/images/rectangle.png");
+        gtk_button_set_image (GTK_BUTTON (tmp->btn_an_box), tmp->img_btn_an_box);
 
     tmp->btn_an_arrow = gtk_button_new ();
         tmp->img_btn_an_arrow =  gtk_image_new_from_file ("/usr/share/beeterface/images/fleche.png");
@@ -191,7 +191,7 @@ modif_win_t* modif_win_new() {
                         //Colonne 1
                      gtk_grid_attach(GTK_GRID (tmp->grid_tool_an), tmp->btn_an_cross, 1,1,1,1 ) ;
                      gtk_grid_attach(GTK_GRID (tmp->grid_tool_an), tmp->btn_an_circle, 1,2,1,1 ) ;
-                     gtk_grid_attach(GTK_GRID (tmp->grid_tool_an), tmp->btn_an_oblong, 1,3,1,1 ) ;
+                     gtk_grid_attach(GTK_GRID (tmp->grid_tool_an), tmp->btn_an_box, 1,3,1,1 ) ;
                         //Colonne 2
                      gtk_grid_attach(GTK_GRID (tmp->grid_tool_an), tmp->btn_an_arrow, 2,1,1,1 ) ;
                      gtk_grid_attach(GTK_GRID (tmp->grid_tool_an), tmp->btn_an_moving_cross, 2,2,1,1 ) ;

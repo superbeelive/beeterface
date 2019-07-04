@@ -87,7 +87,7 @@ typedef struct {
 
     GtkWidget* btn_an_cross ;
     GtkWidget* btn_an_circle ; 
-    GtkWidget* btn_an_oblong ;
+    GtkWidget* btn_an_box ;
     GtkWidget* btn_an_arrow ;
     GtkWidget* btn_an_measure ;
     GtkWidget* btn_an_moving_cross ;

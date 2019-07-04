@@ -16,6 +16,7 @@ interface_t* interface_new() {
         tmp->win_info = info_win_new() ; 
         tmp->win_color = color_win_new() ; 
         tmp->win_cross = cross_win_new() ; 
+        tmp->win_box = box_win_new() ; 
 	
         return tmp ;
 }
@@ -31,6 +32,7 @@ void interface_del ( interface_t* tmp ) {
     info_win_del ( tmp->win_info ) ;
     color_win_del ( tmp->win_color ) ;
     cross_win_del ( tmp->win_cross ) ; 
+    box_win_del ( tmp->win_box ) ; 
 
     free ( tmp ) ;
 }
