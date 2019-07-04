@@ -11,7 +11,6 @@ typedef struct {
     GtkWidget* box_left ;
     GtkWidget* box_right ; 
     
-    GtkWidget* box_name ;
     GtkWidget* box_description ;
     GtkWidget* box_video ; 
     GtkWidget* box_time ; 
@@ -20,6 +19,7 @@ typedef struct {
     GtkWidget* box_def_time_deb ; 
     GtkWidget* box_def_time_fin ; 
 
+    GtkWidget* box_name ;
     GtkWidget* box_tag ; 
     GtkWidget* box_txt_tag ; 
     GtkWidget* box_scroll_tag ; 
@@ -82,12 +82,17 @@ typedef struct {
     
     GtkWidget* btn_enr_timed ;
     GtkWidget* btn_enr_timef ;
+
+    GtkWidget* btn_note ; 
     //OTHER
     GtkTextBuffer* buffer_description ; 
     GtkWidget* text_description ;
 
     GtkWidget* scale_time ; 
-    GtkAdjustment* adj_time ; 
+    GtkAdjustment* adj_time ;
+
+    //sep
+    GtkWidget* sep ;
 
 } cross_win_t ;
 

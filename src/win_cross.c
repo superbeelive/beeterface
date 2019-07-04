@@ -14,7 +14,7 @@ cross_win_t* cross_win_new() {
     tmp->box_right = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     
     tmp->box_name = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
-    tmp->box_description = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+    tmp->box_description = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_time = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_label_time = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
@@ -42,7 +42,7 @@ cross_win_t* cross_win_new() {
 
     //label
     tmp->label_name = gtk_label_new("Nom :") ; 
-    tmp->label_desc = gtk_label_new("Description :") ; 
+    tmp->label_desc = gtk_label_new("Description du Widget :") ; 
     tmp->label_time_deb = gtk_label_new("0:00") ; 
     tmp->label_time_fin = gtk_label_new("2:30") ; 
     
@@ -93,6 +93,8 @@ cross_win_t* cross_win_new() {
 
     tmp->btn_enr_timed = gtk_button_new_with_label ("Deb") ;  
     tmp->btn_enr_timef = gtk_button_new_with_label ("Fin") ;  
+    
+    tmp->btn_note = gtk_button_new_with_label ("+") ;  
 
     //other
     tmp->text_description = gtk_text_view_new() ; 
@@ -102,31 +104,23 @@ cross_win_t* cross_win_new() {
 
     tmp->adj_time = gtk_adjustment_new (10,0,500,1,1,2);
     tmp->scale_time = gtk_scale_new(GTK_ORIENTATION_HORIZONTAL,tmp->adj_time);
-
+ 
+    tmp->sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL) ; 
 
 
     //RANGEMENT 
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principal);
 
     gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_left, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->sep, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(tmp->box_principal), tmp->box_right, FALSE, FALSE, 0);
 
         //box_left
-        gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_name, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_video, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_time, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_label_time, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_btn_video, FALSE, FALSE, 0);
    
-            //box_name
-            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->label_name, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->entry_name, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->btn_name, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->box_description, FALSE, FALSE, 0);
-       
-            //box_description
-            gtk_box_pack_start(GTK_BOX(tmp->box_description), tmp->label_desc, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_description), tmp->text_description, FALSE, FALSE, 0);
            
             //box_video
             gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->img_ex_video, FALSE, FALSE, 0);
@@ -146,12 +140,24 @@ cross_win_t* cross_win_new() {
 
             
         //box_right
+        gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_name, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_description, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_tag, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_meta, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_def_time_deb, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_def_time_fin, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_btn_quit, FALSE, FALSE, 0);
 
+            //box_name
+            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->label_name, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->entry_name, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->btn_name, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_name), tmp->btn_note, FALSE, FALSE, 0);
+       
+            //box_description
+            gtk_box_pack_start(GTK_BOX(tmp->box_description), tmp->label_desc, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_description), tmp->text_description, FALSE, FALSE, 0);
+            
             //box_tag 
             gtk_box_pack_start(GTK_BOX(tmp->box_tag), tmp->frame_tag, TRUE, TRUE, 0) ;
               gtk_container_add (GTK_CONTAINER (tmp->frame_tag), tmp->box_scroll_tag) ;
@@ -160,7 +166,7 @@ cross_win_t* cross_win_new() {
             gtk_box_pack_start(GTK_BOX(tmp->box_txt_tag), tmp->label_test, TRUE, TRUE, 0);
 
             //box_meta
-            gtk_box_pack_start(GTK_BOX(tmp->box_meta), tmp->frame_meta, FALSE, FALSE, 0) ;
+            gtk_box_pack_start(GTK_BOX(tmp->box_meta), tmp->frame_meta, TRUE, TRUE, 0) ;
             gtk_container_add (GTK_CONTAINER (tmp->frame_meta), tmp->grid_meta) ;
             gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_name_ruche, 1, 1, 1, 1) ;  
             gtk_grid_attach(GTK_GRID (tmp->grid_meta),tmp->label_info_description, 1, 2, 1, 1) ;  
@@ -185,14 +191,59 @@ cross_win_t* cross_win_new() {
             gtk_box_pack_start(GTK_BOX(tmp->box_def_time_fin), tmp->label_timef, FALSE, FALSE, 0) ;
 
             //box_btn_quit
-            gtk_box_pack_start(GTK_BOX(tmp->box_btn_quit), tmp->btn_enr, FALSE, FALSE, 0) ;
             gtk_box_pack_start(GTK_BOX(tmp->box_btn_quit), tmp->btn_ann, FALSE, FALSE, 0) ;
+            gtk_box_pack_start(GTK_BOX(tmp->box_btn_quit), tmp->btn_enr, FALSE, FALSE, 0) ;
             
 
     //PLACEMENT 
     gtk_window_set_title (GTK_WINDOW (tmp->window), "Annotation : croix") ; 
     gtk_container_set_border_width (GTK_CONTAINER (tmp->window), 10 );
 
+    //video
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->box_video), 5);
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_video), 5);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->box_video), 5);
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->box_video), 5);
+
+    //btn_video
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->box_btn_video), 5);
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_btn_video), 5);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->box_btn_video), 250);
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->box_btn_video), 5);
+
+    //box info
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_meta), 5);
+   
+    //box_name
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->entry_name), 5);
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_name), 2);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->btn_note), 2);
+
+
+    //box_description
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_desc), GTK_ALIGN_START ) ;
+
+
+    //box_tag 
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->box_tag), 5);
+   
+    //box_btn_quit
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->btn_enr), 5);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->btn_ann), 120);
+    
+
+    //box_def_time
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_def_time_deb), 5);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->label_enr_timed), 5);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->label_timed), 5);
+    
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->box_def_time_fin), 5);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->label_enr_timef), 5);
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->label_timef), 5);
+
+    //sep
+    gtk_widget_set_margin_start (GTK_WIDGET (tmp->sep), 5);
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->sep), 10);
 
 
     //label_time
