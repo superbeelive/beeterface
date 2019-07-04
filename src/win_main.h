@@ -24,7 +24,7 @@ typedef struct {
     GtkWidget* box_btn_video ; 
     GtkWidget* box_time ;
     GtkWidget* box_info_time ;
-    GtkWidget* box_folder ; 
+    GtkWidget* box_file ; 
 
     //GRID
     GtkWidget* grid_info ; 
@@ -73,8 +73,8 @@ typedef struct {
     GtkWidget* btn_camera_more ;
     GtkWidget* img_btn_camera_more ;
     
-    GtkWidget* btn_folder ;
-    GtkWidget* img_btn_folder ;
+    GtkWidget* btn_file ;
+    GtkWidget* img_btn_file ;
     
     //Images
     GtkWidget *img_exemple; //Image pour repérer où sera la vidéo

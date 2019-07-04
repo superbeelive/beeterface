@@ -225,6 +225,14 @@ void callback_win_box(GtkWidget* widget, gpointer data) {
     box_win_show ( tmp->interface->win_box ) ; 
 }
 
+//////////////////////////////////////////////////////// WIN FILE /////////////////////////
+
+void callback_win_file(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    file_win_show ( tmp->interface->win_file ) ; 
+}
+
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
@@ -254,6 +262,11 @@ int main(int argc, char *argv[])
     g_signal_connect(queen->interface->win_main->btn_info, 
     		   	"clicked",
 			    G_CALLBACK(callback_info), 
+			    queen);
+
+    g_signal_connect(queen->interface->win_main->btn_file, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_file), 
 			    queen);
 //Fenêtre AUTEUR 
     g_signal_connect(queen->interface->win_auteur->button_modify1,

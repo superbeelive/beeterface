@@ -27,7 +27,7 @@ main_win_t* main_win_new() {
     tmp->box_btn_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_time = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_info_time = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
-    tmp->box_folder = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+    tmp->box_file = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     
 
     //GRID
@@ -48,7 +48,7 @@ main_win_t* main_win_new() {
     tmp->img_btn_camera_more = gtk_image_new_from_file ("/usr/share/beeterface/images/inter.png");
     gtk_button_set_image (GTK_BUTTON (tmp->btn_camera_more), tmp->img_btn_camera_more);
 
-    tmp->btn_folder = gtk_button_new_with_label ("Ouvrir") ;
+    tmp->btn_file = gtk_button_new_with_label ("Ouvrir") ;
 
     //IMAGES  
     tmp->img_exemple = gtk_image_new_from_file ("/usr/share/beeterface/images/video_bee.jpg") ;
@@ -161,7 +161,7 @@ main_win_t* main_win_new() {
                 gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_time, FALSE, FALSE, 0);
                 gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_info_time, FALSE, FALSE, 0);
                 gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->sep_fold, FALSE, FALSE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_folder, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_file, FALSE, FALSE, 0);
 
 
                   //Dans box_info
@@ -211,8 +211,8 @@ main_win_t* main_win_new() {
                   gtk_box_pack_start(GTK_BOX(tmp->box_info_time), tmp->label_time_beg, FALSE, FALSE, 0);
                   gtk_box_pack_start(GTK_BOX(tmp->box_info_time), tmp->label_time_end, FALSE, FALSE, 0);
                     
-                  //box_folder
-                  gtk_box_pack_start(GTK_BOX(tmp->box_folder), tmp->btn_folder, FALSE, FALSE, 0);
+                  //box_file
+                  gtk_box_pack_start(GTK_BOX(tmp->box_file), tmp->btn_file, FALSE, FALSE, 0);
 
 
 

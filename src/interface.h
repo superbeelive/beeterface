@@ -11,6 +11,7 @@
 #include "win_color.h"
 #include "win_cross.h"
 #include "win_box.h"
+#include "win_file.h"
 
 typedef struct {
 
@@ -24,6 +25,7 @@ typedef struct {
     color_win_t* win_color ; 
     cross_win_t* win_cross ; 
     box_win_t* win_box ; 
+    file_win_t* win_file ; 
 
 } interface_t ;
 
