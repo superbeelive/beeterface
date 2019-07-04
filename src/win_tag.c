@@ -22,24 +22,24 @@ tag_win_t* tag_win_new() {
     tmp->box_principal = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0 ) ; 
     tmp->box_up = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0 ) ; 
     tmp->box_down = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0 ) ; 
+    tmp->box_btn = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0 ) ; 
+    tmp->box_tag = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0 ) ; 
+    tmp->box_left = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0 ) ; 
+    tmp->box_middle = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0 ) ; 
+    tmp->box_right = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0 ) ; 
    
-    //Widget box up
-    tmp->search = gtk_search_entry_new() ; 
-
-    tmp->entry_edit = gtk_entry_new() ; 
-    tmp->btn_edit = gtk_button_new() ; 
-    tmp->img_btn_edit_modif = gtk_image_new_from_file ("/usr/share/beeterface/images/modif.png") ; 
-    tmp->img_btn_edit_ok = gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png") ; 
-    gtk_button_set_image (GTK_BUTTON (tmp->btn_edit), tmp->img_btn_edit_modif ) ; 
-
-
-    g_object_ref (tmp->img_btn_edit_modif) ; 
-    g_object_ref (tmp->img_btn_edit_ok) ; 
-
-    //Widget box down
-    
     tmp->scroll = gtk_scrolled_window_new (NULL, NULL) ; 
+    //search
+    tmp->search = gtk_search_entry_new() ; 
+    
     tmp->label_test = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
+    tmp->label_test2 = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
+    tmp->label_test3 = gtk_label_new ("Je suis un test de texte bonjour.\ntest \ntest \ntest \ntest") ; 
+    
+    //btn 
+    tmp->btn_tag = gtk_button_new_with_label ("+") ; 
+    tmp->btn_ann = gtk_button_new_with_label ("Annuler") ; 
+    tmp->btn_enr = gtk_button_new_with_label ("Enregistrer") ; 
 
 
     //RANGEMENT
@@ -47,21 +47,44 @@ tag_win_t* tag_win_new() {
         //Box Principale
         gtk_box_pack_start (GTK_BOX(tmp->box_principal), tmp->box_up, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX(tmp->box_principal), tmp->box_down, TRUE, TRUE, 0);
+        gtk_box_pack_start (GTK_BOX(tmp->box_principal), tmp->box_btn, FALSE, FALSE, 0);
         
             //Box_up 
             gtk_box_pack_start (GTK_BOX(tmp->box_up), tmp->search, FALSE, FALSE, 0);
-            gtk_box_pack_start (GTK_BOX(tmp->box_up), tmp->entry_edit, FALSE, FALSE, 0);
-            gtk_box_pack_start (GTK_BOX(tmp->box_up), tmp->btn_edit, FALSE, FALSE, 0);
+            gtk_box_pack_start (GTK_BOX(tmp->box_up), tmp->btn_tag, FALSE, FALSE, 0);
         
             //Box_Down
             gtk_box_pack_start (GTK_BOX(tmp->box_down), tmp->scroll, TRUE, TRUE, 0);
                 //Dans scroll
-                gtk_container_add (GTK_CONTAINER(tmp->scroll), tmp->label_test) ;
+                gtk_container_add (GTK_CONTAINER(tmp->scroll), tmp->box_tag) ;
+                gtk_box_pack_start (GTK_BOX(tmp->box_tag), tmp->box_left, TRUE, TRUE, 0);
+                gtk_box_pack_start (GTK_BOX(tmp->box_tag), tmp->box_middle, TRUE, TRUE, 0);
+                gtk_box_pack_start (GTK_BOX(tmp->box_tag), tmp->box_right, TRUE, TRUE, 0);
+
+                //box_left 
+                    gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_test, FALSE, FALSE, 0);
+                   
+                    gtk_box_pack_start (GTK_BOX(tmp->box_middle), tmp->label_test2, FALSE, FALSE, 0);
+                   
+                    gtk_box_pack_start (GTK_BOX(tmp->box_right), tmp->label_test3, FALSE, FALSE, 0);
+
+            //box_btn 
+            gtk_box_pack_start (GTK_BOX(tmp->box_btn), tmp->btn_ann, FALSE, FALSE, 0);
+            gtk_box_pack_start (GTK_BOX(tmp->box_btn), tmp->btn_enr, FALSE, FALSE, 0);
+
+
 
     //PLACEMENT 
-    gtk_widget_set_margin_end ( GTK_WIDGET (tmp->search), 100 ) ;
+    gtk_widget_set_margin_end ( GTK_WIDGET (tmp->search), 5 ) ;
     gtk_widget_set_halign ( GTK_WIDGET (tmp->label_test), GTK_ALIGN_START ) ;
     gtk_widget_set_margin_top ( GTK_WIDGET (tmp->scroll), 10 ) ;
+    gtk_widget_set_margin_bottom ( GTK_WIDGET (tmp->scroll), 5 ) ;
+
+    gtk_widget_set_margin_end ( GTK_WIDGET (tmp->box_left), 10 ) ;
+    gtk_widget_set_margin_end ( GTK_WIDGET (tmp->box_middle), 10 ) ;
+    
+
+
         return tmp ; 
 }
 
@@ -73,8 +96,6 @@ void tag_win_show ( tag_win_t* nemo ) {
 
 void tag_win_del ( tag_win_t* nemo ) {
     free ( nemo ) ;
-    g_object_unref (nemo->img_btn_edit_modif) ; 
-    g_object_unref (nemo->img_btn_edit_ok) ; 
 
 }
 

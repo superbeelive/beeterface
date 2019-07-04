@@ -2,7 +2,7 @@
 #include "win_tag.h"
 
 //TODO Réintégrer la structure du TAG dans projet.c quand tag sera complet 
-
+/*
 void tag_btn_edit_modif ( tag_win_t* win ) {
      
      win->cnt_edit = 1 ;
@@ -19,4 +19,4 @@ void tag_btn_edit_ok ( tag_win_t* win ) {
      g_object_set(win->entry_edit,"editable", FALSE, NULL) ;     
      gtk_button_set_image (GTK_BUTTON (win->btn_edit), win->img_btn_edit_modif) ; 
 }
-
+*/

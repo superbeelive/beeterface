@@ -22,20 +22,23 @@ typedef struct {
     GtkWidget* box_tool_an ; 
     GtkWidget* box_an ; 
     GtkWidget* box_tag ;
+    GtkWidget* box_btn_tag ;
     GtkWidget* box_meta ;
-
+    GtkWidget* box_quit ;
+    
     GtkWidget* box_scroll_an ;
     GtkWidget* box_scroll_tag ; 
 
     GtkWidget* box_text_an ; 
     GtkWidget* box_text_tag ;
+    GtkWidget* box_text_ss_tag1 ; 
+    GtkWidget* box_text_ss_tag2 ; 
     GtkWidget* box_text_meta ; 
 
 
     //FRAME
     GtkWidget* frame_tool_an ;
     GtkWidget* frame_an ;
-    GtkWidget* frame_tag ;
     GtkWidget* frame_meta ;
     
     //SCROLL
@@ -55,12 +58,15 @@ typedef struct {
     
     //LABEL
     GtkWidget *label_title_video ;
-    
+   
+    GtkWidget* label_title_tag ;
+
     GtkWidget *label_time_deb;
     GtkWidget *label_time_fin;
     
     GtkWidget *label_test ; 
     GtkWidget *label_test2 ;
+    GtkWidget *label_test3 ;
 
     GtkWidget* label_name_ruche ;
     GtkWidget* label_description ;
@@ -101,11 +107,14 @@ typedef struct {
     GtkWidget* img_btn_an_moving_cross ;
     GtkWidget* img_btn_an_text ;
 
-    GtkWidget* button_add_tag ;
-    GtkWidget* button_remove_tag ; 
+    GtkWidget* btn_add_tag ;
+    GtkWidget* btn_remove_tag ; 
     //SEPARATOR
     GtkWidget* sep ;
-    GtkWidget* sep2 ; 
+    GtkWidget* sep2 ;
+    GtkWidget* sep_tag1 ; 
+    GtkWidget* sep_tag2 ; 
+
     
     //OTHER WIDGET  
     GtkWidget *barre_temps;

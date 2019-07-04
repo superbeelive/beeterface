@@ -6,21 +6,29 @@
 
 typedef struct {
     
-    GtkWidget *window ; 
-    GtkWidget *box_principal ;
-    GtkWidget *box_up ; 
-    GtkWidget *box_down ; 
+    GtkWidget* window ; 
+    GtkWidget* box_principal ;
+    GtkWidget* box_up ; 
+    GtkWidget* box_down ; 
+    GtkWidget* box_btn ; 
 
-    GtkWidget *search ; 
-    
-    GtkWidget *entry_edit ; 
-    
-    GtkWidget *btn_edit ; 
-    GtkWidget *img_btn_edit_modif ;
-    GtkWidget *img_btn_edit_ok ;  
+    GtkWidget* box_tag ; 
+    GtkWidget* box_left ;
+    GtkWidget* box_middle ; 
+    GtkWidget* box_right ; 
+
+    GtkWidget* search ; 
+   
+    GtkWidget* btn_tag ;
+    GtkWidget* btn_ann ;
+    GtkWidget* btn_enr ;
+
+    GtkWidget* entry_tag ;
 
     GtkWidget *scroll ;
     GtkWidget *label_test ; 
+    GtkWidget *label_test2 ; 
+    GtkWidget *label_test3 ; 
 
     int cnt_edit ; 
 
