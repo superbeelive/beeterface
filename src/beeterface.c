@@ -177,7 +177,7 @@ void callback_camera_modify_description (GtkWidget* widget, gpointer data) {
 
 
 ///////////////////////////////////////////////// TAG CALLBACK ////////////////////////////////////////////////////
-void callback_tag(GtkWidget * widget, gpointer data)
+void callback_win_tag(GtkWidget * widget, gpointer data)
 {
     queen_t* tmp ;
     tmp = data ;
@@ -187,7 +187,7 @@ void callback_tag(GtkWidget * widget, gpointer data)
     //Apparition de la fenêtre
     tag_win_show(tmp->interface->win_tag); 
 }
-
+/*
 void callback_tag_modify_edit (GtkWidget* widget, gpointer data) {
         queen_t* tmp ; 
         tmp = data ;
@@ -196,7 +196,7 @@ void callback_tag_modify_edit (GtkWidget* widget, gpointer data) {
         tag_btn_edit_modif(tmp->interface->win_tag) ;     
         else 
         tag_btn_edit_ok(tmp->interface->win_tag ) ;
-    }
+    }*/
 //////////////////////////////////////////////////// INFO CALLBACK ////////////////////////////////////////////
 void callback_info(GtkWidget *widget, gpointer data) 
 {  
@@ -225,6 +225,20 @@ void callback_win_box(GtkWidget* widget, gpointer data) {
     box_win_show ( tmp->interface->win_box ) ; 
 }
 
+//////////////////////////////////////////////////////// WIN FILE /////////////////////////
+
+void callback_win_file(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    file_win_show ( tmp->interface->win_file ) ; 
+}
+/////////////////// WIN CUT //////
+
+void callback_win_cut(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    cut_win_show ( tmp->interface->win_cut ) ; 
+}
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
@@ -255,6 +269,13 @@ int main(int argc, char *argv[])
     		   	"clicked",
 			    G_CALLBACK(callback_info), 
 			    queen);
+
+    g_signal_connect(queen->interface->win_main->btn_file, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_file), 
+			    queen);
+
+
 //Fenêtre AUTEUR 
     g_signal_connect(queen->interface->win_auteur->button_modify1,
             "clicked",
@@ -321,10 +342,6 @@ int main(int argc, char *argv[])
 
 //Fenêtre TAG 
 
-     g_signal_connect(queen->interface->win_tag->btn_edit,
-            "clicked",
-            G_CALLBACK(callback_tag_modify_edit),
-            queen);
 
 //Fenêtre MODIF_WIN 
      g_signal_connect(queen->interface->win_modif->btn_an_cross,
@@ -337,6 +354,15 @@ int main(int argc, char *argv[])
             G_CALLBACK(callback_win_box),
             queen);
 
+    g_signal_connect(queen->interface->win_modif->btn_add_tag, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_tag), 
+			    queen);
+    
+    g_signal_connect(queen->interface->win_modif->btn_cut, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_cut), 
+			    queen);
 
 //Fenêtre COLOR_WIN 
 
