@@ -232,7 +232,13 @@ void callback_win_file(GtkWidget* widget, gpointer data) {
     tmp = data ;
     file_win_show ( tmp->interface->win_file ) ; 
 }
+/////////////////// WIN CUT //////
 
+void callback_win_cut(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    cut_win_show ( tmp->interface->win_cut ) ; 
+}
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
@@ -351,6 +357,11 @@ int main(int argc, char *argv[])
     g_signal_connect(queen->interface->win_modif->btn_add_tag, 
     		   	"clicked",
 			    G_CALLBACK(callback_win_tag), 
+			    queen);
+    
+    g_signal_connect(queen->interface->win_modif->btn_cut, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_cut), 
 			    queen);
 
 //Fenêtre COLOR_WIN 
