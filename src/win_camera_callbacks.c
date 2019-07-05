@@ -16,7 +16,7 @@ void camera_win_fill( camera_win_t* win, camera_t* camera ) {
     gtk_entry_set_text((GtkEntry*) win->entry_model, camera->model ) ; 
     gtk_entry_set_text((GtkEntry*) win->entry_serial, camera->serial );
     gtk_entry_set_text((GtkEntry*) win->entry_type, camera_type_to_string(camera->type) );
-    gtk_entry_set_text((GtkEntry*) win->entry_description, camera->description );
+    gtk_entry_set_text((GtkEntry*) win->entry_description, camera->notes );
 
     g_object_set(win->entry_name,"editable", FALSE, NULL) ; 
     g_object_set(win->entry_model,"editable", FALSE, NULL) ; 
@@ -102,7 +102,7 @@ void camera_button_modify_description_modif( camera_win_t* win, camera_t* camera
      
      win->cnt_modif_description = 1 ;
      
-     gtk_entry_set_text((GtkEntry*) win->entry_description, camera->description ) ; 
+     gtk_entry_set_text((GtkEntry*) win->entry_description, camera->notes ) ; 
      g_object_set(win->entry_description,"editable", TRUE, NULL) ;    
      gtk_button_set_image (GTK_BUTTON (win->btn_modify_description), win->img_btn_modify_description_ok) ; 
 
@@ -111,7 +111,7 @@ void camera_button_modify_description_modif( camera_win_t* win, camera_t* camera
 void camera_button_modify_description_ok ( camera_win_t* win, camera_t* camera ) {
          
      win->cnt_modif_description = 0 ;
-     sprintf(camera->description,"%s", gtk_entry_get_text((GtkEntry*) win->entry_description ) ) ;
+     sprintf(camera->notes,"%s", gtk_entry_get_text((GtkEntry*) win->entry_description ) ) ;
      g_object_set(win->entry_description,"editable", FALSE, NULL) ;     
      gtk_button_set_image (GTK_BUTTON (win->btn_modify_description), win->img_btn_modify_description_modif) ; 
 }
