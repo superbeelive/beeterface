@@ -1,0 +1,1 @@
+reprendre get_notes / set_notes en verifiant les longueurs des chaines de char. Doit-ton faire pareil pour les autres char* ?
