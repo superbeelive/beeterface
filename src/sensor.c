@@ -49,11 +49,12 @@ sensor_t* sensor_new(){
        throw_error("malloc failed", 1 ) ;
        return NULL ;
     }
-    sprintf(sensor->name, "Nom_de_la_sensor");
-    sprintf(sensor->model, "Modele_de_la_sensor");
+    sprintf(sensor->name, "Unnamed sensor");
+    sprintf(sensor->model, "Unknown model");
     sprintf(sensor->serial, "00000");
     sensor->type = SENSOR_HYGUSB ;
-    sprintf(sensor->notes, "Description_de_la_sensor");
+    sprintf(sensor->notes, "N/A");
+    sprintf(sensor->hw_handle, "-");
 
     return sensor;
 }
@@ -66,12 +67,23 @@ void sensor_del ( sensor_t* sensor_a_del) {
     free (sensor_a_del);
 }
 
-void sensor_show ( sensor_t* sensor_a_show) {
-    printf("%s %s %s %d %s\n",sensor_a_show->name,
-                      sensor_a_show->model,
-                      sensor_a_show->serial, 
-                      sensor_a_show->type,
-                      sensor_a_show->notes);
+void sensor_show ( int ind, sensor_t* sensor ) {
+    indent (ind ) ;
+    printf("Sensor:\n");
+    indent(ind) ;
+    printf("  Name: %s\n", sensor->name ) ;
+    indent(ind) ;
+    printf("  Model: %s\n", sensor->model ) ;
+    indent(ind) ;
+    printf("  Serial: %s\n", sensor->serial ) ;
+    indent(ind) ;
+    printf("  Type : %s\n", sensor_type_to_string(sensor->type) ) ;
+    indent(ind) ;
+    printf("  Hw_handle : %s\n", sensor->hw_handle ) ;
+    indent(ind) ;
+    printf("  Notes :\n");
+    indent(ind) ;
+    printf("  %s\n", sensor->notes ) ;
 }
 
 

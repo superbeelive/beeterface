@@ -1,5 +1,5 @@
-#ifndef CAMERA_H
-#define CAMERA_H
+#ifndef SENSOR_H
+#define SENSOR_H
 
 typedef enum {
     SENSOR_HYGUSB,
@@ -20,7 +20,7 @@ typedef struct {
 
 sensor_t* sensor_new() ;
 void sensor_del (sensor_t*);
-void sensor_show (sensor_t*);
+void sensor_show (int, sensor_t*);
 
 void sensor_set_name (sensor_t*, const char*);
 char* sensor_get_name (sensor_t*);

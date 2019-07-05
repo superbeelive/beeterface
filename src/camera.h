@@ -20,7 +20,7 @@ typedef struct {
 
 camera_t* camera_new() ;
 void camera_del (camera_t*);
-void camera_show (camera_t*);
+void camera_show (int, camera_t*);
 
 void camera_set_name (camera_t*, const char*);
 char* camera_get_name (camera_t*);

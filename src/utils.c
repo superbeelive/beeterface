@@ -11,3 +11,9 @@ void _throw_error( char* file, int line, char* msg, int death ) {
     }
 
 }
+
+void indent( int n ) {
+    int i ;
+    for (i=0; i<n; i++)
+        printf("\t");
+}

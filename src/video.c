@@ -41,8 +41,8 @@ void video_show ( video_t* vid ) {
                         vid->ncadre,
                         vid->description);
 
-    author_show(vid->auteur);
-    camera_show(vid->camera);
+//    author_show(vid->auteur);
+//    camera_show(vid->camera);
 }
 
 /////// Name ruche //////

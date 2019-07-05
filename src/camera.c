@@ -66,16 +66,25 @@ void camera_del ( camera_t* camera_a_dell) {
     free (camera_a_dell);
 }
 
-void camera_show ( camera_t* camera_a_show) {
-    printf("%s %s %s %d %s\n",camera_a_show->name,
-                      camera_a_show->model,
-                      camera_a_show->serial, 
-                      camera_a_show->type,
-                      camera_a_show->notes);
+void camera_show ( int ind, camera_t* cam ) {
+    indent (ind ) ;
+    printf("Camera:\n");
+    indent(ind) ;
+    printf("  Name: %s\n",cam->name ) ;
+    indent(ind) ;
+    printf("  Model: %s\n", cam->model ) ;
+    indent(ind) ;
+    printf("  Serial: %s\n", cam->serial ) ;
+    indent(ind) ;
+    printf("  Type : %s\n", camera_type_to_string(cam->type) ) ;
+    indent(ind) ;
+    printf("  Hw_handle : %s\n", cam->hw_handle ) ;
+    indent(ind) ;
+    printf("  Notes :\n");
+    indent(ind) ;
+    printf("  %s\n", cam->notes ) ;
 }
 
-
-//Name 
 void camera_set_name (camera_t* camera_a_set, const char* name){
     sprintf(camera_a_set->name,"%s",name);
 }
@@ -84,19 +93,13 @@ char* camera_get_name (camera_t* camera_a_get){
     return camera_a_get->name;
 }
 
-
-//Model
-
 void camera_set_model (camera_t* camera_a_set, const char* model){
     sprintf(camera_a_set->model,"%s",model);
 }
 
-
 char* camera_get_model (camera_t* camera_a_get){
     return camera_a_get->model;
 }
-
-//Nserie
 
 void camera_set_serial (camera_t* camera_a_set, const char* serial){
     sprintf(camera_a_set->serial,"%s",serial);
@@ -106,8 +109,6 @@ char* camera_get_serial (camera_t* camera_a_get){
     return camera_a_get->serial;
 }
 
-//Type
-
 void camera_set_type (camera_t* camera_a_set, camera_type_t type){
     camera_a_set->type = type ;
 }
@@ -116,8 +117,6 @@ camera_type_t camera_get_type (camera_t* camera_a_get){
     return camera_a_get->type;
 }
 
-//Description
-
 void camera_set_notes (camera_t* camera_a_set, const char* notes){
     sprintf(camera_a_set->notes,"%s",notes);
 }
@@ -125,7 +124,6 @@ void camera_set_notes (camera_t* camera_a_set, const char* notes){
 char* camera_get_notes (camera_t* camera_a_get){
     return camera_a_get->notes;
 }
-
 
 void camera_set_hw_handle (camera_t* camera_a_set, const char* handle){
     sprintf(camera_a_set->hw_handle,"%s",handle);
