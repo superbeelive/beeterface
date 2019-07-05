@@ -77,9 +77,9 @@ tag_win_t* tag_win_new() {
                         gtk_container_add (GTK_CONTAINER (tmp->frame_tag), tmp->box_scroll_tag);
                  gtk_box_pack_start(GTK_BOX(tmp->box_scroll_tag), tmp->scroll, TRUE, TRUE, 0);
                         gtk_container_add (GTK_CONTAINER (tmp->scroll), tmp->box_text_tag);
-                 gtk_box_pack_start(GTK_BOX(tmp->box_text_tag), tmp->box_left, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_text_tag), tmp->box_left, TRUE, TRUE, 0);
                  gtk_box_pack_start(GTK_BOX(tmp->box_text_tag), tmp->sep, FALSE, FALSE, 0);
-                 gtk_box_pack_start(GTK_BOX(tmp->box_text_tag), tmp->box_right, FALSE, FALSE, 0);
+                 gtk_box_pack_start(GTK_BOX(tmp->box_text_tag), tmp->box_right, TRUE, TRUE, 0);
             
                      //box_left 
                      gtk_box_pack_start (GTK_BOX(tmp->box_left), tmp->label_test, FALSE, FALSE, 0);
@@ -111,6 +111,8 @@ tag_win_t* tag_win_new() {
 
     gtk_widget_set_margin_start ( GTK_WIDGET (tmp->sep), 2 ) ;
     gtk_widget_set_margin_end ( GTK_WIDGET (tmp->sep), 2 ) ;
+
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->box_btn), GTK_ALIGN_END ) ;
         return tmp ; 
 }
 

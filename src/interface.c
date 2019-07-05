@@ -19,6 +19,7 @@ interface_t* interface_new() {
         tmp->win_box = box_win_new() ; 
         tmp->win_file = file_win_new() ; 
         tmp->win_cut = cut_win_new() ; 
+        tmp->win_create_tag = create_tag_win_new() ; 
         return tmp ;
 }
 
@@ -36,6 +37,7 @@ void interface_del ( interface_t* tmp ) {
     box_win_del ( tmp->win_box ) ; 
     file_win_del ( tmp->win_file ) ; 
     cut_win_del ( tmp->win_cut ) ; 
+    create_tag_win_del ( tmp->win_create_tag ) ; 
 
     free ( tmp ) ;
 }

@@ -17,6 +17,7 @@ typedef struct {
     GtkWidget* box_video ;
     GtkWidget* box_time ;
     GtkWidget* box_label_time ;
+    GtkWidget* box_label_timef ;
     GtkWidget* box_tool_video ; 
     
     GtkWidget* box_tool_an ; 

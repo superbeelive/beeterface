@@ -13,6 +13,7 @@
 #include "win_box.h"
 #include "win_file.h"
 #include "win_cut.h"
+#include "win_create_tag.h"
 
 typedef struct {
 
@@ -28,6 +29,7 @@ typedef struct {
     box_win_t* win_box ; 
     file_win_t* win_file ; 
     cut_win_t* win_cut ;
+    create_tag_win_t* win_create_tag ;
 
 } interface_t ;
 

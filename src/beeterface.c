@@ -259,7 +259,18 @@ void callback_quit_box(GtkWidget* widget, gpointer data) {
     tmp = data ;
     gtk_window_close (GTK_WINDOW(tmp->interface->win_box->window));
 }
+///CREATE_TAG
+void callback_win_create_tag(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    create_tag_win_show ( tmp->interface->win_create_tag ) ;
+}
 
+void callback_quit_create_tag(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    gtk_window_close (GTK_WINDOW(tmp->interface->win_create_tag->window));
+}
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
@@ -416,10 +427,22 @@ int main(int argc, char *argv[])
 			    G_CALLBACK(callback_win_tag), 
 			    queen);
 //win_tag
+    g_signal_connect(queen->interface->win_tag->btn_create_tag, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_create_tag), 
+			    queen);
+
     g_signal_connect(queen->interface->win_tag->btn_ann, 
     		   	"clicked",
 			    G_CALLBACK(callback_quit_tag), 
 			    queen);
+//win_create_tag 
+    g_signal_connect(queen->interface->win_create_tag->btn_ann, 
+    		   	"clicked",
+			    G_CALLBACK(callback_quit_create_tag), 
+			    queen);
+
+
 
 //Fonction attend event.     
     gtk_main();

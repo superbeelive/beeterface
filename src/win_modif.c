@@ -26,6 +26,7 @@ modif_win_t* modif_win_new() {
     tmp->box_video = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
     tmp->box_time = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0); 
     tmp->box_label_time = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0); 
+    tmp->box_label_timef = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0); 
     tmp->box_tool_video = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     
     tmp->box_tool_an = gtk_box_new( GTK_ORIENTATION_VERTICAL, 0);
@@ -159,15 +160,15 @@ modif_win_t* modif_win_new() {
     gtk_container_add (GTK_CONTAINER (tmp->window), tmp->box_principale);
 
         //box_principale
-        gtk_box_pack_start(GTK_BOX(tmp->box_principale), tmp->box_left,  FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_principale), tmp->box_left,  TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_principale), tmp->sep, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_principale), tmp->box_right, FALSE, FALSE, 0);
        
             //box_left       
             gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_video, TRUE, TRUE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_time, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_label_time, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_tool_video, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_label_time, TRUE, TRUE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_left), tmp->box_tool_video, TRUE, TRUE, 0);
               
                 //box_video
                 gtk_box_pack_start(GTK_BOX(tmp->box_video), tmp->label_title_video, FALSE, FALSE, 0);
@@ -178,7 +179,8 @@ modif_win_t* modif_win_new() {
                         
                 //box_label_time
                 gtk_box_pack_start(GTK_BOX(tmp->box_label_time), tmp->label_time_deb, FALSE, FALSE, 0);
-                gtk_box_pack_start(GTK_BOX(tmp->box_label_time), tmp->label_time_fin, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_label_time), tmp->box_label_timef, FALSE, FALSE, 0);
+                    gtk_box_pack_start(GTK_BOX(tmp->box_label_timef), tmp->label_time_fin, FALSE, FALSE, 0);
 
                 //box_tool_video
                 gtk_box_pack_start(GTK_BOX(tmp->box_tool_video), tmp->btn_cut, FALSE, FALSE, 0);
@@ -274,7 +276,7 @@ modif_win_t* modif_win_new() {
     gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->sep_tag2), 5) ; 
 
     //Video time
-    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_time_deb), 800) ; 
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->box_label_timef), GTK_ALIGN_END ) ;
     
     //Titre video
     gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->label_title_video), 10) ; 
@@ -337,7 +339,7 @@ modif_win_t* modif_win_new() {
     //box_quit
 
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->box_quit), 10 ) ;
-    gtk_widget_set_margin_start (GTK_WIDGET (tmp->btn_ann), 110 ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->box_quit), GTK_ALIGN_END ) ;
     
 
     return tmp ;
