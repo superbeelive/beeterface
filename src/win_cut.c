@@ -33,7 +33,7 @@ cut_win_t* cut_win_new() {
    tmp->btn_timef = gtk_button_new_with_label("Fin") ; 
 
    tmp->btn_enr = gtk_button_new_with_label("Enregistrer") ; 
-   tmp->btn_ann = gtk_button_new_with_label("Quitter") ;
+   tmp->btn_ann = gtk_button_new_with_label("Annuler") ;
 
    tmp->adjustement_tmp = gtk_adjustment_new (10,0,500,1,1,2);
    tmp->scale_tmp = gtk_scale_new(GTK_ORIENTATION_HORIZONTAL,tmp->adjustement_tmp);

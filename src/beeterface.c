@@ -14,6 +14,7 @@ void callback_modif(GtkWidget * widget, gpointer data)
     tmp = data ;
     modif_win_show(tmp->interface->win_modif);
 }
+
 ///////////////////////////////////////AUTEUR CALLBACK////////////////////////////////////////////
 void callback_auteur(GtkWidget * widget, gpointer data)
 {
@@ -181,22 +182,15 @@ void callback_win_tag(GtkWidget * widget, gpointer data)
 {
     queen_t* tmp ;
     tmp = data ;
-    // Remplissage de la fenêtre avec le contenu de caméra 
-    //tag_win_fill(tmp->interface->win_tag, tmp->projet->tag ) ; 
-    
-    //Apparition de la fenêtre
-    tag_win_show(tmp->interface->win_tag); 
-}
-/*
-void callback_tag_modify_edit (GtkWidget* widget, gpointer data) {
-        queen_t* tmp ; 
-        tmp = data ;
 
-        if ( tmp->interface->win_tag->cnt_edit == 0 )  
-        tag_btn_edit_modif(tmp->interface->win_tag) ;     
-        else 
-        tag_btn_edit_ok(tmp->interface->win_tag ) ;
-    }*/
+    tag_win_show(tmp->interface->win_tag);
+}
+
+void callback_quit_tag(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    gtk_window_close (GTK_WINDOW(tmp->interface->win_tag->window));
+}
 //////////////////////////////////////////////////// INFO CALLBACK ////////////////////////////////////////////
 void callback_info(GtkWidget *widget, gpointer data) 
 {  
@@ -225,6 +219,11 @@ void callback_win_box(GtkWidget* widget, gpointer data) {
     box_win_show ( tmp->interface->win_box ) ; 
 }
 
+void callback_quit_modif(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    gtk_window_close (GTK_WINDOW(tmp->interface->win_modif->window));
+}
 //////////////////////////////////////////////////////// WIN FILE /////////////////////////
 
 void callback_win_file(GtkWidget* widget, gpointer data) {
@@ -237,8 +236,30 @@ void callback_win_file(GtkWidget* widget, gpointer data) {
 void callback_win_cut(GtkWidget* widget, gpointer data) {
     queen_t* tmp ; 
     tmp = data ;
-    cut_win_show ( tmp->interface->win_cut ) ; 
+    cut_win_show ( tmp->interface->win_cut ) ;
 }
+
+
+void callback_quit_cut(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    gtk_window_close (GTK_WINDOW(tmp->interface->win_cut->window));
+}
+
+/// CROSS
+void callback_quit_cross(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    gtk_window_close (GTK_WINDOW(tmp->interface->win_cross->window));
+}
+
+///BOX 
+void callback_quit_box(GtkWidget* widget, gpointer data) {
+    queen_t* tmp ; 
+    tmp = data ;
+    gtk_window_close (GTK_WINDOW(tmp->interface->win_box->window));
+}
+
 ///////////////////////////////////////////////////************ MAIN******************* //////////////////////////////////////////////////////////
 int main(int argc, char *argv[])
 {
@@ -340,7 +361,6 @@ int main(int argc, char *argv[])
             G_CALLBACK(callback_video_modify_description),
             queen);
 
-//Fenêtre TAG 
 
 
 //Fenêtre MODIF_WIN 
@@ -364,7 +384,42 @@ int main(int argc, char *argv[])
 			    G_CALLBACK(callback_win_cut), 
 			    queen);
 
-//Fenêtre COLOR_WIN 
+    
+    g_signal_connect(queen->interface->win_modif->btn_ann, 
+    		   	"clicked",
+			    G_CALLBACK(callback_quit_modif), 
+			    queen);
+//Win_cut
+    g_signal_connect(queen->interface->win_cut->btn_ann, 
+    		   	"clicked",
+			    G_CALLBACK(callback_quit_cut), 
+			    queen);
+
+//Win_cross
+    g_signal_connect(queen->interface->win_cross->btn_ann, 
+    		   	"clicked",
+			    G_CALLBACK(callback_quit_cross), 
+			    queen);
+    
+    g_signal_connect(queen->interface->win_cross->btn_add_tag, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_tag), 
+			    queen);
+//win_box
+    g_signal_connect(queen->interface->win_box->btn_ann, 
+    		   	"clicked",
+			    G_CALLBACK(callback_quit_box), 
+			    queen);
+
+    g_signal_connect(queen->interface->win_box->btn_add_tag, 
+    		   	"clicked",
+			    G_CALLBACK(callback_win_tag), 
+			    queen);
+//win_tag
+    g_signal_connect(queen->interface->win_tag->btn_ann, 
+    		   	"clicked",
+			    G_CALLBACK(callback_quit_tag), 
+			    queen);
 
 //Fonction attend event.     
     gtk_main();

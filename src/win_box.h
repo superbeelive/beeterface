@@ -79,7 +79,6 @@ typedef struct {
     GtkWidget* img_btn_ok_name ;
     GtkWidget* img_btn_mod_name ;
 
-    GtkWidget* btn_cut ;
     GtkWidget* btn_play ;
     GtkWidget* btn_av ;
     GtkWidget* btn_rec ;

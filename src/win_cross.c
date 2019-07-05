@@ -90,7 +90,6 @@ cross_win_t* cross_win_new() {
         tmp->img_btn_mod_name =  gtk_image_new_from_file ("/usr/share/beeterface/images/ok.png");
         gtk_button_set_image (GTK_BUTTON (tmp->btn_name), tmp->img_btn_ok_name);
    
-    tmp->btn_cut = gtk_button_new_with_label ("Couper") ;  
     tmp->btn_play = gtk_button_new_with_label ("Play") ;  
     tmp->btn_av = gtk_button_new_with_label ("Avancer") ;  
     tmp->btn_rec = gtk_button_new_with_label ("Reculer") ;  
@@ -145,7 +144,6 @@ cross_win_t* cross_win_new() {
             gtk_box_pack_start(GTK_BOX(tmp->box_label_time), tmp->label_time_fin, FALSE, FALSE, 0);
 
             //box_btn_video
-            gtk_box_pack_start(GTK_BOX(tmp->box_btn_video), tmp->btn_cut, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_btn_video), tmp->btn_play, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_btn_video), tmp->btn_av, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_btn_video), tmp->btn_rec, FALSE, FALSE, 0);
