@@ -21,7 +21,10 @@ typedef struct {
 
     GtkWidget* box_name ;
     GtkWidget* box_tag ; 
-    GtkWidget* box_txt_tag ; 
+    GtkWidget* box_btn_tag ; 
+    GtkWidget* box_txt_tag ;
+    GtkWidget* box_txt_ss_tag1 ;
+    GtkWidget* box_txt_ss_tag2 ;
     GtkWidget* box_scroll_tag ; 
     GtkWidget* box_meta ; 
     GtkWidget* box_text_meta ; 
@@ -45,7 +48,10 @@ typedef struct {
     GtkWidget* label_time_deb ; 
     GtkWidget* label_time_fin ;
 
+    GtkWidget* label_title_tag ; 
     GtkWidget* label_test ;
+    GtkWidget* label_test2 ;
+    GtkWidget* label_test3 ;
 
     GtkWidget* label_name_ruche ;
     GtkWidget* label_description ;
@@ -82,6 +88,9 @@ typedef struct {
     
     GtkWidget* btn_enr_timed ;
     GtkWidget* btn_enr_timef ;
+    
+    GtkWidget* btn_add_tag ; 
+    GtkWidget* btn_remove_tag ;
 
     GtkWidget* btn_note ; 
     //OTHER
@@ -93,6 +102,8 @@ typedef struct {
 
     //sep
     GtkWidget* sep ;
+    GtkWidget* sep2 ;
+    GtkWidget* sep3 ;
 
 } cross_win_t ;
 
