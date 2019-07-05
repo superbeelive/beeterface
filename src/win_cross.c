@@ -23,6 +23,9 @@ cross_win_t* cross_win_new() {
     tmp->box_def_time_fin = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     
     tmp->box_tag = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+    tmp->box_btn_tag = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+    tmp->box_txt_ss_tag1 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
+    tmp->box_txt_ss_tag2 = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_txt_tag = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_scroll_tag = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
     tmp->box_tag = gtk_box_new( GTK_ORIENTATION_HORIZONTAL, 0);
@@ -47,6 +50,8 @@ cross_win_t* cross_win_new() {
     tmp->label_time_fin = gtk_label_new("2:30") ; 
     
     tmp->label_test = gtk_label_new("test \n test \n test \n test \n") ; 
+    tmp->label_test2 = gtk_label_new("test \n test \n test \n test \n") ; 
+    tmp->label_test3 = gtk_label_new("test \n test \n test \n test \n test \n test \n test \n test \ntest \n test \n test \n test \n test \n test \ntest \n test \n test \n test ") ; 
 
 
     tmp->label_info_name_ruche = gtk_label_new("") ; 
@@ -71,6 +76,8 @@ cross_win_t* cross_win_new() {
 
     tmp->label_timed = gtk_label_new("1:45") ; 
     tmp->label_timef = gtk_label_new("4:50") ; 
+    
+    tmp->label_title_tag = gtk_label_new("Tag") ; 
     //img
     tmp->img_ex_video = gtk_image_new_from_file ("/usr/share/beeterface/images/video_bee.jpg");
 
@@ -95,6 +102,9 @@ cross_win_t* cross_win_new() {
     tmp->btn_enr_timef = gtk_button_new_with_label ("Fin") ;  
     
     tmp->btn_note = gtk_button_new_with_label ("+") ;  
+    
+    tmp->btn_add_tag = gtk_button_new_with_label ("+") ;  
+    tmp->btn_remove_tag = gtk_button_new_with_label ("-") ;  
 
     //other
     tmp->text_description = gtk_text_view_new() ; 
@@ -106,6 +116,8 @@ cross_win_t* cross_win_new() {
     tmp->scale_time = gtk_scale_new(GTK_ORIENTATION_HORIZONTAL,tmp->adj_time);
  
     tmp->sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL) ; 
+    tmp->sep2 = gtk_separator_new(GTK_ORIENTATION_VERTICAL) ; 
+    tmp->sep3 = gtk_separator_new(GTK_ORIENTATION_VERTICAL) ; 
 
 
     //RANGEMENT 
@@ -142,7 +154,10 @@ cross_win_t* cross_win_new() {
         //box_right
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_name, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_description, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->sep2, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_btn_tag, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_tag, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->sep3, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_meta, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_def_time_deb, FALSE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(tmp->box_right), tmp->box_def_time_fin, FALSE, FALSE, 0);
@@ -158,12 +173,20 @@ cross_win_t* cross_win_new() {
             gtk_box_pack_start(GTK_BOX(tmp->box_description), tmp->label_desc, FALSE, FALSE, 0);
             gtk_box_pack_start(GTK_BOX(tmp->box_description), tmp->text_description, FALSE, FALSE, 0);
             
+            //box_btn_tag
+            gtk_box_pack_start(GTK_BOX(tmp->box_btn_tag), tmp->label_title_tag, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_btn_tag), tmp->btn_add_tag, FALSE, FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_btn_tag), tmp->btn_remove_tag, FALSE, FALSE, 0);
+
+
             //box_tag 
-            gtk_box_pack_start(GTK_BOX(tmp->box_tag), tmp->frame_tag, TRUE, TRUE, 0) ;
-              gtk_container_add (GTK_CONTAINER (tmp->frame_tag), tmp->box_scroll_tag) ;
-            gtk_box_pack_start(GTK_BOX(tmp->box_scroll_tag), tmp->scroll_tag, TRUE, TRUE, 0) ;
-               gtk_container_add (GTK_CONTAINER (tmp->scroll_tag), tmp->box_txt_tag) ;
-            gtk_box_pack_start(GTK_BOX(tmp->box_txt_tag), tmp->label_test, TRUE, TRUE, 0);
+            gtk_box_pack_start(GTK_BOX(tmp->box_tag), tmp->scroll_tag, TRUE, TRUE, 0) ;
+                gtk_container_add (GTK_CONTAINER (tmp->scroll_tag), tmp->box_txt_tag) ;
+                gtk_box_pack_start(GTK_BOX(tmp->box_txt_tag), tmp->box_txt_ss_tag1, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(tmp->box_txt_tag), tmp->box_txt_ss_tag2, TRUE, TRUE, 0);
+                        gtk_box_pack_start(GTK_BOX(tmp->box_txt_ss_tag1), tmp->label_test2, TRUE, TRUE, 0);
+                        gtk_box_pack_start(GTK_BOX(tmp->box_txt_ss_tag2), tmp->label_test3, TRUE, TRUE, 0);
+
 
             //box_meta
             gtk_box_pack_start(GTK_BOX(tmp->box_meta), tmp->frame_meta, TRUE, TRUE, 0) ;
@@ -223,9 +246,15 @@ cross_win_t* cross_win_new() {
     //box_description
     gtk_widget_set_halign ( GTK_WIDGET (tmp->label_desc), GTK_ALIGN_START ) ;
 
+    //box_btn_tag
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->box_btn_tag), 5);
+    gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_title_tag), 5);
 
+    
     //box_tag 
     gtk_widget_set_margin_top (GTK_WIDGET (tmp->box_tag), 5);
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_test2), GTK_ALIGN_START ) ;
+    gtk_widget_set_halign ( GTK_WIDGET (tmp->label_test3), GTK_ALIGN_START ) ;
    
     //box_btn_quit
     gtk_widget_set_margin_start (GTK_WIDGET (tmp->btn_enr), 5);
@@ -245,7 +274,10 @@ cross_win_t* cross_win_new() {
     gtk_widget_set_margin_start (GTK_WIDGET (tmp->sep), 5);
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->sep), 10);
 
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->sep2), 5);
 
+    gtk_widget_set_margin_top (GTK_WIDGET (tmp->sep3), 5);
+    gtk_widget_set_margin_bottom (GTK_WIDGET (tmp->sep3), 5);
     //label_time
     gtk_widget_set_margin_end (GTK_WIDGET (tmp->label_time_deb), 750) ;
 
