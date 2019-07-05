@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 #include "camera.h"
+#include "utils.h"
 
-#define TAILLE 128
+#define STRING_SIZE 128
 
 const char* camera_type_to_string( camera_type_t T ) {
     switch (T) {
@@ -19,16 +20,40 @@ const char* camera_type_to_string( camera_type_t T ) {
 camera_t* camera_new(){
     camera_t* cam;
     cam = malloc (sizeof(camera_t));
-    cam->name = malloc (TAILLE);
-    cam->model = malloc (TAILLE);
-    cam->serial = malloc (TAILLE);
-    cam->description = malloc (TAILLE);
-
+    if ( cam == NULL ) {
+       throw_error("malloc failed", 1 ) ;
+       return NULL ;
+    }
+    cam->name = malloc (STRING_SIZE);
+    if ( cam->name == NULL ) {
+       throw_error("malloc failed", 1 ) ;
+       return NULL ;
+    }
+    cam->model = malloc (STRING_SIZE);
+    if ( cam->model == NULL ) {
+       throw_error("malloc failed", 1 ) ;
+       return NULL ;
+    }
+    cam->serial = malloc (STRING_SIZE);
+    if ( cam->serial == NULL ) {
+       throw_error("malloc failed", 1 ) ;
+       return NULL ;
+    }
+    cam->notes = malloc (STRING_SIZE);
+    if ( cam->notes == NULL ) {
+       throw_error("malloc failed", 1 ) ;
+       return NULL ;
+    }
+    cam->hw_handle = malloc (STRING_SIZE);
+    if ( cam->hw_handle == NULL ) {
+       throw_error("malloc failed", 1 ) ;
+       return NULL ;
+    }
     sprintf(cam->name, "Nom_de_la_camera");
     sprintf(cam->model, "Modele_de_la_camera");
     sprintf(cam->serial, "00000");
     cam->type = CAM_USB_UVC ;
-    sprintf(cam->description, "Description_de_la_cam");
+    sprintf(cam->notes, "Description_de_la_cam");
 
     return cam;
 }
@@ -37,7 +62,7 @@ void camera_del ( camera_t* camera_a_dell) {
     free (camera_a_dell->name);
     free (camera_a_dell->model);
     free (camera_a_dell->serial);
-    free (camera_a_dell->description);
+    free (camera_a_dell->notes);
     free (camera_a_dell);
 }
 
@@ -46,7 +71,7 @@ void camera_show ( camera_t* camera_a_show) {
                       camera_a_show->model,
                       camera_a_show->serial, 
                       camera_a_show->type,
-                      camera_a_show->description);
+                      camera_a_show->notes);
 }
 
 
@@ -93,11 +118,19 @@ camera_type_t camera_get_type (camera_t* camera_a_get){
 
 //Description
 
-void camera_set_description (camera_t* camera_a_set, const char* description){
-    sprintf(camera_a_set->description,"%s",description);
+void camera_set_notes (camera_t* camera_a_set, const char* notes){
+    sprintf(camera_a_set->notes,"%s",notes);
 }
 
-char* camera_get_description (camera_t* camera_a_get){
-    return camera_a_get->description;
+char* camera_get_notes (camera_t* camera_a_get){
+    return camera_a_get->notes;
 }
 
+
+void camera_set_hw_handle (camera_t* camera_a_set, const char* handle){
+    sprintf(camera_a_set->hw_handle,"%s",handle);
+}
+
+char* camera_get_hw_handle (camera_t* camera_a_get){
+    return camera_a_get->hw_handle;
+}

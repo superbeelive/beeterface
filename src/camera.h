@@ -6,41 +6,38 @@ typedef enum {
     CAM_ETH
 } camera_type_t ;
 
+const char* camera_type_to_string( camera_type_t ) ;
 
 typedef struct {
+    char* serial;               // Serial number
     char* name;                 // Displayed name
     char* model;                // Model
-    char* serial;               // Serial number
     camera_type_t type;         // camera type (type enum)
-    char* description;          // Comments and description
+    char* notes;                // Comments and notes
+    char* hw_handle ;           // handle used to access hardware. Can be of any type depending on type
 } camera_t ; 
-
-
-const char* camera_type_to_string( camera_type_t ) ;
 
 
 camera_t* camera_new() ;
 void camera_del (camera_t*);
 void camera_show (camera_t*);
 
-// Name
-void camera_set_name (camera_t*, const char* name);
+void camera_set_name (camera_t*, const char*);
 char* camera_get_name (camera_t*);
 
-// Model
-void camera_set_model (camera_t*, const char* model);
+void camera_set_model (camera_t*, const char*);
 char* camera_get_model (camera_t*);
 
-// Nserie
-void camera_set_serial (camera_t*, const char* serial);
+void camera_set_serial (camera_t*, const char*);
 char* camera_get_serial (camera_t*);
 
-// Type
 void camera_set_type (camera_t*, camera_type_t type);
 camera_type_t camera_get_type (camera_t*);
 
-// Description
-void camera_set_description (camera_t*, const char* description);
-char* camera_get_description (camera_t*);
+void camera_set_notes (camera_t*, const char*);
+char* camera_get_notes (camera_t*);
+
+void camera_set_hw_handle  (camera_t*, const char*);
+char* camera_get_hw_handle (camera_t*);
 
 #endif
