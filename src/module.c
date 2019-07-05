@@ -65,7 +65,7 @@ void module_show( int ind, module_t* mod, int recur ) {
     printf("  Name: %s\n", mod->name ) ;
     indent(ind) ;
     printf("  Notes:\n");
-    indent(ind)
+    indent(ind) ;
     printf("  %s\n", mod->notes ) ;
     if ( recur ) {
         for (i=0; i<mod->nb_cameras; i++)
