@@ -173,64 +173,76 @@ void project_del_box( projet_t* projet, int n ) {
     int i ;
     if ((n<0) || (n >= projet->box_n)) {
         throw_error("invalid index",0);
+        return ;
     }
    box_del(projet->box[n]) ;
    for(i=n+1;i<projet->box_n;i++) {
     projet->box[i-1]=projet->box[i] ;
    }
+   projet->box_n -= 1 ;
 }
 
 void project_del_cross( projet_t* projet, int n ) {
     int i ;
     if ((n<0) || (n >= projet->cross_n)) {
         throw_error("invalid index",0);
+        return ;
     }
    cross_del(projet->cross[n]) ;
    for(i=n+1;i<projet->cross_n;i++) {
     projet->cross[i-1]=projet->cross[i] ;
    }
+   projet->cross_n -= 1 ;
 }
 
 void project_del_arrow( projet_t* projet, int n ) {
     int i ;
     if ((n<0) || (n >= projet->arrow_n)) {
         throw_error("invalid index",0);
+        return ;
     }
    arrow_del(projet->arrow[n]) ;
    for(i=n+1;i<projet->arrow_n;i++) {
     projet->arrow[i-1]=projet->arrow[i] ;
    }
+   projet->arrow_n -= 1 ;
 }
 
 void project_del_text( projet_t* projet, int n ) {
     int i ;
     if ((n<0) || (n >= projet->text_n)) {
         throw_error("invalid index",0);
+        return ;
     }
    text_del(projet->text[n]) ;
    for(i=n+1;i<projet->text_n;i++) {
     projet->text[i-1]=projet->text[i] ;
    }
+   projet->text_n -= 1 ;
 }
 
 void project_del_measure( projet_t* projet, int n ) {
     int i ;
     if ((n<0) || (n >= projet->measure_n)) {
         throw_error("invalid index",0);
+        return ;
     }
    measure_del(projet->measure[n]) ;
    for(i=n+1;i<projet->measure_n;i++) {
     projet->measure[i-1]=projet->measure[i] ;
    }
+   projet->measure_n -= 1 ;
 }
 
 void project_del_moving_cross( projet_t* projet, int n ) {
     int i ;
     if ((n<0) || (n >= projet->moving_cross_n)) {
         throw_error("invalid index",0);
+        return ;
     }
    moving_cross_del(projet->moving_cross[n]) ;
    for(i=n+1;i<projet->moving_cross_n;i++) {
     projet->moving_cross[i-1]=projet->moving_cross[i] ;
    }
+   projet->moving_cross_n -= 1 ;
 }
