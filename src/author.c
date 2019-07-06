@@ -4,8 +4,6 @@
 #include "author.h"
 #include "utils.h"
 
-#define STRING_SIZE 128
-
 
 author_t* author_new() {
     

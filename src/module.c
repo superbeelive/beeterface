@@ -4,8 +4,6 @@
 #include "module.h"
 #include "utils.h"
 
-#define STRING_SIZE 128
-#define BLOC_SIZE 50
 
 module_t* module_new() {
     module_t* tmp ;

@@ -4,8 +4,6 @@
 #include "camera.h"
 #include "utils.h"
 
-#define STRING_SIZE 128
-
 const char* camera_type_to_string( camera_type_t T ) {
     switch (T) {
         case CAM_USB_UVC : 

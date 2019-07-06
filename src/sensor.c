@@ -4,8 +4,6 @@
 #include "sensor.h"
 #include "utils.h"
 
-#define STRING_SIZE 128
-
 const char* sensor_type_to_string( sensor_type_t T ) {
     switch (T) {
         case SENSOR_HYGUSB :
