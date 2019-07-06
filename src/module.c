@@ -73,4 +73,62 @@ void module_show( int ind, module_t* mod, int recur ) {
     }
 }
 
+void module_set_name( module_t* mod, const char* name) {
+    sprintf(mod->name,"%s",name) ;
+}
 
+char* module_get_name( module_t* mod ) {
+    return mod->name ;
+}
+
+void module_set_notes( module_t* mod, const char* notes) {
+    sprintf(mod->notes,"%s",notes) ;
+}
+
+char* module_get_notes( module_t* mod ) {
+    return mod->notes ;
+}
+
+void module_del_camera( module_t* mod, int n ) {
+    int i ;
+    if ((n<0) || (n >= mod->nb_cameras)) {
+        throw_error("invalid index",0);
+        return ;
+    }
+   camera_del(mod->cameras[n]) ;
+   for(i=n+1;i<mod->nb_cameras;i++) {
+        mod->cameras[i-1]=mod->cameras[i] ;
+   }
+   mod->nb_cameras -= 1 ;
+}
+
+void module_del_sensor( module_t* mod, int n ) {
+    int i ;
+    if ((n<0) || (n >= mod->nb_sensors)) {
+        throw_error("invalid index",0);
+        return ;
+    }
+   sensor_del(mod->sensors[n]) ;
+   for(i=n+1;i<mod->nb_sensors;i++) {
+        mod->sensors[i-1]=mod->sensors[i] ;
+   }
+   mod->nb_sensors -= 1 ;
+}
+
+void module_add_camera( module_t* module, camera_t* camera ) {
+    if (module->nb_cameras == module->cameras_size ) {
+        module->cameras = reallocarray( module->cameras, module->cameras_size+BLOC_SIZE, sizeof(camera_t*) ) ;
+        module->cameras_size += BLOC_SIZE ;
+    }
+    module->cameras[module->nb_cameras] = camera ;
+    module->nb_cameras +=1 ;
+}
+
+void module_add_sensor( module_t* module, sensor_t* sensor ) {
+    if (module->nb_sensors == module->sensors_size ) {
+        module->sensors = reallocarray( module->sensors, module->sensors_size+BLOC_SIZE, sizeof(sensor_t*) ) ;
+        module->sensors_size += BLOC_SIZE ;
+    }
+    module->sensors[module->nb_sensors] = sensor ;
+    module->nb_sensors +=1 ;
+}
